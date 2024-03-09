@@ -1,7 +1,7 @@
 ---
-title: "website"
+title: "Justin's Personal Website"
 ---
 
-Welcome to iJustin's persnal website
+Welcome to Justin's persnal website
 
 [My CV](CV.pdf)
