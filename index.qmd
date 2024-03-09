@@ -10,4 +10,4 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 1 + 1
 ```
 
-[My CV](CV_Justin.pdf)
+[My CV](CV.pdf)
