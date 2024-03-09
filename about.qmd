@@ -1,5 +1,9 @@
 ---
-title: "About"
+title: "About Me"
 ---
 
-Bio: About this site
+I am Ziheng Zhong, currently immersed in my third year of rigorous academic pursuit at the University of Toronto's St. George campus, where I am undertaking a double major in Statistics and Mathematics. My academic curiosities, however, extend beyond these fields; I have nurtured a keen interest in computer science and economics as well. In my quest for knowledge, I have mastered coding in several programming languages, including Python, C, and R, and have delved deeply into the intricacies of version control to enhance collaboration with peers.
+
+My passion is not confined to academic endeavors alone. I have a profound affection for robotics, which has led me to engage in one of the most prestigious robotics competitions globally - the FIRST Robotics Competition (FRC). During my high school years, I took the initiative to establish a robotics team on campus and spearheaded the recruitment of ten dedicated members. Our team has garnered significant accolades in a variety of competitions spanning Beijing, Sydney, Shanghai, and Pittsburgh, achieving regional second-place as our best achievement.
+
+Beyond the realms of academia and robotics, I indulge in basketball, fitness, and photography. These interests not only reflect my multifaceted personality but also my commitment to maintaining a harmonious and balanced lifestyle.
