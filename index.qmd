@@ -1,7 +1,7 @@
 ---
-title: "Justin's Personal Website"
+title: "Home"
 ---
 
-Welcome to Justin's persnal website
+## Welcome
 
-[My CV](CV.pdf)
+Visit the [About page](about.qmd) for profile details, projects, and experience.

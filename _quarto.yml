@@ -1,17 +1,21 @@
 project:
-  type: website 
+  type: website
   output-dir: docs
 
 website:
-  title: "website"
+  title: "iJustin"
   navbar:
     left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      - href: about.qmd
+        text: "☝🏻"
+      - href: publications.qmd
+        text: Publications
+      - href: CV.pdf
+        text: CV
+      - text: "⚙️"
 
 format:
   html:
     theme: cosmo
     css: styles.css
-    toc: true
+    toc: false

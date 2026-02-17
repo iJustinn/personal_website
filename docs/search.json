@@ -4,13 +4,83 @@
     "href": "about.html",
     "title": "About Me",
     "section": "",
-    "text": "I am Ziheng Zhong, currently immersed in my third year of rigorous academic pursuit at the University of Toronto’s St. George campus, where I am undertaking a double major in Statistics and Mathematics. My academic curiosities, however, extend beyond these fields; I have nurtured a keen interest in computer science and economics as well. In my quest for knowledge, I have mastered coding in several programming languages, including Python, C, and R, and have delved deeply into the intricacies of version control to enhance collaboration with peers.\nMy passion is not confined to academic endeavors alone. I have a profound affection for robotics, which has led me to engage in one of the most prestigious robotics competitions globally - the FIRST Robotics Competition (FRC). During my high school years, I took the initiative to establish a robotics team on campus and spearheaded the recruitment of ten dedicated members. Our team has garnered significant accolades in a variety of competitions spanning Beijing, Sydney, Shanghai, and Pittsburgh, achieving regional second-place as our best achievement.\nBeyond the realms of academia and robotics, I indulge in basketball, fitness, and photography. These interests not only reflect my multifaceted personality but also my commitment to maintaining a harmonious and balanced lifestyle."
+    "text": "JZ\n\n\n\nM.Sc. Management and Analytics, NYU\nB.Sc. Statistics and Mathematics, University of Toronto\n\n📍 New York, NY, US\n✉️ zz3750@nyu.edu\n🔗 LinkedIn\n\n\n\n\n\n\nI am Justin (Ziheng) Zhong, currently pursuing a Master of Science in Management and Analytics at New York University (Sep 2025 to May 2027). Before NYU, I completed a Bachelor of Arts and Science at the University of Toronto St. George campus, double majoring in Statistics and Mathematics (Sep 2021 to Jul 2025).\nMy recent work focuses on backend and data systems. During my backend developer internship at Xiaomi Proretail (Jul 2024 to Aug 2024), I built clue-analysis modules, expanded filtering interfaces, and optimized SQL logic to reduce clue-count response time by about 100 ms.\nI have also led software and engineering projects in academic and hackathon settings, including Spotify API tooling and the NASA Space Apps Challenge, with experience across Java backend services, API design, and data processing workflows.\n\n\n\n\nSep 2025 - Started M.Sc. in Management and Analytics at New York University.\nJul 2025 - Graduated from University of Toronto (Statistics and Mathematics).\nJul 2024 - Joined Xiaomi Proretail as a Backend Developer intern.\nSep 2023 - Led the Media Manager project using Spotify API.\n\n\n\n\n\nNew York University, New York, United States (Sep 2025 - May 2027)\nMaster of Science, Management and Analytics\nCGPA: 4.0 / 4.0 (Fall 2025 semester)\nUniversity of Toronto St. George Campus, Toronto, Ontario, Canada (Sep 2021 - Jul 2025)\nBachelor of Arts and Science, Double Major in Statistics and Mathematics\nCGPA: 3.0 / 4.0\n\n\n\n\n\nProgramming: Python, Java, JavaScript, SQL, R\nFrameworks/Platforms: Spring Boot\nTools: Git, Maven, Oracle Data Modeler, SQL Developer\n\n\n\n\n\nNASA Space Apps Challenge (Team Leader, Sep 2025 - Oct 2025)\nBuilt a Java backend with Maven and REST-style APIs for multiple official NASA data sources. Implemented data-processing logic for real-time/manual data fetching, collaborated on Monte Carlo simulation support, and defined API contracts for frontend visualization.\nMedia Manager using Spotify API (Team Leader, Sep 2023 - Dec 2023)\nTested Spotify API workflows in Java, built GUI features with Java Swing, and implemented core use cases including song add/search modules.\n\n\n\n\n\nFRC - FIRST Robotics Competition, Beijing, China (Team Leader, Jul 2017 - Jun 2021)\nFounded and captained Team 8204 in high school. Previously served as robot driver and engineer for Team 5451, with top-four finishes at international competitions in Sydney, Shanghai, and Pittsburgh.\n\n\nFeel free to contact me by email at zz3750@nyu.edu."
+  },
+  {
+    "objectID": "about.html#about-me",
+    "href": "about.html#about-me",
+    "title": "About Me",
+    "section": "",
+    "text": "I am Justin (Ziheng) Zhong, currently pursuing a Master of Science in Management and Analytics at New York University (Sep 2025 to May 2027). Before NYU, I completed a Bachelor of Arts and Science at the University of Toronto St. George campus, double majoring in Statistics and Mathematics (Sep 2021 to Jul 2025).\nMy recent work focuses on backend and data systems. During my backend developer internship at Xiaomi Proretail (Jul 2024 to Aug 2024), I built clue-analysis modules, expanded filtering interfaces, and optimized SQL logic to reduce clue-count response time by about 100 ms.\nI have also led software and engineering projects in academic and hackathon settings, including Spotify API tooling and the NASA Space Apps Challenge, with experience across Java backend services, API design, and data processing workflows."
+  },
+  {
+    "objectID": "about.html#news",
+    "href": "about.html#news",
+    "title": "About Me",
+    "section": "",
+    "text": "Sep 2025 - Started M.Sc. in Management and Analytics at New York University.\nJul 2025 - Graduated from University of Toronto (Statistics and Mathematics).\nJul 2024 - Joined Xiaomi Proretail as a Backend Developer intern.\nSep 2023 - Led the Media Manager project using Spotify API."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "",
+    "text": "New York University, New York, United States (Sep 2025 - May 2027)\nMaster of Science, Management and Analytics\nCGPA: 4.0 / 4.0 (Fall 2025 semester)\nUniversity of Toronto St. George Campus, Toronto, Ontario, Canada (Sep 2021 - Jul 2025)\nBachelor of Arts and Science, Double Major in Statistics and Mathematics\nCGPA: 3.0 / 4.0"
+  },
+  {
+    "objectID": "about.html#technical-skills",
+    "href": "about.html#technical-skills",
+    "title": "About Me",
+    "section": "",
+    "text": "Programming: Python, Java, JavaScript, SQL, R\nFrameworks/Platforms: Spring Boot\nTools: Git, Maven, Oracle Data Modeler, SQL Developer"
+  },
+  {
+    "objectID": "about.html#selected-projects",
+    "href": "about.html#selected-projects",
+    "title": "About Me",
+    "section": "",
+    "text": "NASA Space Apps Challenge (Team Leader, Sep 2025 - Oct 2025)\nBuilt a Java backend with Maven and REST-style APIs for multiple official NASA data sources. Implemented data-processing logic for real-time/manual data fetching, collaborated on Monte Carlo simulation support, and defined API contracts for frontend visualization.\nMedia Manager using Spotify API (Team Leader, Sep 2023 - Dec 2023)\nTested Spotify API workflows in Java, built GUI features with Java Swing, and implemented core use cases including song add/search modules."
+  },
+  {
+    "objectID": "about.html#leadership",
+    "href": "about.html#leadership",
+    "title": "About Me",
+    "section": "",
+    "text": "FRC - FIRST Robotics Competition, Beijing, China (Team Leader, Jul 2017 - Jun 2021)\nFounded and captained Team 8204 in high school. Previously served as robot driver and engineer for Team 5451, with top-four finishes at international competitions in Sydney, Shanghai, and Pittsburgh.\n\n\nFeel free to contact me by email at zz3750@nyu.edu."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Justin’s Personal Website",
+    "title": "Home",
     "section": "",
-    "text": "Welcome to Justin’s persnal website\nMy CV"
+    "text": "Visit the About page for profile details, projects, and experience."
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Home",
+    "section": "",
+    "text": "Visit the About page for profile details, projects, and experience."
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "I am actively working on projects in backend engineering, data systems, and analytics. A formal publications list will be posted here as papers and technical reports are finalized."
+  },
+  {
+    "objectID": "publications.html#publications",
+    "href": "publications.html#publications",
+    "title": "Publications",
+    "section": "",
+    "text": "I am actively working on projects in backend engineering, data systems, and analytics. A formal publications list will be posted here as papers and technical reports are finalized."
+  },
+  {
+    "objectID": "publications.html#current-technical-focus",
+    "href": "publications.html#current-technical-focus",
+    "title": "Publications",
+    "section": "Current Technical Focus",
+    "text": "Current Technical Focus\n\nData-intensive backend systems\nAPI design and integration\nAnalytics workflows and dashboard data contracts"
   }
 ]
