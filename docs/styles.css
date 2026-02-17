@@ -33,7 +33,8 @@ a {
 }
 
 .navbar {
-  max-width: 1200px;
+  width: min(1700px, 96vw);
+  max-width: none;
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -55,10 +56,11 @@ a {
 
 /* Main layout */
 .profile-layout {
-  max-width: 1120px;
+  width: min(1700px, 96vw);
+  max-width: none;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 310px minmax(0, 1fr);
+  grid-template-columns: 360px minmax(0, 1fr);
   gap: 3.6rem;
   align-items: start;
 }
@@ -138,7 +140,8 @@ hr {
 
 /* Keep non-about pages constrained */
 #quarto-document-content {
-  max-width: 1120px;
+  width: min(1700px, 96vw);
+  max-width: none;
   margin: 0 auto;
 }
 

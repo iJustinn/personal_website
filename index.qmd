@@ -1,7 +1,74 @@
 ---
-title: "Home"
+title: "About Me"
 ---
 
-## Welcome
+::: {.profile-layout}
+::: {.profile-sidebar}
+<div class="avatar-placeholder" aria-hidden="true">JZ</div>
 
-Visit the [About page](about.qmd) for profile details, projects, and experience.
+### Justin / Ziheng Zhong
+
+M.Sc. Management and Analytics, NYU  
+B.Sc. Statistics and Mathematics, University of Toronto
+
+- 📍 New York, NY, US
+- ✉️ <a href="mailto:zz3750@nyu.edu">zz3750@nyu.edu</a>
+- 🔗 <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+:::
+
+::: {.profile-main}
+## About Me
+
+I am Justin (Ziheng) Zhong, currently pursuing a Master of Science in Management and Analytics at New York University (Sep 2025 to May 2027). Before NYU, I completed a Bachelor of Arts and Science at the University of Toronto St. George campus, double majoring in Statistics and Mathematics (Sep 2021 to Jul 2025).
+
+My recent work focuses on backend and data systems. During my backend developer internship at Xiaomi Proretail (Jul 2024 to Aug 2024), I built clue-analysis modules, expanded filtering interfaces, and optimized SQL logic to reduce clue-count response time by about 100 ms.
+
+I have also led software and engineering projects in academic and hackathon settings, including Spotify API tooling and the NASA Space Apps Challenge, with experience across Java backend services, API design, and data processing workflows.
+
+## News
+
+- **Sep 2025** - Started M.Sc. in Management and Analytics at New York University.
+- **Jul 2025** - Graduated from University of Toronto (Statistics and Mathematics).
+- **Jul 2024** - Joined Xiaomi Proretail as a Backend Developer intern.
+- **Sep 2023** - Led the Media Manager project using Spotify API.
+
+## Education
+
+- **New York University**, New York, United States (Sep 2025 - May 2027)  
+  *Master of Science, Management and Analytics*  
+  CGPA: **4.0 / 4.0** (Fall 2025 semester)
+
+- **University of Toronto St. George Campus**, Toronto, Ontario, Canada (Sep 2021 - Jul 2025)  
+  *Bachelor of Arts and Science, Double Major in Statistics and Mathematics*  
+  CGPA: **3.0 / 4.0**
+
+## Technical Skills
+
+- **Programming:** Python, Java, JavaScript, SQL, R
+- **Frameworks/Platforms:** Spring Boot
+- **Tools:** Git, Maven, Oracle Data Modeler, SQL Developer
+
+## Selected Projects
+
+- **Analyzing Trends in U.S. Residential Real Estate Prices (Course Project, Mar 2024 - Apr 2024)** - **R**  
+  Data collection and cleaning with Zillow Research housing datasets using R (tidyverse, dplyr, tidyr), including missing value handling, inconsistency fixes, and time-series alignment across regions and housing types. Built statistical models over 20 years of price history and developed clear `ggplot2` visualizations to communicate long-term trends and regional differences.
+
+- **Toxi-Can: Visualizing Canada's Industrial Pollutant Releases (Team Leader, Course Project, Oct 2024 - Dec 2024)** - **R / JavaScript**  
+  Processed NPRI and Statistics Canada boundary data using R (tidyverse, sf, rgdal), then built an interactive multi-page visualization site with Leaflet maps, Plotly charts, HTML/CSS/JavaScript, D3.js, and Scrollytelling patterns. Designed a narrative experience to make complex environmental risk data understandable to non-technical users.
+
+- **NASA Space Apps Challenge (Team Leader, Sep 2025 - Oct 2025)** - **Java / JavaScript**  
+  Built a Java backend with Maven and REST-style APIs for multiple official NASA data sources. Implemented data-processing logic for real-time/manual data fetching, collaborated on Monte Carlo simulation support, and defined API contracts for frontend visualization.
+
+- **Media Manager using Spotify API (Team Leader, Sep 2023 - Dec 2023)** - **Java**  
+  Tested Spotify API workflows in Java, built GUI features with Java Swing, and implemented core use cases including song add/search modules.
+
+## Leadership
+
+- **FRC - FIRST Robotics Competition**, Beijing, China (Team Leader, Jul 2017 - Jun 2021)  
+  Founded and captained Team 8204 in high school. Previously served as robot driver and engineer for Team 5451, with top-four finishes at international competitions in Sydney, Shanghai, and Pittsburgh.
+
+---
+
+Feel free to contact me by email at <a href="mailto:zz3750@nyu.edu">zz3750@nyu.edu</a>.
+:::
+:::
