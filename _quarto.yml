@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: docs
+  resources:
+    - Avatar.png
+    - CV.pdf
 
 website:
   title: "iJustin"
