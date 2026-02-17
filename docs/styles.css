@@ -33,7 +33,12 @@ a {
 }
 
 .navbar {
+<<<<<<< Updated upstream
   max-width: 1200px;
+=======
+  width: min(1360px, calc(100vw - 2rem));
+  max-width: none;
+>>>>>>> Stashed changes
   margin: 0 auto;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -55,7 +60,12 @@ a {
 
 /* Main layout */
 .profile-layout {
+<<<<<<< Updated upstream
   max-width: 1120px;
+=======
+  width: min(1360px, calc(100vw - 2rem));
+  max-width: none;
+>>>>>>> Stashed changes
   margin: 0 auto;
   display: grid;
   grid-template-columns: 310px minmax(0, 1fr);
@@ -138,7 +148,12 @@ hr {
 
 /* Keep non-about pages constrained */
 #quarto-document-content {
+<<<<<<< Updated upstream
   max-width: 1120px;
+=======
+  width: min(1360px, calc(100vw - 2rem));
+  max-width: none;
+>>>>>>> Stashed changes
   margin: 0 auto;
 }
 
