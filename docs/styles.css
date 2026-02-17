@@ -33,7 +33,7 @@ a {
 }
 
 .navbar {
-  width: min(1700px, 96vw);
+  width: min(1360px, calc(100vw - 2rem));
   max-width: none;
   margin: 0 auto;
   padding-left: 1rem;
@@ -56,7 +56,7 @@ a {
 
 /* Main layout */
 .profile-layout {
-  width: min(1700px, 96vw);
+  width: min(1360px, calc(100vw - 2rem));
   max-width: none;
   margin: 0 auto;
   display: grid;
@@ -140,7 +140,7 @@ hr {
 
 /* Keep non-about pages constrained */
 #quarto-document-content {
-  width: min(1700px, 96vw);
+  width: min(1360px, calc(100vw - 2rem));
   max-width: none;
   margin: 0 auto;
 }
