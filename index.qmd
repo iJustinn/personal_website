@@ -4,7 +4,7 @@ title: "About Me"
 
 ::: {.profile-layout}
 ::: {.profile-sidebar}
-<div class="avatar-placeholder" aria-hidden="true">JZ</div>
+![Avatar](Avatar.png){.avatar-img alt="Justin Zhong avatar"}
 
 ### Justin / Ziheng Zhong
 
