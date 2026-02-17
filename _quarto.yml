@@ -6,13 +6,8 @@ website:
   title: "iJustin"
   navbar:
     left:
-      - href: about.qmd
-        text: "☝🏻"
-      - href: publications.qmd
-        text: Publications
       - href: CV.pdf
         text: CV
-      - text: "⚙️"
 
 format:
   html:
