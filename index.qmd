@@ -60,7 +60,7 @@ I have also led software and engineering projects in academic and hackathon sett
   Processed NPRI and Statistics Canada boundary data using R (tidyverse, sf, rgdal), then built an interactive multi-page visualization site with Leaflet maps, Plotly charts, HTML/CSS/JavaScript, D3.js, and Scrollytelling patterns. Designed a narrative experience to make complex environmental risk data understandable to non-technical users.
 
 - **Analyzing Trends in U.S. Residential Real Estate Prices (Course Project, Mar 2024 - Apr 2024)** - **R**  
-  Data collection and cleaning with Zillow Research housing datasets using R (tidyverse, dplyr, tidyr), including missing value handling, inconsistency fixes, and time-series alignment across regions and housing types. Built statistical models over 20 years of price history and developed clear `ggplot2` visualizations to communicate long-term trends and regional differences.
+  Data collection and cleaning with Zillow Research housing datasets using R (tidyverse, dplyr, tidyr), including missing value handling, inconsistency fixes, and time-series alignment across regions and housing types. Built statistical models over 20 years of price history and developed clear ggplot2 visualizations to communicate long-term trends and regional differences.
 
 - **Media Manager using Spotify API (Team Leader, Sep 2023 - Dec 2023)** - **Java**  
   Tested Spotify API workflows in Java, built GUI features with Java Swing, and implemented core use cases including song add/search modules.
