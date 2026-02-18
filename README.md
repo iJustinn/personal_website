@@ -4,25 +4,26 @@ Personal portfolio website for Justin (Ziheng) Zhong, built with [Quarto](https:
 
 ## Overview
 
-A single-page, responsive portfolio showcasing education, technical skills, selected projects, and professional experience. The site uses a two-column layout with a sticky sidebar on desktop and collapses to a single column on mobile.
+A single-page, responsive portfolio showcasing education, technical skills, selected projects, and professional experience. The site uses a two-column layout with a sticky sidebar on desktop and collapses to a single column on mobile. Includes light/dark mode with an automatic toggle.
 
 ## Tech Stack
 
 - **Static site generator:** Quarto
-- **Theme:** Cosmo (Bootstrap 5)
+- **Theme:** Cosmo (light) / Darkly (dark) — Bootstrap 5
 - **Custom styling:** `styles.css` (CSS custom properties, grid layout, responsive breakpoints)
-- **Deployment:** GitHub Pages via the `/docs` output directory
+- **CI/CD:** GitHub Actions (build + deploy on push to `main`)
+- **Hosting:** GitHub Pages
 
 ## Project Structure
 
 ```
 .
-├── _quarto.yml        # Quarto project configuration
-├── index.qmd          # All page content (Quarto Markdown)
-├── styles.css         # Custom CSS
-├── Avatar.png         # Profile photo
-├── CV.pdf             # Downloadable CV
-├── docs/              # Generated output (do not edit manually)
+├── _quarto.yml                    # Quarto project configuration
+├── index.qmd                     # All page content (Quarto Markdown)
+├── styles.css                    # Custom CSS (light + dark mode variables)
+├── Avatar.png                    # Profile photo
+├── CV.pdf                        # Downloadable CV
+├── .github/workflows/publish.yml # CI/CD workflow
 └── README.md
 ```
 
@@ -34,12 +35,10 @@ A single-page, responsive portfolio showcasing education, technical skills, sele
 # Preview with live reload
 quarto preview
 
-# Build to /docs
+# Build to docs/
 quarto render
 ```
 
-The rendered site is written to `docs/`, which is served directly by GitHub Pages.
-
 ## Deployment
 
-Push the `docs/` directory to the branch configured for GitHub Pages. The `.nojekyll` file tells GitHub Pages to skip Jekyll processing.
+Pushing to `main` triggers a GitHub Actions workflow that renders the site with Quarto and deploys it to GitHub Pages. The GitHub Pages source must be set to **GitHub Actions** in the repository settings.
