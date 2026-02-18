@@ -30,6 +30,15 @@ body.quarto-dark {
   --avatar-text: #ffffff;
 }
 
+/* Dark mode toggle: sun in light mode, moon in dark mode */
+.quarto-light .quarto-color-scheme-toggle .bi::before {
+  content: "\f5a1"; /* bi-sun-fill */
+}
+
+.quarto-dark .quarto-color-scheme-toggle .bi::before {
+  content: "\f494"; /* bi-moon-fill */
+}
+
 body {
   background: var(--bg);
   color: var(--text);
@@ -134,6 +143,24 @@ a {
   max-width: none;
   object-fit: cover;
   display: block;
+}
+
+/* Social icons */
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.social-icons a {
+  color: var(--muted);
+  font-size: 1.4rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.social-icons a:hover {
+  color: var(--link);
 }
 
 .profile-sidebar h3 {
