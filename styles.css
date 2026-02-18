@@ -15,7 +15,7 @@
 }
 
 /* Dark mode */
-[data-bs-theme="dark"] {
+body.quarto-dark {
   --bg: #1a1d21;
   --surface: #2b2f35;
   --text: #d8dbe0;
