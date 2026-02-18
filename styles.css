@@ -65,6 +65,12 @@ a {
   background: var(--surface);
 }
 
+/* Force dark-grey header in dark mode (overrides Darkly theme's dark blue) */
+body.quarto-dark #quarto-header,
+body.quarto-dark #quarto-header .navbar {
+  background: #2b2f35 !important;
+}
+
 .navbar {
   --bs-navbar-padding-y: 0.5rem;
   width: min(1360px, calc(100vw - 2rem));
