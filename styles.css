@@ -3,9 +3,31 @@
   --bg: #f4f4f4;
   --surface: #ffffff;
   --text: #2f343b;
+  --text-secondary: #353b45;
   --muted: #5b6270;
   --line: #e5e8ec;
   --link: #2f7fbf;
+  --nav-text: #20252d;
+  --avatar-border: #eceef1;
+  --avatar-grad-1: #232a33;
+  --avatar-grad-2: #3e4a5a;
+  --avatar-text: #ffffff;
+}
+
+/* Dark mode */
+[data-bs-theme="dark"] {
+  --bg: #1a1d21;
+  --surface: #2b2f35;
+  --text: #d8dbe0;
+  --text-secondary: #c0c4cb;
+  --muted: #9da3ad;
+  --line: #3a3f47;
+  --link: #6db3e8;
+  --nav-text: #d8dbe0;
+  --avatar-border: #3a3f47;
+  --avatar-grad-1: #1a1d21;
+  --avatar-grad-2: #2b3545;
+  --avatar-text: #ffffff;
 }
 
 body {
@@ -46,12 +68,12 @@ a {
 
 .navbar-nav .nav-link {
   font-size: 1.1rem;
-  color: #20252d;
+  color: var(--nav-text);
   margin-right: 1rem;
 }
 
 .navbar-nav .nav-link.active {
-  border-bottom: 2px solid #20252d;
+  border-bottom: 2px solid var(--nav-text);
 }
 
 /* Main layout */
@@ -75,15 +97,15 @@ a {
   width: 210px;
   height: 210px;
   border-radius: 50%;
-  background: linear-gradient(140deg, #232a33, #3e4a5a);
-  color: #ffffff;
+  background: linear-gradient(140deg, var(--avatar-grad-1), var(--avatar-grad-2));
+  color: var(--avatar-text);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1.25rem;
-  border: 4px solid #eceef1;
+  border: 4px solid var(--avatar-border);
 }
 
 .avatar-wrap {
@@ -91,7 +113,7 @@ a {
   height: 210px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #eceef1;
+  border: 4px solid var(--avatar-border);
   margin-bottom: 1.25rem;
 }
 
@@ -106,11 +128,11 @@ a {
 }
 
 /* Prevent Quarto/Bootstrap image defaults from stretching the avatar. */
-#quarto-document-content .profile-sidebar img.avatar-img {
-  width: 100% !important;
-  height: 100% !important;
-  max-width: none !important;
-  object-fit: cover !important;
+#quarto-document-content .profile-sidebar .avatar-wrap img.avatar-img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
   display: block;
 }
 
@@ -148,7 +170,7 @@ a {
 .profile-main p,
 .profile-main li {
   font-size: 1.15rem;
-  color: #353b45;
+  color: var(--text-secondary);
 }
 
 .profile-main ul {
@@ -203,10 +225,10 @@ hr {
     height: 150px;
   }
 
-  #quarto-document-content .profile-sidebar img.avatar-img {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: none !important;
+  #quarto-document-content .profile-sidebar .avatar-wrap img.avatar-img {
+    width: 100%;
+    height: 100%;
+    max-width: none;
   }
 
   .profile-sidebar h3 {
