@@ -383,6 +383,69 @@ body.no-cursor .cursor-coords { display: none; }
 }
 .contact-list a:hover { border-bottom-color: var(--accent); color: var(--accent); }
 
+.github-heatmap {
+  --heatmap-cell: 10px;
+  --heatmap-gap: 3px;
+  --heat-0: color-mix(in oklab, var(--hair) 72%, var(--bg));
+  --heat-1: oklch(0.82 0.10 145);
+  --heat-2: oklch(0.70 0.14 145);
+  --heat-3: oklch(0.58 0.16 145);
+  --heat-4: oklch(0.40 0.14 145);
+  display: grid;
+  gap: 5px;
+  width: max-content;
+  max-width: 100%;
+  margin-top: -8px;
+}
+.github-heatmap:empty { display: none; }
+.heatmap-months,
+.heatmap-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--heatmap-weeks), var(--heatmap-cell));
+  gap: var(--heatmap-gap);
+}
+.heatmap-months {
+  height: 12px;
+  align-items: end;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1;
+}
+.heatmap-month {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.heatmap-grid {
+  grid-template-rows: repeat(7, var(--heatmap-cell));
+}
+.heatmap-cell,
+.heatmap-sample {
+  width: var(--heatmap-cell);
+  height: var(--heatmap-cell);
+  border-radius: 2px;
+  background: var(--heat-0);
+  border: 1px solid color-mix(in oklab, var(--hair) 72%, transparent);
+}
+.heatmap-cell.level-1,
+.heatmap-sample.level-1 { background: var(--heat-1); border-color: transparent; }
+.heatmap-cell.level-2,
+.heatmap-sample.level-2 { background: var(--heat-2); border-color: transparent; }
+.heatmap-cell.level-3,
+.heatmap-sample.level-3 { background: var(--heat-3); border-color: transparent; }
+.heatmap-cell.level-4,
+.heatmap-sample.level-4 { background: var(--heat-4); border-color: transparent; }
+.heatmap-cell.is-future {
+  opacity: 0;
+}
+.heatmap-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1;
+}
+
 .social-row {
   display: flex;
   gap: 8px;

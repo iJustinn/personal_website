@@ -186,6 +186,66 @@
       .catch(() => {});
   }
 
+  // ── GitHub contribution heatmap from GitHub Actions output ────────
+  const heatmaps = [...document.querySelectorAll("[data-github-heatmap]")];
+  function renderHeatmap(container, data) {
+    const weeks = data.weeks || [];
+    if (!weeks.length) return;
+
+    container.textContent = "";
+    container.style.setProperty("--heatmap-weeks", weeks.length);
+
+    const months = document.createElement("div");
+    months.className = "heatmap-months";
+    for (const month of data.months || []) {
+      const label = document.createElement("span");
+      label.className = "heatmap-month";
+      label.textContent = month.label;
+      label.style.gridColumn = `${month.weekIndex + 1} / span 3`;
+      months.appendChild(label);
+    }
+
+    const grid = document.createElement("div");
+    grid.className = "heatmap-grid";
+    for (let weekIndex = 0; weekIndex < weeks.length; weekIndex += 1) {
+      const week = weeks[weekIndex];
+      for (const day of week.days || []) {
+        const cell = document.createElement("span");
+        cell.className = `heatmap-cell level-${day.level ?? 0}`;
+        cell.style.gridColumn = String(weekIndex + 1);
+        cell.style.gridRow = String((day.weekday ?? 0) + 1);
+        if (day.future) cell.classList.add("is-future");
+        const count = day.count ?? 0;
+        cell.title = `${day.date}: ${count} contribution${count === 1 ? "" : "s"}`;
+        grid.appendChild(cell);
+      }
+    }
+
+    const legend = document.createElement("div");
+    legend.className = "heatmap-legend";
+    legend.innerHTML = `
+      <span>Less</span>
+      <span class="heatmap-sample level-0" aria-hidden="true"></span>
+      <span class="heatmap-sample level-1" aria-hidden="true"></span>
+      <span class="heatmap-sample level-2" aria-hidden="true"></span>
+      <span class="heatmap-sample level-3" aria-hidden="true"></span>
+      <span class="heatmap-sample level-4" aria-hidden="true"></span>
+      <span>More</span>
+    `;
+
+    container.append(months, grid, legend);
+  }
+
+  if (heatmaps.length) {
+    fetch("github-activity.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("github-activity missing");
+        return response.json();
+      })
+      .then((data) => heatmaps.forEach((container) => renderHeatmap(container, data)))
+      .catch(() => {});
+  }
+
   // ── Live clock in footer ───────────────────────────────────────────
   const clock = document.querySelector("[data-clock]");
   if (clock) {
