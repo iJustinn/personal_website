@@ -171,12 +171,11 @@
           if (!project || !slot || project.status === "unavailable") return;
 
           const updated = shortDate(project.pushedAt || project.updatedAt);
-          const language = project.primaryLanguage ? `<span class="repo-pill">${escapeHtml(project.primaryLanguage)}</span>` : "";
 
           slot.innerHTML = `
             <div class="row-k">GITHUB</div>
             <a class="repo-link" href="${escapeHtml(project.url)}" target="_blank" rel="noopener">${escapeHtml(project.repo)}</a>
-            <div class="repo-fact">${updated ? `updated ${escapeHtml(updated)}` : "repo linked"} ${language}</div>
+            <div class="repo-fact">${updated ? `updated ${escapeHtml(updated)}` : "repo linked"}</div>
           `;
 
           const arrow = card.querySelector(".arrow");

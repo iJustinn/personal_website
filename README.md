@@ -17,7 +17,7 @@ The current design uses an engineering-notebook aesthetic with a sticky profile 
 - **Markup:** static HTML
 - **Styling:** vanilla CSS in `styles.css` and `tweaks.css`
 - **Runtime behavior:** vanilla JavaScript in `site.js`
-- **Optional tweaks panel:** React 18 UMD + Babel standalone loaded from CDN for `tweaks.jsx`
+- **Tweaks panel:** React 18 UMD + Babel standalone loaded from CDN for `tweaks.jsx`
 - **GitHub metadata refresh:** GitHub Actions + `scripts/update-projects.mjs` and `scripts/update-github-heatmap.mjs`
 - **Typography:** Google Fonts, IBM Plex Sans and JetBrains Mono
 - **Hosting:** GitHub Pages, deployed from `main` branch `/ (root)`
@@ -42,8 +42,7 @@ The current design uses an engineering-notebook aesthetic with a sticky profile 
 ├── .github/
 │   └── workflows/
 │       └── update-projects.yml # Scheduled/manual metadata refresh
-├── tweaks.jsx          # Page-specific React tweaks panel
-├── tweaks-panel.jsx    # Reusable tweaks-panel helpers/reference component
+├── tweaks.jsx          # React tweaks panel
 ├── Avatar.png          # Profile photo used by sidebar
 ├── CV.pdf              # Downloadable CV
 ├── .nojekyll           # Keeps GitHub Pages from treating files as Jekyll input

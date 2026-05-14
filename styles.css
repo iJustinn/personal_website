@@ -567,7 +567,7 @@ body.no-cursor .cursor-coords { display: none; }
   max-width: 60ch;
   margin: 0 0 32px;
 }
-.hero .lede .hl { background: var(--accent-soft); padding: 0 2px; }
+.hl { background: var(--accent-soft); padding: 0 2px; }
 .hero .meta-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -580,6 +580,7 @@ body.no-cursor .cursor-coords { display: none; }
   border-right: 1px solid var(--hair);
   font-size: 11px;
 }
+.hero .meta-grid .cell + .cell { padding-left: 20px; }
 .hero .meta-grid .cell:last-child { border-right: 0; }
 .hero .meta-grid .k {
   color: var(--muted);
@@ -801,13 +802,6 @@ body.no-cursor .cursor-coords { display: none; }
   flex-wrap: wrap;
   gap: 6px;
   color: var(--muted);
-}
-.project .repo-pill {
-  font-size: 10px;
-  line-height: 1.2;
-  color: var(--ink);
-  border: 1px solid var(--hair);
-  padding: 2px 5px;
 }
 .project .arrow {
   position: absolute;
