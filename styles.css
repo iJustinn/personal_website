@@ -340,17 +340,23 @@ body.no-cursor .cursor-coords { display: none; }
 .id-block .handle .slash { color: var(--accent); }
 
 .id-block .roles {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--muted);
   line-height: 1.7;
-  overflow-wrap: anywhere;
+}
+.id-block .roles .edu-line {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 6px;
+  white-space: nowrap;
 }
 .id-block .roles .pill {
-  display: inline-block;
+  display: inline-grid;
+  place-items: center;
   font-size: 10px;
   padding: 1px 6px;
   border: 1px solid var(--hair);
-  margin-right: 6px;
   color: var(--ink);
   letter-spacing: 0.04em;
 }
