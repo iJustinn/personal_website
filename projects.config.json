@@ -1,0 +1,40 @@
+{
+  "owner": "iJustinn",
+  "projects": [
+    {
+      "id": "coin",
+      "repo": "iJustinn/Coin",
+      "title": "Coin · iOS Spending Tracker"
+    },
+    {
+      "id": "body",
+      "repo": "iJustinn/Body",
+      "title": "Body · iOS Health Visualization"
+    },
+    {
+      "id": "jobmuse",
+      "repo": "iJustinn/JobMuse",
+      "title": "JobMuse · Career Ops GUI"
+    },
+    {
+      "id": "nasa-space-apps",
+      "repo": "iJustinn/NASA_Challenge",
+      "title": "NASA Space Apps Challenge"
+    },
+    {
+      "id": "toxi-can",
+      "repo": "iJustinn/STA313_Final_Project",
+      "title": "Toxi-Can"
+    },
+    {
+      "id": "us-real-estate",
+      "repo": "iJustinn/House_Price",
+      "title": "U.S. Residential Real Estate Trends"
+    },
+    {
+      "id": "media-manager",
+      "repo": "iJustinn/CSC207_Project",
+      "title": "Media Manager · Spotify API"
+    }
+  ]
+}

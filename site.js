@@ -139,6 +139,53 @@
     el.textContent = ch.repeat(120);
   });
 
+  // ── Project metadata from GitHub Actions output ───────────────────
+  const projectCards = [...document.querySelectorAll("[data-project-id][data-repo]")];
+  const dateFmt = new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+  const escapeHtml = (value) => String(value || "").replace(/[&<>"']/g, (ch) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    "\"": "&quot;",
+    "'": "&#39;",
+  }[ch]));
+  const shortDate = (value) => {
+    const date = value ? new Date(value) : null;
+    return date && !Number.isNaN(date.valueOf()) ? dateFmt.format(date) : "";
+  };
+  if (projectCards.length) {
+    fetch("projects-data.json", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("projects-data missing");
+        return response.json();
+      })
+      .then((data) => {
+        const byId = new Map((data.projects || []).map((project) => [project.id, project]));
+        projectCards.forEach((card) => {
+          const project = byId.get(card.dataset.projectId);
+          const slot = card.querySelector("[data-project-meta]");
+          if (!project || !slot || project.status === "unavailable") return;
+
+          const updated = shortDate(project.pushedAt || project.updatedAt);
+          const language = project.primaryLanguage ? `<span class="repo-pill">${escapeHtml(project.primaryLanguage)}</span>` : "";
+
+          slot.innerHTML = `
+            <div class="row-k">GITHUB</div>
+            <a class="repo-link" href="${escapeHtml(project.url)}" target="_blank" rel="noopener">${escapeHtml(project.repo)}</a>
+            <div class="repo-fact">${updated ? `updated ${escapeHtml(updated)}` : "repo linked"} ${language}</div>
+          `;
+
+          const arrow = card.querySelector(".arrow");
+          if (arrow && project.url) arrow.href = project.url;
+        });
+      })
+      .catch(() => {});
+  }
+
   // ── Live clock in footer ───────────────────────────────────────────
   const clock = document.querySelector("[data-clock]");
   if (clock) {
