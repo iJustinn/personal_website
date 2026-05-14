@@ -551,7 +551,11 @@ body.no-cursor .cursor-coords { display: none; }
   margin: 0 0 24px;
   color: var(--ink);
 }
-.hero h1 .em { color: var(--accent); }
+.hero h1 .em,
+.hero h1 .hl {
+  color: var(--accent);
+  font-style: italic;
+}
 .hero h1 .amp {
   font-family: var(--serif);
   display: inline-block;
@@ -567,7 +571,7 @@ body.no-cursor .cursor-coords { display: none; }
   max-width: 60ch;
   margin: 0 0 32px;
 }
-.hl { background: var(--accent-soft); padding: 0 2px; }
+.hl { background: none; padding: 0; }
 .hero .meta-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
