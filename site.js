@@ -8,14 +8,13 @@
 
   // ── Theme ──────────────────────────────────────────────────────────
   const THEME_KEY = "site.theme";
-  function applyTheme(t) {
+  function applyTheme(t, persist = true) {
     root.setAttribute("data-theme", t);
-    localStorage.setItem(THEME_KEY, t);
+    if (persist) localStorage.setItem(THEME_KEY, t);
   }
   const savedTheme = localStorage.getItem(THEME_KEY);
-  if (savedTheme) applyTheme(savedTheme);
-  else if (window.matchMedia("(prefers-color-scheme: dark)").matches) applyTheme("dark");
-  else applyTheme("light");
+  if (savedTheme === "dark" || savedTheme === "light") applyTheme(savedTheme, false);
+  else applyTheme("light", false);
 
   document.addEventListener("click", (e) => {
     const t = e.target.closest("[data-theme-toggle]");

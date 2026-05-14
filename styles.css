@@ -199,6 +199,27 @@ body.no-cursor .cursor-coords { display: none; }
   align-items: center;
 }
 
+@media (max-width: 520px) {
+  .header-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 6px;
+    padding-inline: 12px;
+  }
+  .brand .path,
+  .brand .blink,
+  .header-actions {
+    display: none;
+  }
+  .site-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .site-nav a {
+    padding-inline: 6px;
+  }
+}
+
 .icon-btn {
   width: 32px; height: 32px;
   display: inline-grid;
