@@ -7,6 +7,16 @@
       "title": "Coin · iOS Spending Tracker"
     },
     {
+      "id": "body",
+      "repo": "iJustinn/Body",
+      "title": "Body · iOS Health Visualization"
+    },
+    {
+      "id": "jobmuse",
+      "repo": "iJustinn/JobMuse",
+      "title": "JobMuse · Career Ops GUI"
+    },
+    {
       "id": "nasa-space-apps",
       "repo": "iJustinn/NASA_Challenge",
       "title": "NASA Space Apps Challenge"

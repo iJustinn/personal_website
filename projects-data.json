@@ -15,6 +15,32 @@
       "status": "ok"
     },
     {
+      "id": "body",
+      "title": "Body · iOS Health Visualization",
+      "repo": "iJustinn/Body",
+      "name": "Body",
+      "description": "Health data visualization app.",
+      "url": "https://github.com/iJustinn/Body",
+      "homepage": "",
+      "primaryLanguage": "Swift",
+      "pushedAt": "2026-05-14T19:22:44Z",
+      "updatedAt": "2026-05-14T00:35:11Z",
+      "status": "ok"
+    },
+    {
+      "id": "jobmuse",
+      "title": "JobMuse · Career Ops GUI",
+      "repo": "iJustinn/JobMuse",
+      "name": "JobMuse",
+      "description": "Open-source job application tool.",
+      "url": "https://github.com/iJustinn/JobMuse",
+      "homepage": "",
+      "primaryLanguage": "JavaScript",
+      "pushedAt": "2026-05-13T01:26:28Z",
+      "updatedAt": "2026-05-13T01:23:34Z",
+      "status": "ok"
+    },
+    {
       "id": "nasa-space-apps",
       "title": "NASA Space Apps Challenge",
       "repo": "iJustinn/NASA_Challenge",
