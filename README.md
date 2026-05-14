@@ -7,10 +7,10 @@ Static personal portfolio website for Justin (Ziheng) Zhong, deployed with GitHu
 This repo is a no-build static site. It serves three hand-authored HTML pages:
 
 - `index.html` - homepage, bio, education, stack, and navigation into the site.
-- `projects.html` - selected projects, GitHub-powered project update metadata, work experience, and leadership.
+- `projects.html` - selected projects, GitHub-powered project/activity metadata, work experience, and leadership.
 - `cv.html` - web CV page with a direct download link to `CV.pdf`.
 
-The current design uses an engineering-notebook aesthetic with a sticky profile sidebar, responsive single-column mobile layout, light/dark theme toggle, scroll reveal, section navigation, GitHub project metadata enhancement, and a small edit-mode tweaks panel.
+The current design uses an engineering-notebook aesthetic with a sticky profile sidebar, responsive single-column mobile layout, light/dark theme toggle, scroll reveal, section navigation, GitHub project metadata and contribution heatmap enhancements, and a small edit-mode tweaks panel.
 
 ## Stack
 
@@ -18,7 +18,7 @@ The current design uses an engineering-notebook aesthetic with a sticky profile 
 - **Styling:** vanilla CSS in `styles.css` and `tweaks.css`
 - **Runtime behavior:** vanilla JavaScript in `site.js`
 - **Optional tweaks panel:** React 18 UMD + Babel standalone loaded from CDN for `tweaks.jsx`
-- **Project metadata refresh:** GitHub Actions + `scripts/update-projects.mjs`
+- **GitHub metadata refresh:** GitHub Actions + `scripts/update-projects.mjs` and `scripts/update-github-heatmap.mjs`
 - **Typography:** Google Fonts, IBM Plex Sans and JetBrains Mono
 - **Hosting:** GitHub Pages, deployed from `main` branch `/ (root)`
 - **Build step:** none
@@ -35,8 +35,10 @@ The current design uses an engineering-notebook aesthetic with a sticky profile 
 ├── site.js             # Theme, tweaks, cursor, reveal, nav, clock behavior
 ├── projects.config.json # Curated project-to-repo mapping
 ├── projects-data.json  # Generated GitHub project metadata served to the site
+├── github-activity.json # Generated recent GitHub contribution heatmap data
 ├── scripts/
-│   └── update-projects.mjs # Fetches repo metadata from the GitHub API
+│   ├── update-projects.mjs # Fetches repo metadata from the GitHub API
+│   └── update-github-heatmap.mjs # Fetches recent GitHub contribution data
 ├── .github/
 │   └── workflows/
 │       └── update-projects.yml # Scheduled/manual metadata refresh
@@ -59,13 +61,14 @@ python3 -m http.server 8000
 
 Then visit `http://localhost:8000/`.
 
-To refresh the project metadata locally:
+To refresh the GitHub metadata locally:
 
 ```bash
 node scripts/update-projects.mjs
+node scripts/update-github-heatmap.mjs
 ```
 
-The script uses `GH_PROJECTS_TOKEN` or `GITHUB_TOKEN` when set. If neither is present, it tries the local `gh` CLI token. Public repositories can be fetched without a token, but private repositories such as `iJustinn/Coin` need a token with read access.
+The project script uses `GH_PROJECTS_TOKEN` or `GITHUB_TOKEN` when set. The heatmap script uses `GH_HEATMAP_TOKEN`, `GH_PROJECTS_TOKEN`, or `GITHUB_TOKEN`. If no environment token is present, both scripts try the local `gh` CLI token. Public repositories can be fetched without a token, but private repositories such as `iJustinn/Coin` and private contribution counts need a token with read access.
 
 ## Deployment
 
@@ -77,7 +80,7 @@ GitHub Pages should be configured as:
 
 Because the site is static HTML/CSS/JS, pushing changes to `main` is enough for Pages to serve the updated files after GitHub Pages finishes publishing.
 
-Project metadata is refreshed by `.github/workflows/update-projects.yml` every 12 hours and can also be run manually from the Actions tab. The workflow commits changes to `projects-data.json` only when GitHub metadata has changed. To include private repositories, add a repository secret named `GH_PROJECTS_TOKEN` with read access to those repos. The generated JSON contains only repo-level fields used by the site; tokens and commit messages are never written into the repo.
+GitHub metadata is refreshed by `.github/workflows/update-projects.yml` every 12 hours and can also be run manually from the Actions tab. The workflow commits changes to `projects-data.json` and `github-activity.json` only when GitHub metadata has changed. To include private repositories, add a repository secret named `GH_PROJECTS_TOKEN` with read access to those repos. To include private contribution counts in the heatmap, add `GH_HEATMAP_TOKEN` from the GitHub account whose contributions should be displayed. The generated JSON contains only repo-level fields and daily contribution counts used by the site; tokens and commit messages are never written into the repo.
 
 ## Notes
 

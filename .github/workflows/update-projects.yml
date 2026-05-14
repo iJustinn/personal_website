@@ -1,4 +1,4 @@
-name: Update project metadata
+name: Update GitHub metadata
 
 on:
   workflow_dispatch:
@@ -21,20 +21,23 @@ jobs:
         with:
           node-version: 20
 
-      - name: Refresh GitHub project metadata
-        run: node scripts/update-projects.mjs
+      - name: Refresh GitHub metadata
+        run: |
+          node scripts/update-projects.mjs
+          node scripts/update-github-heatmap.mjs
         env:
           GH_PROJECTS_TOKEN: ${{ secrets.GH_PROJECTS_TOKEN || github.token }}
+          GH_HEATMAP_TOKEN: ${{ secrets.GH_HEATMAP_TOKEN || secrets.GH_PROJECTS_TOKEN || github.token }}
 
       - name: Commit metadata changes
         run: |
-          if git diff --quiet -- projects-data.json; then
-            echo "No project metadata changes."
+          if git diff --quiet -- projects-data.json github-activity.json; then
+            echo "No GitHub metadata changes."
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add projects-data.json
-          git commit -m "Update project metadata"
+          git add projects-data.json github-activity.json
+          git commit -m "Update GitHub metadata"
           git push
