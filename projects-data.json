@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "projects": [
+    {
+      "id": "coin",
+      "title": "Coin · iOS Spending Tracker",
+      "repo": "iJustinn/Coin",
+      "name": "Coin",
+      "description": "Daily spending tracker.",
+      "url": "https://github.com/iJustinn/Coin",
+      "homepage": "",
+      "primaryLanguage": "Swift",
+      "pushedAt": "2026-05-14T17:25:24Z",
+      "updatedAt": "2026-05-14T17:25:29Z",
+      "status": "ok"
+    },
+    {
+      "id": "nasa-space-apps",
+      "title": "NASA Space Apps Challenge",
+      "repo": "iJustinn/NASA_Challenge",
+      "name": "NASA_Challenge",
+      "description": "NASA SPACE APPS 2025",
+      "url": "https://github.com/iJustinn/NASA_Challenge",
+      "homepage": "",
+      "primaryLanguage": "JavaScript",
+      "pushedAt": "2025-10-06T03:50:22Z",
+      "updatedAt": "2025-10-06T03:50:26Z",
+      "status": "ok"
+    },
+    {
+      "id": "toxi-can",
+      "title": "Toxi-Can",
+      "repo": "iJustinn/STA313_Final_Project",
+      "name": "STA313_Final_Project",
+      "description": "STA313 Final Group Project",
+      "url": "https://github.com/iJustinn/STA313_Final_Project",
+      "homepage": "",
+      "primaryLanguage": "HTML",
+      "pushedAt": "2024-12-09T20:44:23Z",
+      "updatedAt": "2026-02-09T19:34:41Z",
+      "status": "ok"
+    },
+    {
+      "id": "us-real-estate",
+      "title": "U.S. Residential Real Estate Trends",
+      "repo": "iJustinn/House_Price",
+      "name": "House_Price",
+      "description": "",
+      "url": "https://github.com/iJustinn/House_Price",
+      "homepage": "",
+      "primaryLanguage": "R",
+      "pushedAt": "2024-04-17T22:12:00Z",
+      "updatedAt": "2024-04-07T20:43:32Z",
+      "status": "ok"
+    },
+    {
+      "id": "media-manager",
+      "title": "Media Manager · Spotify API",
+      "repo": "iJustinn/CSC207_Project",
+      "name": "CSC207_Project",
+      "description": "2023 fall csc207 group project",
+      "url": "https://github.com/iJustinn/CSC207_Project",
+      "homepage": "",
+      "primaryLanguage": "Java",
+      "pushedAt": "2023-12-04T16:42:27Z",
+      "updatedAt": "2024-03-24T03:42:34Z",
+      "status": "ok"
+    }
+  ]
+}
