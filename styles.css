@@ -340,17 +340,18 @@ body.no-cursor .cursor-coords { display: none; }
 .id-block .handle .slash { color: var(--accent); }
 
 .id-block .roles {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--muted);
   line-height: 1.7;
 }
 .id-block .roles .edu-line {
   display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
+  grid-template-columns: 44px max-content;
   align-items: baseline;
-  gap: 6px;
+  gap: 5px;
   white-space: nowrap;
 }
+.id-block .roles .edu-line span:last-child { white-space: nowrap; }
 .id-block .roles .pill {
   display: inline-grid;
   place-items: center;
