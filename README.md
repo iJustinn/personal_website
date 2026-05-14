@@ -1,6 +1,6 @@
 # personal_website
 
-Static personal portfolio website for Justin (Ziheng) Zhong, deployed with GitHub Pages from the repository root.
+Static [personal portfolio website](https://ijustinn.github.io/personal_website/) for Justin (Ziheng) Zhong, deployed with GitHub Pages from the repository root.
 
 ## Overview
 
