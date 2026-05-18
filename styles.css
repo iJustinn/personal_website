@@ -596,6 +596,20 @@ body.no-cursor .cursor-coords { display: none; }
   font-weight: 500;
 }
 .hero .meta-grid .v .accent { color: var(--accent); }
+.hero .meta-grid .latest-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  line-height: 1.45;
+}
+.hero .meta-grid .latest-projects li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: baseline;
+}
 
 /* ── Prose block ── */
 .prose p {
