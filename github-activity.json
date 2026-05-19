@@ -4,7 +4,7 @@
   "range": {
     "weeks": 15,
     "from": "2026-02-08",
-    "to": "2026-05-18"
+    "to": "2026-05-19"
   },
   "weeks": [
     {
@@ -775,17 +775,17 @@
         },
         {
           "date": "2026-05-18",
-          "count": 5,
-          "level": 1,
+          "count": 22,
+          "level": 4,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-05-19",
-          "count": null,
-          "level": null,
+          "count": 1,
+          "level": 1,
           "weekday": 2,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-05-20",
@@ -832,5 +832,5 @@
       "label": "May"
     }
   ],
-  "generatedAt": "2026-05-18T16:00:11.664Z"
+  "generatedAt": "2026-05-19T04:38:29.949Z"
 }
