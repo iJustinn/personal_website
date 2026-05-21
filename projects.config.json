@@ -2,6 +2,11 @@
   "owner": "iJustinn",
   "projects": [
     {
+      "id": "task",
+      "repo": "iJustinn/Task",
+      "title": "Task · iOS Task Manager"
+    },
+    {
       "id": "coin",
       "repo": "iJustinn/Coin",
       "title": "Coin · iOS Spending Tracker"
