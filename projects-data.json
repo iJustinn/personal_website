@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "projects": [
     {
+      "id": "task",
+      "title": "Task · iOS Task Manager",
+      "repo": "iJustinn/Task",
+      "name": "Task",
+      "description": "Life Management iOS app",
+      "url": "https://github.com/iJustinn/Task",
+      "homepage": "",
+      "primaryLanguage": "Swift",
+      "pushedAt": "2026-05-21T18:04:05Z",
+      "updatedAt": "2026-05-21T05:40:41Z",
+      "status": "ok"
+    },
+    {
       "id": "coin",
       "title": "Coin · iOS Spending Tracker",
       "repo": "iJustinn/Coin",
@@ -10,8 +23,8 @@
       "url": "https://github.com/iJustinn/Coin",
       "homepage": "",
       "primaryLanguage": "Swift",
-      "pushedAt": "2026-05-14T17:25:24Z",
-      "updatedAt": "2026-05-14T17:25:29Z",
+      "pushedAt": "2026-05-17T00:15:18Z",
+      "updatedAt": "2026-05-16T04:53:19Z",
       "status": "ok"
     },
     {
@@ -23,8 +36,8 @@
       "url": "https://github.com/iJustinn/Body",
       "homepage": "",
       "primaryLanguage": "Swift",
-      "pushedAt": "2026-05-14T19:22:44Z",
-      "updatedAt": "2026-05-14T00:35:11Z",
+      "pushedAt": "2026-05-21T18:13:38Z",
+      "updatedAt": "2026-05-19T18:32:02Z",
       "status": "ok"
     },
     {
