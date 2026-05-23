@@ -3,6 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const CONFIG_PATH = new URL("../projects.config.json", import.meta.url);
 const OUTPUT_PATH = new URL("../projects-data.json", import.meta.url);
+const HTML_PATH = new URL("../projects.html", import.meta.url);
 const API_VERSION = "2022-11-28";
 
 function readJson(path, fallback = null) {
@@ -96,6 +97,13 @@ for (const project of config.projects) {
   projects.push(await fetchProject(project, config, token, previousById));
 }
 
+function sortKey(project) {
+  const raw = project.pushedAt || project.updatedAt;
+  const time = raw ? new Date(raw).valueOf() : 0;
+  return Number.isFinite(time) ? time : 0;
+}
+projects.sort((a, b) => sortKey(b) - sortKey(a));
+
 const output = {
   schemaVersion: 1,
   projects,
@@ -103,3 +111,61 @@ const output = {
 
 await writeFile(OUTPUT_PATH, `${JSON.stringify(output, null, 2)}\n`);
 console.log(`Wrote ${projects.length} project metadata entries to projects-data.json`);
+
+await reorderProjectsHtml(projects);
+
+async function reorderProjectsHtml(orderedProjects) {
+  const html = await readFile(HTML_PATH, "utf8");
+  const articleRegex = /<article class="project"[^>]*data-project-id="([^"]+)"[^>]*>[\s\S]*?<\/article>/g;
+  const matches = [...html.matchAll(articleRegex)];
+
+  if (matches.length !== orderedProjects.length) {
+    console.warn(
+      `Expected ${orderedProjects.length} <article> blocks in projects.html, found ${matches.length}. Skipping HTML reorder.`,
+    );
+    return;
+  }
+
+  const blockById = new Map(matches.map((match) => [match[1], match[0]]));
+  const orderedBlocks = [];
+  for (const project of orderedProjects) {
+    const block = blockById.get(project.id);
+    if (!block) {
+      console.warn(`No <article> block for project id "${project.id}". Skipping HTML reorder.`);
+      return;
+    }
+    orderedBlocks.push(block);
+  }
+
+  const renumberedBlocks = orderedBlocks.map((block, index) => {
+    const label = `[${String(index + 1).padStart(2, "0")}]`;
+    return block.replace(/<div class="idx">\[\d+\]<\/div>/, `<div class="idx">${label}</div>`);
+  });
+
+  const separators = [];
+  for (let i = 0; i < matches.length - 1; i += 1) {
+    const endOfCurrent = matches[i].index + matches[i][0].length;
+    const startOfNext = matches[i + 1].index;
+    separators.push(html.slice(endOfCurrent, startOfNext));
+  }
+
+  const firstStart = matches[0].index;
+  const lastEnd = matches[matches.length - 1].index + matches[matches.length - 1][0].length;
+  const before = html.slice(0, firstStart);
+  const after = html.slice(lastEnd);
+
+  let middle = "";
+  for (let i = 0; i < renumberedBlocks.length; i += 1) {
+    middle += renumberedBlocks[i];
+    if (i < separators.length) middle += separators[i];
+  }
+
+  const next = before + middle + after;
+  if (next === html) {
+    console.log("projects.html already in sorted order; no changes written.");
+    return;
+  }
+
+  await writeFile(HTML_PATH, next);
+  console.log("Reordered <article> blocks in projects.html.");
+}
