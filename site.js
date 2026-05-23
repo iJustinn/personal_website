@@ -141,6 +141,7 @@
 
   // ── Project metadata from GitHub Actions output ───────────────────
   const projectCards = [...document.querySelectorAll("[data-project-id][data-repo]")];
+  const latestList = document.querySelector("[data-latest-projects]");
   const dateFmt = new Intl.DateTimeFormat("en-US", {
     month: "short",
     day: "numeric",
@@ -157,30 +158,62 @@
     const date = value ? new Date(value) : null;
     return date && !Number.isNaN(date.valueOf()) ? dateFmt.format(date) : "";
   };
-  if (projectCards.length) {
+  const LANG_LABEL = {
+    Swift: "iOS",
+    JavaScript: "Web",
+    TypeScript: "Web",
+    HTML: "Web",
+    R: "Data",
+  };
+  const projectDisplayName = (project) => {
+    const title = (project.title || "").split(" · ")[0].trim();
+    return title || project.name || project.repo || "";
+  };
+  const projectLabel = (project) => LANG_LABEL[project.primaryLanguage] || project.primaryLanguage || "";
+  if (projectCards.length || latestList) {
     fetch("projects-data.json", { cache: "no-store" })
       .then((response) => {
         if (!response.ok) throw new Error("projects-data missing");
         return response.json();
       })
       .then((data) => {
-        const byId = new Map((data.projects || []).map((project) => [project.id, project]));
-        projectCards.forEach((card) => {
-          const project = byId.get(card.dataset.projectId);
-          const slot = card.querySelector("[data-project-meta]");
-          if (!project || !slot || project.status === "unavailable") return;
+        const projects = data.projects || [];
 
-          const updated = shortDate(project.pushedAt || project.updatedAt);
+        if (projectCards.length) {
+          const byId = new Map(projects.map((project) => [project.id, project]));
+          projectCards.forEach((card) => {
+            const project = byId.get(card.dataset.projectId);
+            const slot = card.querySelector("[data-project-meta]");
+            if (!project || !slot || project.status === "unavailable") return;
 
-          slot.innerHTML = `
-            <div class="row-k">GITHUB</div>
-            <a class="repo-link" href="${escapeHtml(project.url)}" target="_blank" rel="noopener">${escapeHtml(project.repo)}</a>
-            <div class="repo-fact">${updated ? `updated ${escapeHtml(updated)}` : "repo linked"}</div>
-          `;
+            const updated = shortDate(project.pushedAt || project.updatedAt);
 
-          const arrow = card.querySelector(".arrow");
-          if (arrow && project.url) arrow.href = project.url;
-        });
+            slot.innerHTML = `
+              <div class="row-k">GITHUB</div>
+              <a class="repo-link" href="${escapeHtml(project.url)}" target="_blank" rel="noopener">${escapeHtml(project.repo)}</a>
+              <div class="repo-fact">${updated ? `updated ${escapeHtml(updated)}` : "repo linked"}</div>
+            `;
+
+            const arrow = card.querySelector(".arrow");
+            if (arrow && project.url) arrow.href = project.url;
+          });
+        }
+
+        if (latestList) {
+          const top = projects
+            .filter((project) => project.status === "ok" && project.pushedAt)
+            .sort((a, b) => new Date(b.pushedAt) - new Date(a.pushedAt))
+            .slice(0, 3);
+          if (top.length) {
+            latestList.innerHTML = top.map((project) => {
+              const name = escapeHtml(projectDisplayName(project));
+              const tag = escapeHtml(projectLabel(project));
+              return tag
+                ? `<li>${name} <span class="accent">·</span> ${tag}</li>`
+                : `<li>${name}</li>`;
+            }).join("");
+          }
+        }
       })
       .catch(() => {});
   }
