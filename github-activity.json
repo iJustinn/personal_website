@@ -2,11 +2,65 @@
   "schemaVersion": 1,
   "user": "iJustinn",
   "range": {
-    "weeks": 15,
-    "from": "2026-02-15",
+    "weeks": 16,
+    "from": "2026-02-08",
     "to": "2026-05-25"
   },
   "weeks": [
+    {
+      "start": "2026-02-08",
+      "days": [
+        {
+          "date": "2026-02-08",
+          "count": 0,
+          "level": 0,
+          "weekday": 0,
+          "future": false
+        },
+        {
+          "date": "2026-02-09",
+          "count": 0,
+          "level": 0,
+          "weekday": 1,
+          "future": false
+        },
+        {
+          "date": "2026-02-10",
+          "count": 0,
+          "level": 0,
+          "weekday": 2,
+          "future": false
+        },
+        {
+          "date": "2026-02-11",
+          "count": 0,
+          "level": 0,
+          "weekday": 3,
+          "future": false
+        },
+        {
+          "date": "2026-02-12",
+          "count": 0,
+          "level": 0,
+          "weekday": 4,
+          "future": false
+        },
+        {
+          "date": "2026-02-13",
+          "count": 0,
+          "level": 0,
+          "weekday": 5,
+          "future": false
+        },
+        {
+          "date": "2026-02-14",
+          "count": 0,
+          "level": 0,
+          "weekday": 6,
+          "future": false
+        }
+      ]
+    },
     {
       "start": "2026-02-15",
       "days": [
@@ -40,15 +94,15 @@
         },
         {
           "date": "2026-02-19",
-          "count": 0,
-          "level": 0,
+          "count": 1,
+          "level": 1,
           "weekday": 4,
           "future": false
         },
         {
           "date": "2026-02-20",
-          "count": 1,
-          "level": 1,
+          "count": 0,
+          "level": 0,
           "weekday": 5,
           "future": false
         },
@@ -188,14 +242,14 @@
         },
         {
           "date": "2026-03-10",
-          "count": 1,
+          "count": 2,
           "level": 1,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-03-11",
-          "count": 13,
+          "count": 12,
           "level": 2,
           "weekday": 3,
           "future": false
@@ -540,7 +594,7 @@
         },
         {
           "date": "2026-04-25",
-          "count": 1,
+          "count": 2,
           "level": 1,
           "weekday": 6,
           "future": false
@@ -552,8 +606,8 @@
       "days": [
         {
           "date": "2026-04-26",
-          "count": 1,
-          "level": 1,
+          "count": 0,
+          "level": 0,
           "weekday": 0,
           "future": false
         },
@@ -634,8 +688,8 @@
         },
         {
           "date": "2026-05-07",
-          "count": 21,
-          "level": 3,
+          "count": 22,
+          "level": 4,
           "weekday": 4,
           "future": false
         },
@@ -648,7 +702,7 @@
         },
         {
           "date": "2026-05-09",
-          "count": 2,
+          "count": 1,
           "level": 1,
           "weekday": 6,
           "future": false
@@ -660,14 +714,14 @@
       "days": [
         {
           "date": "2026-05-10",
-          "count": 8,
+          "count": 9,
           "level": 2,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-05-11",
-          "count": 10,
+          "count": 9,
           "level": 2,
           "weekday": 1,
           "future": false
@@ -820,17 +874,17 @@
   ],
   "months": [
     {
-      "weekIndex": 2,
+      "weekIndex": 3,
       "label": "Mar"
     },
     {
-      "weekIndex": 6,
+      "weekIndex": 7,
       "label": "Apr"
     },
     {
-      "weekIndex": 10,
+      "weekIndex": 11,
       "label": "May"
     }
   ],
-  "generatedAt": "2026-05-25T00:38:04.208Z"
+  "generatedAt": "2026-05-25T00:41:22.237Z"
 }

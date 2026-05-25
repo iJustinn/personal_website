@@ -3,7 +3,7 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const OUTPUT_PATH = new URL("../github-activity.json", import.meta.url);
 const USER = process.env.GH_HEATMAP_USER || "iJustinn";
-const WEEK_COUNT = Number.parseInt(process.env.GH_HEATMAP_WEEKS || "15", 10);
+const WEEK_COUNT = Number.parseInt(process.env.GH_HEATMAP_WEEKS || "16", 10);
 const API_VERSION = "2022-11-28";
 const LEVELS = {
   NONE: 0,
