@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "projects": [
     {
+      "id": "body",
+      "title": "Body · iOS Health Visualization",
+      "repo": "iJustinn/Body",
+      "name": "Body",
+      "description": "Health data visualization app.",
+      "url": "https://github.com/iJustinn/Body",
+      "homepage": "",
+      "primaryLanguage": "Swift",
+      "pushedAt": "2026-05-25T16:50:31Z",
+      "updatedAt": "2026-05-24T23:52:24Z",
+      "status": "ok"
+    },
+    {
       "id": "jobmuse",
       "title": "JobMuse · Career Ops GUI",
       "repo": "iJustinn/JobMuse",
@@ -12,19 +25,6 @@
       "primaryLanguage": "JavaScript",
       "pushedAt": "2026-05-25T01:51:00Z",
       "updatedAt": "2026-05-13T01:23:34Z",
-      "status": "ok"
-    },
-    {
-      "id": "body",
-      "title": "Body · iOS Health Visualization",
-      "repo": "iJustinn/Body",
-      "name": "Body",
-      "description": "Health data visualization app.",
-      "url": "https://github.com/iJustinn/Body",
-      "homepage": "",
-      "primaryLanguage": "Swift",
-      "pushedAt": "2026-05-25T00:25:47Z",
-      "updatedAt": "2026-05-24T23:52:24Z",
       "status": "ok"
     },
     {
