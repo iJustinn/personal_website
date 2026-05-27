@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "projects": [
     {
+      "id": "task",
+      "title": "Task · iOS Task Manager",
+      "repo": "iJustinn/Task",
+      "name": "Task",
+      "description": "Life Management iOS app",
+      "url": "https://github.com/iJustinn/Task",
+      "homepage": "",
+      "primaryLanguage": "Swift",
+      "pushedAt": "2026-05-26T18:51:51Z",
+      "updatedAt": "2026-05-26T18:52:16Z",
+      "status": "ok"
+    },
+    {
       "id": "body",
       "title": "Body · iOS Health Visualization",
       "repo": "iJustinn/Body",
@@ -10,8 +23,8 @@
       "url": "https://github.com/iJustinn/Body",
       "homepage": "",
       "primaryLanguage": "Swift",
-      "pushedAt": "2026-05-25T16:50:31Z",
-      "updatedAt": "2026-05-24T23:52:24Z",
+      "pushedAt": "2026-05-26T18:46:40Z",
+      "updatedAt": "2026-05-26T18:47:04Z",
       "status": "ok"
     },
     {
@@ -25,19 +38,6 @@
       "primaryLanguage": "JavaScript",
       "pushedAt": "2026-05-25T01:51:00Z",
       "updatedAt": "2026-05-13T01:23:34Z",
-      "status": "ok"
-    },
-    {
-      "id": "task",
-      "title": "Task · iOS Task Manager",
-      "repo": "iJustinn/Task",
-      "name": "Task",
-      "description": "Life Management iOS app",
-      "url": "https://github.com/iJustinn/Task",
-      "homepage": "",
-      "primaryLanguage": "Swift",
-      "pushedAt": "2026-05-23T23:50:08Z",
-      "updatedAt": "2026-05-22T22:27:18Z",
       "status": "ok"
     },
     {
