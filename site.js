@@ -214,6 +214,25 @@
             }).join("");
           }
         }
+
+        const selectedList = document.querySelector("[data-selected-projects]");
+        const selectedMeta = document.querySelector("[data-selected-meta]");
+        if (selectedList || selectedMeta) {
+          const selected = projects.filter((project) => project.status !== "unavailable");
+          if (selected.length) {
+            if (selectedList) {
+              selectedList.textContent = selected.map(projectDisplayName).join(" · ");
+            }
+            if (selectedMeta) {
+              const count = String(selected.length).padStart(2, "0");
+              const langs = [...new Set(selected
+                .map((project) => project.primaryLanguage)
+                .filter(Boolean)
+                .map((lang) => lang.toLowerCase()))];
+              selectedMeta.innerHTML = `<span class="k">${count} entries</span> <span class="k">·</span> <span class="k">${escapeHtml(langs.join(", "))}</span>`;
+            }
+          }
+        }
       })
       .catch(() => {});
   }
