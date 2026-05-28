@@ -5,6 +5,7 @@
 
 /.quarto/
 .claude/
+.codegraph/
 LessonsLearned.md
 .DS_Store
 docs/
