@@ -7,6 +7,11 @@
       "title": "Task · iOS Task Manager"
     },
     {
+      "id": "task-mac",
+      "repo": "iJustinn/Task-Mac",
+      "title": "Task · macOS Task Manager"
+    },
+    {
       "id": "coin",
       "repo": "iJustinn/Coin",
       "title": "Coin · iOS Spending Tracker"

@@ -2,6 +2,32 @@
   "schemaVersion": 1,
   "projects": [
     {
+      "id": "task-mac",
+      "title": "Task · macOS Task Manager",
+      "repo": "iJustinn/Task-Mac",
+      "name": "Task-Mac",
+      "description": "",
+      "url": "https://github.com/iJustinn/Task-Mac",
+      "homepage": "",
+      "primaryLanguage": "Swift",
+      "pushedAt": "2026-05-30T19:44:59Z",
+      "updatedAt": "2026-05-30T19:24:12Z",
+      "status": "ok"
+    },
+    {
+      "id": "coin",
+      "title": "Coin · iOS Spending Tracker",
+      "repo": "iJustinn/Coin",
+      "name": "Coin",
+      "description": "Daily spending tracker.",
+      "url": "https://github.com/iJustinn/Coin",
+      "homepage": "",
+      "primaryLanguage": "Swift",
+      "pushedAt": "2026-05-30T17:00:19Z",
+      "updatedAt": "2026-05-16T04:53:19Z",
+      "status": "ok"
+    },
+    {
       "id": "body",
       "title": "Body · iOS Health Visualization",
       "repo": "iJustinn/Body",
@@ -38,19 +64,6 @@
       "primaryLanguage": "JavaScript",
       "pushedAt": "2026-05-28T21:11:03Z",
       "updatedAt": "2026-05-13T01:23:34Z",
-      "status": "ok"
-    },
-    {
-      "id": "coin",
-      "title": "Coin · iOS Spending Tracker",
-      "repo": "iJustinn/Coin",
-      "name": "Coin",
-      "description": "Daily spending tracker.",
-      "url": "https://github.com/iJustinn/Coin",
-      "homepage": "",
-      "primaryLanguage": "Swift",
-      "pushedAt": "2026-05-17T00:15:18Z",
-      "updatedAt": "2026-05-16T04:53:19Z",
       "status": "ok"
     },
     {
