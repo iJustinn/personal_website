@@ -169,7 +169,12 @@
     const title = (project.title || "").split(" · ")[0].trim();
     return title || project.name || project.repo || "";
   };
-  const projectLabel = (project) => LANG_LABEL[project.primaryLanguage] || project.primaryLanguage || "";
+  const PLATFORM_LABEL = /\b(iOS|iPadOS|macOS|watchOS|tvOS|visionOS|Android|Web)\b/;
+  const projectLabel = (project) => {
+    const platform = (project.title || "").match(PLATFORM_LABEL);
+    if (platform) return platform[1];
+    return LANG_LABEL[project.primaryLanguage] || project.primaryLanguage || "";
+  };
   if (projectCards.length || latestList) {
     fetch("projects-data.json", { cache: "no-store" })
       .then((response) => {
