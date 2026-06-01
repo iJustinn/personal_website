@@ -6,6 +6,8 @@
 /.quarto/
 .claude/
 .codegraph/
+.cursor/
+.omo/
 LessonsLearned.md
 .DS_Store
 docs/
