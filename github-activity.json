@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-02-15",
-    "to": "2026-06-01"
+    "to": "2026-06-02"
   },
   "weeks": [
     {
@@ -836,10 +836,10 @@
         },
         {
           "date": "2026-06-02",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 2,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-06-03",
@@ -890,5 +890,5 @@
       "label": "Jun"
     }
   ],
-  "generatedAt": "2026-06-01T11:11:16.653Z"
+  "generatedAt": "2026-06-02T10:06:19.954Z"
 }
