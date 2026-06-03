@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-02-15",
-    "to": "2026-06-02"
+    "to": "2026-06-03"
   },
   "weeks": [
     {
@@ -567,7 +567,7 @@
         {
           "date": "2026-04-28",
           "count": 17,
-          "level": 3,
+          "level": 2,
           "weekday": 2,
           "future": false
         },
@@ -675,7 +675,7 @@
         {
           "date": "2026-05-12",
           "count": 17,
-          "level": 3,
+          "level": 2,
           "weekday": 2,
           "future": false
         },
@@ -702,7 +702,7 @@
         },
         {
           "date": "2026-05-16",
-          "count": 7,
+          "count": 8,
           "level": 1,
           "weekday": 6,
           "future": false
@@ -768,14 +768,14 @@
       "days": [
         {
           "date": "2026-05-24",
-          "count": 22,
+          "count": 23,
           "level": 3,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-05-25",
-          "count": 1,
+          "count": 2,
           "level": 1,
           "weekday": 1,
           "future": false
@@ -789,8 +789,8 @@
         },
         {
           "date": "2026-05-27",
-          "count": 4,
-          "level": 1,
+          "count": 14,
+          "level": 2,
           "weekday": 3,
           "future": false
         },
@@ -803,14 +803,14 @@
         },
         {
           "date": "2026-05-29",
-          "count": 19,
+          "count": 22,
           "level": 3,
           "weekday": 5,
           "future": false
         },
         {
           "date": "2026-05-30",
-          "count": 33,
+          "count": 34,
           "level": 4,
           "weekday": 6,
           "future": false
@@ -822,31 +822,31 @@
       "days": [
         {
           "date": "2026-05-31",
-          "count": 15,
+          "count": 17,
           "level": 2,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-06-01",
-          "count": 0,
-          "level": 0,
+          "count": 9,
+          "level": 2,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-06-02",
-          "count": 0,
-          "level": 0,
+          "count": 16,
+          "level": 2,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-06-03",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 3,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-06-04",
@@ -890,5 +890,5 @@
       "label": "Jun"
     }
   ],
-  "generatedAt": "2026-06-02T10:06:19.954Z"
+  "generatedAt": "2026-06-03T10:44:36.382Z"
 }
