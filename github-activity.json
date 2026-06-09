@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-02-22",
-    "to": "2026-06-08"
+    "to": "2026-06-09"
   },
   "weeks": [
     {
@@ -829,17 +829,17 @@
         },
         {
           "date": "2026-06-08",
-          "count": 0,
-          "level": 0,
+          "count": 5,
+          "level": 1,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-06-09",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 2,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-06-10",
@@ -890,5 +890,5 @@
       "label": "Jun"
     }
   ],
-  "generatedAt": "2026-06-08T10:19:06.171Z"
+  "generatedAt": "2026-06-09T09:24:45.434Z"
 }
