@@ -17,6 +17,11 @@
       "title": "Coin · iOS Spending Tracker"
     },
     {
+      "id": "coin-backend",
+      "repo": "iJustinn/Coin-Backend",
+      "title": "Coin Backend · AI API on Cloudflare Workers"
+    },
+    {
       "id": "body",
       "repo": "iJustinn/Body",
       "title": "Body · iOS Health Visualization"
