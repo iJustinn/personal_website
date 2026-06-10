@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "projects": [
     {
+      "id": "body",
+      "title": "Body · iOS Health Visualization",
+      "repo": "iJustinn/Body",
+      "name": "Body",
+      "description": "Health data visualization app.",
+      "url": "https://github.com/iJustinn/Body",
+      "homepage": "",
+      "primaryLanguage": "Swift",
+      "pushedAt": "2026-06-10T03:02:00Z",
+      "updatedAt": "2026-06-05T23:04:03Z",
+      "status": "ok"
+    },
+    {
       "id": "coin-backend",
       "title": "Coin Backend · AI API on Cloudflare Workers",
       "repo": "iJustinn/Coin-Backend",
@@ -38,19 +51,6 @@
       "primaryLanguage": "Swift",
       "pushedAt": "2026-06-07T18:23:47Z",
       "updatedAt": "2026-06-02T00:21:22Z",
-      "status": "ok"
-    },
-    {
-      "id": "body",
-      "title": "Body · iOS Health Visualization",
-      "repo": "iJustinn/Body",
-      "name": "Body",
-      "description": "Health data visualization app.",
-      "url": "https://github.com/iJustinn/Body",
-      "homepage": "",
-      "primaryLanguage": "Swift",
-      "pushedAt": "2026-06-07T01:39:40Z",
-      "updatedAt": "2026-06-05T23:04:03Z",
       "status": "ok"
     },
     {
