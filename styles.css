@@ -1,5 +1,5 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Justin / Ziheng Zhong — personal site
+   Justin / Ziheng Zhong - personal site
    Engineering notebook aesthetic
    ───────────────────────────────────────────────────────────────────── */
 
@@ -201,15 +201,21 @@ body.no-cursor .cursor-coords { display: none; }
 
 @media (max-width: 520px) {
   .header-inner {
+    position: relative;
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 6px;
     padding-inline: 12px;
   }
   .brand .path,
-  .brand .blink,
-  .header-actions {
+  .brand .blink {
     display: none;
+  }
+  /* keep the theme toggle: pin it top-right, on the brand line */
+  .header-actions {
+    position: absolute;
+    top: 8px;
+    right: 12px;
   }
   .site-nav {
     justify-content: center;
@@ -236,7 +242,7 @@ body.no-cursor .cursor-coords { display: none; }
 [data-theme="dark"] .theme-toggle .moon { display: block; }
 
 /* ─────────────────────────────────────────────────────────────────────
-   LAYOUT — sticky sidebar + main column
+   LAYOUT - sticky sidebar + main column
    ───────────────────────────────────────────────────────────────────── */
 
 .shell {
@@ -609,6 +615,23 @@ body.no-cursor .cursor-coords { display: none; }
   flex-wrap: wrap;
   gap: 6px;
   align-items: baseline;
+}
+/* phones: the auto-fit strip collapses to one column and sprawls;
+   show a compact key-value ledger instead */
+@media (max-width: 520px) {
+  .hero .meta-grid { grid-template-columns: 1fr; }
+  .hero .meta-grid .cell {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 12px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  .hero .meta-grid .cell + .cell { padding-left: 0; }
+  .hero .meta-grid .cell:last-child { border-bottom: 0; }
+  .hero .meta-grid .k { margin-bottom: 0; }
 }
 
 /* ── Prose block ── */
