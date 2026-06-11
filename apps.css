@@ -1,9 +1,9 @@
 /* ─────────────────────────────────────────────────────────────────────
-   Apps page — page-scoped styles
+   Apps page - page-scoped styles
    Reuses site CSS vars + aesthetic from styles.css
    ───────────────────────────────────────────────────────────────────── */
 
-/* Single-column shell — no sidebar; keep .shell left hairline (::before) */
+/* Single-column shell - no sidebar; keep .shell left hairline (::before) */
 .apps-shell { display: block; }
 
 /* ── ls strip (terminal jump nav) ── */
@@ -89,7 +89,7 @@
   margin: 0 0 20px;
 }
 
-/* helper classes — recreated scoped under .app-section
+/* helper classes - recreated scoped under .app-section
    (styles.css defines these only under .project) */
 .app-section .row-k {
   font-size: 11px;
@@ -190,7 +190,27 @@
   }
 }
 
-/* ── Real-screenshot previews under each mockup ── */
+/* phones: meta strip becomes the same key-value ledger as the home hero */
+@media (max-width: 520px) {
+  .app-meta { grid-template-columns: 1fr; }
+  .app-meta .cell {
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 3px 12px;
+    align-items: baseline;
+    padding: 10px 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--hair);
+  }
+  /* label left; every value line (incl. injected repo facts) stacks right */
+  .app-meta .cell > * { grid-column: 2; }
+  .app-meta .cell > .row-k { grid-column: 1; grid-row: 1; margin-bottom: 0; }
+  .app-meta .cell + .cell { padding-left: 0; }
+  .app-meta .cell:last-child { border-bottom: 0; }
+}
+
+/* ── Real-screenshot thumb links - kept hidden; touch devices use the
+   tap-to-reveal line instead ── */
 .device-slot {
   display: flex;
   flex-direction: column;
@@ -219,10 +239,8 @@
 }
 .shot:hover img { border-color: var(--accent); transform: translateY(-2px); }
 .shot:hover .shot-cap { color: var(--accent); }
-html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
-[data-theme="dark"] .shot-dark { display: inline-flex; }
 
-/* x-ray hint under each device; thumbs only where hover can't lens */
+/* x-ray hint under each device (hover devices only) */
 .xray-hint {
   font-family: var(--mono);
   font-size: 10px;
@@ -230,15 +248,31 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
   letter-spacing: 0.06em;
   margin-top: 14px;
 }
-@media (hover: hover) {
-  .shot { display: none !important; }
+
+/* tap-to-reveal line - touch devices only; tapping melts the mockup
+   away to the real screenshot (see .dv-revealed) and toggles back */
+.tap-reveal {
+  display: none;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  margin-top: 10px;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
 }
+.tap-reveal .tr-back { display: none; }
+.device-slot.dv-shown .tr-show { display: none; }
+.device-slot.dv-shown .tr-back { display: inline; }
 @media (hover: none) {
   .xray-hint { display: none; }
+  .tap-reveal { display: block; }
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   Device previews — SwiftUI-shaped mockups in the site palette
+   Device previews - SwiftUI-shaped mockups in the site palette
    Shapes/placement mirror the real apps; every color derives from the
    site vars (accent ramp via color-mix), so both themes stay consistent.
    ───────────────────────────────────────────────────────────────────── */
@@ -305,7 +339,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
   flex-shrink: 0;
 }
 
-/* tag chips — shared shape recipe; classes pick fill vs outline */
+/* tag chips - shared shape recipe; classes pick fill vs outline */
 .dv-tag {
   font-size: 6px;
   padding: 1px 4px;
@@ -329,7 +363,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
 .dv button:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
 
 /* ─────────────────────────────────────────────────────────────────────
-   1 · Task for iOS — Kanban board
+   1 · Task for iOS - Kanban board
    ───────────────────────────────────────────────────────────────────── */
 
 .dv-task-head {
@@ -463,7 +497,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
   transform: translateX(-50%);
   z-index: 3;
 }
-/* floating nav buttons — white circles, hairline, soft shadow (matches app) */
+/* floating nav buttons - white circles, hairline, soft shadow (matches app) */
 .dv-navbtn {
   width: 30px;
   height: 30px;
@@ -513,7 +547,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   3 · Coin — spending tracker home
+   3 · Coin - spending tracker home
    ───────────────────────────────────────────────────────────────────── */
 
 .dv-total {
@@ -597,7 +631,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
   stroke-width: 2.5;
   stroke-linecap: round;
 }
-/* week arcs — accent intensity ramp */
+/* week arcs - accent intensity ramp */
 .dv-arc-red { stroke: var(--dv-a); }
 .dv-arc-orange { stroke: var(--dv-a82); }
 .dv-arc-green { stroke: var(--dv-a64); }
@@ -682,7 +716,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
 .dv-coin-add:hover { transform: translateX(-50%) translateY(-1px); }
 .dv-coin-add:active { transform: translateX(-50%) scale(0.95); }
 
-/* ── Coin tab bar — floating segmented pill, content scrolls behind ── */
+/* ── Coin tab bar - floating segmented pill, content scrolls behind ── */
 .dv-tabbar {
   position: absolute;
   left: 14px;
@@ -733,7 +767,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
 }
 
 /* ─────────────────────────────────────────────────────────────────────
-   4 · Body — health dashboard, Activity Rings
+   4 · Body - health dashboard, Activity Rings
    ───────────────────────────────────────────────────────────────────── */
 
 .dv-rings-card {
@@ -825,7 +859,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
   background: var(--accent-soft);
 }
 
-/* floating capsule tab bar (Body) — content scrolls behind it */
+/* floating capsule tab bar (Body) - content scrolls behind it */
 .dv-capsule {
   position: absolute;
   left: 50%;
@@ -865,7 +899,7 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
 .dv-cap-on { background: var(--accent-soft); color: var(--accent); }
 
 /* ─────────────────────────────────────────────────────────────────────
-   X-ray lens — hovering a screen reveals the real UI underneath
+   X-ray lens - hovering a screen reveals the real UI underneath
    The real screenshot sits under the mockup; a radial mask follows the
    cursor and cuts a hole in the fake layer.
    ───────────────────────────────────────────────────────────────────── */
@@ -930,8 +964,21 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
 }
 .dv-xray.dv-lensing .dv-lens { opacity: 0.9; }
 
+/* tap melt (touch) - same mask as the lens, radius blown past the corners.
+   .dv-melt keeps the mask + transition mounted so the reverse animates too;
+   .dv-revealed toggles the radius. */
+.dv-xray.dv-melt {
+  transition: --dv-r 700ms ease;
+}
+.dv-xray.dv-melt .dv-fake {
+  -webkit-mask-image: radial-gradient(circle at var(--dv-mx) var(--dv-my), transparent calc(var(--dv-r) * 0.8), #000 var(--dv-r));
+  mask-image: radial-gradient(circle at var(--dv-mx) var(--dv-my), transparent calc(var(--dv-r) * 0.8), #000 var(--dv-r));
+}
+.dv-xray.dv-revealed { --dv-r: 720px; }
+.dv-xray.dv-revealed .dv-fake { pointer-events: none; }
+
 /* ─────────────────────────────────────────────────────────────────────
-   Reduced motion — kill device animations
+   Reduced motion - kill device animations
    ───────────────────────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
@@ -942,16 +989,20 @@ html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
   .dv-refresh,
   .dv-met,
   .dv-xray,
+  .dv-xray.dv-melt,
   .dv-lens,
   .dv-coin-add {
     transition: none;
   }
 }
 
-/* ── Narrow viewport — scale phones so fixed-px content never clips ── */
+/* ── Narrow viewport - scale phones so fixed-px content never clips.
+   The transform leaves the layout box full-height, so pull what follows
+   back up by the 8% the phone shrank (560px frame ≈ 45px). ── */
 @media (max-width: 380px) {
   .dv-phone {
     transform: scale(0.92);
     transform-origin: top center;
+    margin-bottom: -45px;
   }
 }

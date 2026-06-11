@@ -1,4 +1,4 @@
-/* Device preview interactions — apps page mockups.
+/* Device preview interactions - apps page mockups.
    One IIFE, vanilla JS, no deps. Every querySelector null-guarded so it
    no-ops on pages without the mockups. Hooks via data-dv-* attributes. */
 (function () {
@@ -40,7 +40,7 @@
     requestAnimationFrame(frame);
   }
 
-  /* ── 1 · Task for iOS — checkbox toggle, reorder, live counts ── */
+  /* ── 1 · Task for iOS - checkbox toggle, reorder, live counts ── */
   function initTaskIOS() {
     var root = document.querySelector('[data-dv="task-ios"]');
     if (!root) return;
@@ -71,7 +71,7 @@
     });
   }
 
-  /* ── 3 · Coin — count-up total, add-expense button ── */
+  /* ── 3 · Coin - count-up total, add-expense button ── */
   function initCoin() {
     var root = document.querySelector('[data-dv="coin"]');
     if (!root) return;
@@ -131,7 +131,7 @@
     });
   }
 
-  /* ── 4 · Body — animated Activity Rings, refresh randomizes ── */
+  /* ── 4 · Body - animated Activity Rings, refresh randomizes ── */
   function initBody() {
     var root = document.querySelector('[data-dv="body"]');
     if (!root) return;
@@ -197,7 +197,7 @@
     });
   }
 
-  /* ── X-ray lens — hover cuts through the mockup to the real UI ── */
+  /* ── X-ray lens - hover cuts through the mockup to the real UI ── */
   function initXray() {
     if (!(window.matchMedia && window.matchMedia("(hover: hover)").matches)) return;
     $$(".dv-xray").forEach(function (sc) {
@@ -211,8 +211,31 @@
     });
   }
 
+  /* ── Tap reveal - touch devices: the line under a phone melts the mockup
+     away to the real UI; a second tap melts it back ── */
+  function initTapReveal() {
+    if (window.matchMedia && window.matchMedia("(hover: hover)").matches) return;
+    $$("[data-dv-reveal]").forEach(function (btn) {
+      var slot = btn.closest(".device-slot");
+      var sc = slot ? slot.querySelector(".dv-xray") : null;
+      if (!sc) return;
+      btn.addEventListener("click", function () {
+        var on = !sc.classList.contains("dv-revealed");
+        if (on) {
+          // melt origin: bottom center of the screen, nearest the tapped line
+          sc.style.setProperty("--dv-mx", sc.clientWidth / 2 + "px");
+          sc.style.setProperty("--dv-my", sc.clientHeight + "px");
+          sc.classList.add("dv-melt");
+        }
+        sc.classList.toggle("dv-revealed", on);
+        slot.classList.toggle("dv-shown", on);
+      });
+    });
+  }
+
   initTaskIOS();
   initCoin();
   initBody();
   initXray();
+  initTapReveal();
 })();
