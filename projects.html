@@ -150,7 +150,7 @@
             Centralized AI backend for the Coin iOS app. Sign in with Apple mints session tokens
             gated by full App Attest hardware attestation — the certificate chain is verified against
             Apple's pinned App Attest Root CA — and a Hono router on Cloudflare Workers proxies
-            expense-extraction calls to Gemini, then DeepSeek, with keys held server-side. D1 stores
+            expense-extraction calls to upstream AI models, with keys held server-side. D1 stores
             hashed sessions and metered usage.
           </p>
         </div>
@@ -185,9 +185,8 @@
             Built a local-first spending tracker with fast expense entry, voice and receipt/screenshot
             capture, monthly budgets, category analytics, subscriptions, widgets, Siri Shortcuts,
             multi-currency reporting, and JSON import/export. AI spending insights and a conversational
-            Ask Insights chat run on-device via Apple Intelligence, with a custom Cloudflare Workers
-            backend (Sign in with Apple + App Attest, D1, Gemini/DeepSeek) powering AI for devices
-            without on-device models.
+            Ask Insights chat run on a custom Cloudflare Workers backend (Sign in with Apple +
+            App Attest, D1), with on-device Apple Intelligence as a fallback.
             Currently in <a href="https://testflight.apple.com/join/nKrsTP3b" style="color:#2563eb" target="_blank" rel="noopener">TestFlight</a> testing.
           </p>
         </div>
