@@ -229,12 +229,11 @@
               selectedList.textContent = selected.map(projectDisplayName).join(" · ");
             }
             if (selectedMeta) {
-              const count = String(selected.length).padStart(2, "0");
               const langs = [...new Set(selected
                 .map((project) => project.primaryLanguage)
                 .filter(Boolean)
                 .map((lang) => lang.toLowerCase()))];
-              selectedMeta.innerHTML = `<span class="k">${count} entries</span> <span class="k">·</span> <span class="k">${escapeHtml(langs.join(", "))}</span>`;
+              selectedMeta.innerHTML = `<span class="k">${escapeHtml(langs.join(", "))}</span>`;
             }
           }
         }

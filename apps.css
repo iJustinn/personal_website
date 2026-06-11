@@ -1,0 +1,957 @@
+/* ─────────────────────────────────────────────────────────────────────
+   Apps page — page-scoped styles
+   Reuses site CSS vars + aesthetic from styles.css
+   ───────────────────────────────────────────────────────────────────── */
+
+/* Single-column shell — no sidebar; keep .shell left hairline (::before) */
+.apps-shell { display: block; }
+
+/* ── ls strip (terminal jump nav) ── */
+.ls-strip {
+  margin-top: 28px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.ls-prompt {
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.ls-prompt .prompt { color: var(--accent); margin-right: 6px; }
+.ls-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+}
+.ls-row a {
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+.ls-row a .idx {
+  color: var(--faint);
+  margin-right: 6px;
+  transition: color 160ms;
+}
+.ls-row a:hover { color: var(--accent); }
+.ls-row a:hover .idx { color: var(--accent); }
+
+/* ── App icon + platform chip in section headings ── */
+.app-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--hair);
+  vertical-align: -8px;
+  margin-right: 10px;
+  display: inline-block;
+}
+.platform-chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  border: 1px solid var(--hair);
+  padding: 2px 8px;
+  letter-spacing: 0.06em;
+  vertical-align: 6px;
+  margin-left: 10px;
+}
+
+/* ── App layout grid ── */
+.app-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(32px, 4vw, 64px);
+  align-items: start;
+}
+.app-grid.flip {
+  grid-template-columns: auto minmax(0, 1fr);
+}
+.app-grid.flip .device-slot { order: -1; }
+
+.device-slot {
+  justify-self: center;
+  align-self: start;
+  min-width: 0;
+}
+
+/* ── App info column ── */
+.app-info .tagline {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  margin-bottom: 12px;
+}
+.app-info .desc {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 58ch;
+  margin: 0 0 20px;
+}
+
+/* helper classes — recreated scoped under .app-section
+   (styles.css defines these only under .project) */
+.app-section .row-k {
+  font-size: 11px;
+  color: var(--faint);
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+}
+.app-section .row-v {
+  font-size: 11px;
+  color: var(--ink);
+}
+.app-section .stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.app-section .lang {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 2px 6px;
+  border: 1px solid var(--hair);
+  color: var(--ink);
+  letter-spacing: 0.04em;
+}
+.app-section .lang.primary {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.app-section .repo-meta {
+  display: grid;
+  gap: 3px;
+}
+.app-section .repo-link {
+  font-size: 11px;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+  transition: color 160ms;
+}
+.app-section .repo-link:hover { color: var(--accent); }
+.app-section .repo-fact {
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: var(--muted);
+}
+
+/* ── Feature list ── */
+.feat-block { margin-bottom: 20px; }
+.feat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+}
+.feat-list li {
+  display: grid;
+  grid-template-columns: 18px 1fr;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--ink);
+  line-height: 1.55;
+  align-items: baseline;
+  max-width: 58ch;
+}
+.feat-list .k { color: var(--accent); }
+
+/* ── Meta strip ── */
+.app-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, max-content));
+  gap: 0;
+  border-top: 1px solid var(--hair);
+  border-bottom: 1px solid var(--hair);
+  margin: 20px 0;
+}
+.app-meta .cell {
+  padding: 12px 20px 12px 0;
+  border-right: 1px solid var(--hair);
+}
+.app-meta .cell + .cell { padding-left: 20px; }
+.app-meta .cell:last-child { border-right: 0; }
+
+.stack-block { margin-bottom: 24px; }
+
+/* ── Responsive ── */
+@media (max-width: 980px) {
+  .app-grid,
+  .app-grid.flip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-grid.flip .device-slot { order: 99; }
+  .device-slot {
+    justify-self: center;
+    margin-top: 8px;
+  }
+}
+
+/* ── Real-screenshot previews under each mockup ── */
+.device-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.shot {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  margin-top: 20px;
+}
+.shot img {
+  height: 170px;
+  width: auto;
+  border: 1px solid var(--hair);
+  border-radius: 10px;
+  display: block;
+  transition: border-color 160ms, transform 160ms;
+}
+.shot .shot-cap {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+.shot:hover img { border-color: var(--accent); transform: translateY(-2px); }
+.shot:hover .shot-cap { color: var(--accent); }
+html:not([data-theme="dark"]) .shot-light { display: inline-flex; }
+[data-theme="dark"] .shot-dark { display: inline-flex; }
+
+/* x-ray hint under each device; thumbs only where hover can't lens */
+.xray-hint {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--faint);
+  letter-spacing: 0.06em;
+  margin-top: 14px;
+}
+@media (hover: hover) {
+  .shot { display: none !important; }
+}
+@media (hover: none) {
+  .xray-hint { display: none; }
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   Device previews — SwiftUI-shaped mockups in the site palette
+   Shapes/placement mirror the real apps; every color derives from the
+   site vars (accent ramp via color-mix), so both themes stay consistent.
+   ───────────────────────────────────────────────────────────────────── */
+
+/* ── Palette ramp (scoped) ── */
+.dv {
+  --dv-a: var(--accent);
+  --dv-a82: color-mix(in oklab, var(--accent) 82%, var(--bg));
+  --dv-a64: color-mix(in oklab, var(--accent) 64%, var(--bg));
+  --dv-a50: color-mix(in oklab, var(--accent) 50%, var(--bg));
+  --dv-a38: color-mix(in oklab, var(--accent) 38%, var(--bg));
+  --dv-a28: color-mix(in oklab, var(--accent) 28%, var(--bg));
+  --dv-shadow: color-mix(in oklab, var(--ink) 10%, transparent);
+}
+
+/* ── Shared device frame (site-themed) ── */
+.dv {
+  font-family: var(--mono);
+  color: var(--ink);
+  cursor: default;
+  -webkit-font-smoothing: antialiased;
+}
+.dv *,
+.dv *::before,
+.dv *::after { box-sizing: border-box; }
+
+.dv-phone {
+  width: 270px;
+  max-width: 100%;
+  border: 1px solid var(--ink);
+  border-radius: 30px;
+  padding: 9px;
+  background: var(--bg);
+  box-shadow: 8px 8px 0 color-mix(in oklab, var(--ink) 14%, transparent);
+}
+/* Screen interiors use the system font stack for a SwiftUI feel */
+.dv-screen {
+  position: relative;
+  border: 1px solid var(--hair);
+  border-radius: 22px;
+  overflow: hidden;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+}
+.dv-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  color: var(--ink);
+  padding: 8px 14px 4px;
+  letter-spacing: 0.02em;
+  font-weight: 600;
+}
+.dv-home {
+  width: 64px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--faint);
+  margin: 6px auto 8px;
+  flex-shrink: 0;
+}
+
+/* tag chips — shared shape recipe; classes pick fill vs outline */
+.dv-tag {
+  font-size: 6px;
+  padding: 1px 4px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.dv-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+/* accent-fill chips */
+.dv-tg-green,
+.dv-tg-orange { background: var(--accent-soft); color: var(--accent); }
+/* hairline-outline chips */
+.dv-tg-blue,
+.dv-tg-yellow,
+.dv-tg-teal { border-color: var(--hair); color: var(--muted); }
+
+/* interactive button affordances */
+.dv button { cursor: pointer; }
+.dv button:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+
+/* ─────────────────────────────────────────────────────────────────────
+   1 · Task for iOS — Kanban board
+   ───────────────────────────────────────────────────────────────────── */
+
+.dv-task-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 7px 14px 3px;
+  gap: 8px;
+}
+.dv-task-titles {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 7px;
+  align-items: center;
+}
+.dv-task-emoji { grid-row: 1 / 3; font-size: 13px; line-height: 1; }
+.dv-task-titles .dv-task-title,
+.dv-task-titles .dv-task-sub { grid-column: 2; }
+.dv-task-title {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.1;
+}
+.dv-task-sub { font-size: 7.5px; color: var(--muted); }
+.dv-task-tools { display: flex; gap: 9px; align-items: center; }
+.dv-glyphbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--ink);
+}
+
+.dv-kanban {
+  display: flex;
+  gap: 7px;
+  padding: 0 11px;
+  overflow: hidden;
+  flex: 1;
+}
+.dv-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.dv-col-head {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1px;
+}
+.dv-chip {
+  padding: 2px 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-size: 8.5px;
+  font-weight: 700;
+}
+.dv-chip-wait { background: var(--accent-soft); color: var(--accent); }
+.dv-chip-doing { border-color: var(--hair); color: var(--muted); }
+.dv-count { font-size: 9px; color: var(--muted); }
+.dv-col-flag { font-size: 8px; color: var(--accent); }
+.dv-col-more { font-size: 9px; color: var(--faint); margin-left: auto; }
+
+.dv-stack { display: flex; flex-direction: column; gap: 5px; }
+.dv-card {
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 11px;
+  padding: 5px 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  opacity: 1;
+  box-shadow: 0 1px 2px var(--dv-shadow);
+  transition: opacity 200ms ease;
+}
+.dv-card-top { display: flex; align-items: flex-start; gap: 5px; }
+.dv-check {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  border: 1px solid var(--faint);
+  border-radius: 3.5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7px;
+  line-height: 1;
+  color: transparent;
+  background: transparent;
+  transition: background 160ms, border-color 160ms;
+}
+.dv-check:hover { border-color: var(--accent); }
+.dv-card-title {
+  font-size: 7.5px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.dv-todo { font-size: 7px; color: var(--muted); }
+.dv-date { font-size: 7px; color: var(--muted); }
+.dv-date-past { color: var(--faint); }
+.dv-date-soon { color: var(--accent); }
+
+.dv-card.dv-done { opacity: 0.55; }
+.dv-card.dv-done .dv-card-title {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+.dv-card.dv-done .dv-check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--bg);
+}
+
+.dv-task-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 8px 12px 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  z-index: 1;
+}
+.dv-task .dv-home {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+/* floating nav buttons — white circles, hairline, soft shadow (matches app) */
+.dv-navbtn {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  box-shadow: 0 2px 7px var(--dv-shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+}
+.dv-navbtn-add { font-size: 17px; line-height: 1; }
+.dv-navbtn-glyph { font-size: 13px; line-height: 1; }
+.dv-navbtn svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dv-search-pill {
+  flex: 1;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 15px;
+  box-shadow: 0 2px 7px var(--dv-shadow);
+  padding: 0 11px;
+  color: var(--faint);
+  font-size: 9px;
+}
+.dv-search-ico {
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: var(--faint);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   3 · Coin — spending tracker home
+   ───────────────────────────────────────────────────────────────────── */
+
+.dv-total {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 35px;
+}
+.dv-total-sub { text-align: center; font-size: 8px; color: var(--muted); margin-top: 3px; }
+
+.dv-coin-sec-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 18px 14px 8px;
+}
+/* real app: bigger gap above "Spending Pace", tighter above "Recent Week" */
+.dv-total-sub + .dv-coin-sec-label { margin-top: 26px; }
+.dv-pace + .dv-coin-sec-label { margin-top: 6px; }
+.dv-pace {
+  margin: 0 14px;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  padding: 11px 12px;
+}
+.dv-pace-row { display: flex; justify-content: space-between; align-items: baseline; }
+.dv-pace-label { font-size: 9px; font-weight: 700; color: var(--accent); }
+.dv-pace-label.dv-over { color: var(--ink); }
+.dv-pace-ideal { font-size: 8px; color: var(--muted); }
+.dv-pace-mid { display: flex; align-items: center; gap: 8px; margin-top: 6px; }
+.dv-pace-pct { font-size: 8px; color: var(--accent); flex-shrink: 0; }
+.dv-pace-track {
+  flex: 1;
+  height: 5px;
+  background: var(--hair);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.dv-pace-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width 500ms ease;
+}
+
+.dv-week {
+  display: flex;
+  justify-content: space-between;
+  margin: 4px 14px 0;
+  padding: 12px 8px 10px;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+}
+.dv-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.dv-day-lbl { font-size: 6.5px; color: var(--muted); }
+.dv-day-lbl.dv-today-lbl { color: var(--accent); font-weight: 700; }
+.dv-day-plain {
+  width: 20px;
+  height: 20px;
+  color: var(--ink);
+  font-size: 7.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.dv-ringlet { width: 20px; height: 20px; }
+.dv-ringlet-track { fill: none; stroke: var(--hair); stroke-width: 2.5; }
+.dv-ringlet-arc {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+/* week arcs — accent intensity ramp */
+.dv-arc-red { stroke: var(--dv-a); }
+.dv-arc-orange { stroke: var(--dv-a82); }
+.dv-arc-green { stroke: var(--dv-a64); }
+.dv-arc-purple { stroke: var(--dv-a50); }
+.dv-arc-pink { stroke: var(--dv-a38); }
+.dv-arc-teal { stroke: var(--dv-a28); }
+.dv-day-num {
+  font-size: 7px;
+  font-weight: 600;
+  fill: var(--ink);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+.dv-day-today {
+  width: 20px;
+  height: 20px;
+  color: var(--ink);
+  font-size: 8.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dv-feed {
+  margin: 18px 14px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.dv-exp {
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  padding: 10px 10px;
+}
+.dv-exp-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.dv-exp-mid { display: flex; flex-direction: column; min-width: 0; }
+.dv-exp-name { font-size: 8.5px; font-weight: 600; color: var(--ink); }
+.dv-exp-sub { font-size: 7px; color: var(--muted); }
+.dv-exp-right { display: flex; flex-direction: column; align-items: flex-end; gap: 1px; }
+.dv-exp-amt { font-size: 9px; font-weight: 700; color: var(--ink); }
+.dv-exp-amt-sub { font-size: 6.5px; color: var(--muted); }
+.dv-exp.dv-enter { opacity: 0; transform: translateY(-4px); }
+.dv-exp {
+  transition: opacity 240ms ease, transform 240ms ease;
+}
+
+.dv-coin-add {
+  position: absolute;
+  left: 50%;
+  bottom: 62px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--hair);
+  font-size: 16px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px color-mix(in oklab, var(--ink) 25%, transparent);
+  transform: translateX(-50%);
+  transition: transform 120ms ease;
+  z-index: 2;
+}
+.dv-coin-add:hover { transform: translateX(-50%) translateY(-1px); }
+.dv-coin-add:active { transform: translateX(-50%) scale(0.95); }
+
+/* ── Coin tab bar — floating segmented pill, content scrolls behind ── */
+.dv-tabbar {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  background: color-mix(in oklab, var(--paper) 94%, transparent);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  box-shadow: 0 3px 10px var(--dv-shadow);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 2px;
+  padding: 5px 6px;
+  z-index: 1;
+}
+.dv-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 26px;
+  border-radius: 9px;
+  color: var(--ink);
+}
+.dv-tab svg {
+  width: 16px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dv-tab svg circle { fill: currentColor; stroke: none; }
+.dv-tab-ico { font-size: 13px; line-height: 1; font-weight: 700; }
+.dv-tab-on { color: var(--accent); background: var(--accent-soft); }
+.dv-coin .dv-home,
+.dv-body .dv-home {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  margin: 0;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+/* ─────────────────────────────────────────────────────────────────────
+   4 · Body — health dashboard, Activity Rings
+   ───────────────────────────────────────────────────────────────────── */
+
+.dv-rings-card {
+  margin: 4px 14px 3px;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  padding: 11px 12px;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  grid-template-areas: "title values" "rings values";
+  gap: 7px 8px;
+  align-items: start;
+}
+.dv-rings-title {
+  grid-area: title;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.dv-rings { grid-area: rings; width: 88px; height: 88px; align-self: center; cursor: pointer; }
+.dv-ring-track { fill: none; stroke-width: 7; }
+.dv-ring-track-move { stroke: color-mix(in oklab, var(--accent) 20%, var(--bg)); }
+.dv-ring-track-ex { stroke: color-mix(in oklab, var(--accent) 13%, var(--bg)); }
+.dv-ring-track-stand { stroke: color-mix(in oklab, var(--accent) 8%, var(--bg)); }
+.dv-ring {
+  fill: none;
+  stroke-width: 7;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 900ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.dv-ring-move { stroke: var(--dv-a); }
+.dv-ring-ex { stroke: var(--dv-a64); }
+.dv-ring-stand { stroke: var(--dv-a38); }
+
+.dv-ring-rows { grid-area: values; align-self: start; display: flex; flex-direction: column; gap: 8px; }
+.dv-ring-lbl {
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.dv-ring-val { font-size: 11px; font-weight: 700; color: var(--ink); }
+.dv-ring-unit { font-size: 6.5px; font-weight: 400; color: var(--muted); }
+
+.dv-mets {
+  margin: 0 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.dv-met {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  padding: 9px 10px;
+  min-height: 62px;
+  transition: border-color 160ms, transform 160ms;
+}
+.dv-met:hover { border-color: var(--dv-a50); transform: translateY(-1px); }
+.dv-met-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.dv-met-name { font-size: 7.5px; font-weight: 600; color: var(--ink); }
+.dv-spark { width: 36px; height: 14px; flex-shrink: 0; }
+.dv-spark polyline { fill: none; stroke: var(--faint); stroke-width: 1.5; }
+.dv-spark circle { fill: var(--accent); }
+.dv-met-row { display: flex; align-items: baseline; gap: 3px; margin-top: 2px; }
+.dv-met-v { font-size: 13px; font-weight: 800; color: var(--ink); }
+.dv-met-u { font-size: 6.5px; color: var(--muted); text-transform: uppercase; }
+.dv-met-sub { font-size: 7px; color: var(--muted); margin-top: 1px; }
+.dv-met-ico {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  line-height: 1;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+
+/* floating capsule tab bar (Body) — content scrolls behind it */
+.dv-capsule {
+  position: absolute;
+  left: 50%;
+  bottom: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 7px;
+  background: color-mix(in oklab, var(--paper) 94%, transparent);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  box-shadow: 0 3px 10px var(--dv-shadow);
+  z-index: 2;
+}
+.dv-cap-seg {
+  width: 30px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: var(--faint);
+}
+.dv-cap-seg svg {
+  width: 17px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dv-cap-seg svg circle { fill: currentColor; stroke: none; }
+.dv-cap-on { background: var(--accent-soft); color: var(--accent); }
+
+/* ─────────────────────────────────────────────────────────────────────
+   X-ray lens — hovering a screen reveals the real UI underneath
+   The real screenshot sits under the mockup; a radial mask follows the
+   cursor and cuts a hole in the fake layer.
+   ───────────────────────────────────────────────────────────────────── */
+
+@property --dv-r {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+.dv-xray {
+  position: relative;
+  --dv-mx: -200px;
+  --dv-my: -200px;
+  --dv-r: 0px;
+  transition: --dv-r 300ms ease;
+}
+.dv-xray.dv-lensing { --dv-r: 78px; }
+
+.dv-real {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.dv-real img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.dv-real .dv-real-dark { display: none; }
+[data-theme="dark"] .dv-real .dv-real-light { display: none; }
+[data-theme="dark"] .dv-real .dv-real-dark { display: block; }
+
+.dv-fake {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+}
+
+.dv-xray.dv-lensing .dv-fake {
+  -webkit-mask-image: radial-gradient(circle at var(--dv-mx) var(--dv-my), transparent calc(var(--dv-r) * 0.8), #000 var(--dv-r));
+  mask-image: radial-gradient(circle at var(--dv-mx) var(--dv-my), transparent calc(var(--dv-r) * 0.8), #000 var(--dv-r));
+}
+
+.dv-lens {
+  position: absolute;
+  left: var(--dv-mx);
+  top: var(--dv-my);
+  width: calc(var(--dv-r) * 2);
+  height: calc(var(--dv-r) * 2);
+  transform: translate(-50%, -50%);
+  border: 1px dashed var(--accent);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.dv-xray.dv-lensing .dv-lens { opacity: 0.9; }
+
+/* ─────────────────────────────────────────────────────────────────────
+   Reduced motion — kill device animations
+   ───────────────────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .dv-ring,
+  .dv-pace-fill,
+  .dv-exp,
+  .dv-card,
+  .dv-refresh,
+  .dv-met,
+  .dv-xray,
+  .dv-lens,
+  .dv-coin-add {
+    transition: none;
+  }
+}
+
+/* ── Narrow viewport — scale phones so fixed-px content never clips ── */
+@media (max-width: 380px) {
+  .dv-phone {
+    transform: scale(0.92);
+    transform-origin: top center;
+  }
+}
