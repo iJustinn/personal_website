@@ -7,6 +7,11 @@
       "title": "Task · iOS Task Manager"
     },
     {
+      "id": "task-backend",
+      "repo": "iJustinn/Task-Backend",
+      "title": "Task Backend · AI API on Cloudflare Workers"
+    },
+    {
       "id": "task-mac",
       "repo": "iJustinn/Task-Mac",
       "title": "Task · macOS Task Manager"

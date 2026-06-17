@@ -108,16 +108,17 @@
       </div>
       <div class="sec-rule" data-ascii-rule="─"></div>
 
-      <article class="project" data-hoverable data-project-id="body" data-repo="iJustinn/Body">
+      <article class="project" data-hoverable data-project-id="task" data-repo="iJustinn/Task">
         <div class="idx">[01]</div>
         <div class="body">
-          <h3 class="title">Body · iOS Health Visualization</h3>
-          <div class="tagline">Privacy-focused health app · SwiftUI / HealthKit</div>
+          <h3 class="title">Task · iOS Task Manager</h3>
+          <div class="tagline">Privacy-focused iOS app · SwiftUI / SwiftData</div>
           <p class="desc">
-            Built a local-first Apple Health dashboard for workouts, Activity Rings, sleep, energy,
-            body measurements, daylight, steps, and vitals, with WidgetKit calendar widgets, range-based
-            charts, workout history, and local snapshot storage for widget data.
-            Currently in <a href="https://testflight.apple.com/join/TcnkMktz" style="color:#2563eb" target="_blank" rel="noopener">TestFlight</a> testing.
+            Built a local-first task manager with multiple Kanban boards, a Notion-style editor for
+            status, tags, working dates and due dates with Markdown checklists, per-task local
+            reminders, board-wide search, multi-board JSON export/import, and an Upcoming Tasks
+            home-screen widget.
+            Currently in internal TestFlight testing; <a href="mailto:zihengthedeveloper@gmail.com?subject=Task%20TestFlight%20beta" style="color:#2563eb">email me</a> to become a tester.
           </p>
         </div>
         <div class="side">
@@ -130,29 +131,29 @@
             <div class="stack">
               <span class="lang primary">Swift</span>
               <span class="lang">SwiftUI</span>
-              <span class="lang">HealthKit</span>
+              <span class="lang">SwiftData</span>
               <span class="lang">WidgetKit</span>
             </div>
           </div>
           <div class="repo-meta" data-project-meta>
             <div class="row-k">GITHUB</div>
-            <a class="repo-link" href="https://github.com/iJustinn/Body" target="_blank" rel="noopener">iJustinn/Body</a>
+            <a class="repo-link" href="https://github.com/iJustinn/Task" target="_blank" rel="noopener">iJustinn/Task</a>
           </div>
         </div>
-        <a class="arrow" href="https://github.com/iJustinn/Body" target="_blank" rel="noopener" aria-label="Open Body on GitHub">↗</a>
+        <a class="arrow" href="https://github.com/iJustinn/Task" target="_blank" rel="noopener" aria-label="Open Task on GitHub">↗</a>
       </article>
 
-      <article class="project" data-hoverable data-project-id="coin-backend" data-repo="iJustinn/Coin-Backend">
+      <article class="project" data-hoverable data-project-id="task-backend" data-repo="iJustinn/Task-Backend">
         <div class="idx">[02]</div>
         <div class="body">
-          <h3 class="title">Coin Backend · AI API on Cloudflare Workers</h3>
+          <h3 class="title">Task Backend · AI API on Cloudflare Workers</h3>
           <div class="tagline">Centralized AI backend · TypeScript / Cloudflare</div>
           <p class="desc">
-            Centralized AI backend for the Coin iOS app. Sign in with Apple mints session tokens
-            gated by full App Attest hardware attestation; the certificate chain is verified
-            against Apple's pinned App Attest Root CA. A Hono router on Cloudflare Workers proxies
-            expense-extraction calls to upstream AI models, with keys held server-side. D1 stores
-            hashed sessions and metered usage.
+            Built a centralized AI backend for the Task iOS app on Cloudflare Workers. Sign in with
+            Apple and App Attest gate opaque session tokens; Hono routes relay AI chat turns
+            while D1 stores hashed sessions, usage counters, and attestation keys. Task data stays
+            on device: the iOS app runs tool calls locally against SwiftData and the backend remains
+            a stateless AI relay.
           </p>
         </div>
         <div class="side">
@@ -171,10 +172,10 @@
           </div>
           <div class="repo-meta" data-project-meta>
             <div class="row-k">GITHUB</div>
-            <a class="repo-link" href="https://github.com/iJustinn/Coin-Backend" target="_blank" rel="noopener">iJustinn/Coin-Backend</a>
+            <a class="repo-link" href="https://github.com/iJustinn/Task-Backend" target="_blank" rel="noopener">iJustinn/Task-Backend</a>
           </div>
         </div>
-        <a class="arrow" href="https://github.com/iJustinn/Coin-Backend" target="_blank" rel="noopener" aria-label="Open Coin Backend on GitHub">↗</a>
+        <a class="arrow" href="https://github.com/iJustinn/Task-Backend" target="_blank" rel="noopener" aria-label="Open Task Backend on GitHub">↗</a>
       </article>
 
       <article class="project" data-hoverable data-project-id="coin" data-repo="iJustinn/Coin">
@@ -213,17 +214,16 @@
         <a class="arrow" href="https://github.com/iJustinn/Coin" target="_blank" rel="noopener" aria-label="Open Coin on GitHub">↗</a>
       </article>
 
-      <article class="project" data-hoverable data-project-id="task" data-repo="iJustinn/Task">
+      <article class="project" data-hoverable data-project-id="body" data-repo="iJustinn/Body">
         <div class="idx">[04]</div>
         <div class="body">
-          <h3 class="title">Task · iOS Task Manager</h3>
-          <div class="tagline">Privacy-focused iOS app · SwiftUI / SwiftData</div>
+          <h3 class="title">Body · iOS Health Visualization</h3>
+          <div class="tagline">Privacy-focused health app · SwiftUI / HealthKit</div>
           <p class="desc">
-            Built a local-first task manager with multiple Kanban boards, a Notion-style editor for
-            status, tags, working dates and due dates with Markdown checklists, per-task local
-            reminders, board-wide search, multi-board JSON export/import, and an Upcoming Tasks
-            home-screen widget.
-            Currently in internal TestFlight testing; <a href="mailto:zihengthedeveloper@gmail.com?subject=Task%20TestFlight%20beta" style="color:#2563eb">email me</a> to become a tester.
+            Built a local-first Apple Health dashboard for workouts, Activity Rings, sleep, energy,
+            body measurements, daylight, steps, and vitals, with WidgetKit calendar widgets, range-based
+            charts, workout history, and local snapshot storage for widget data.
+            Currently in <a href="https://testflight.apple.com/join/TcnkMktz" style="color:#2563eb" target="_blank" rel="noopener">TestFlight</a> testing.
           </p>
         </div>
         <div class="side">
@@ -236,20 +236,55 @@
             <div class="stack">
               <span class="lang primary">Swift</span>
               <span class="lang">SwiftUI</span>
-              <span class="lang">SwiftData</span>
+              <span class="lang">HealthKit</span>
               <span class="lang">WidgetKit</span>
             </div>
           </div>
           <div class="repo-meta" data-project-meta>
             <div class="row-k">GITHUB</div>
-            <a class="repo-link" href="https://github.com/iJustinn/Task" target="_blank" rel="noopener">iJustinn/Task</a>
+            <a class="repo-link" href="https://github.com/iJustinn/Body" target="_blank" rel="noopener">iJustinn/Body</a>
           </div>
         </div>
-        <a class="arrow" href="https://github.com/iJustinn/Task" target="_blank" rel="noopener" aria-label="Open Task on GitHub">↗</a>
+        <a class="arrow" href="https://github.com/iJustinn/Body" target="_blank" rel="noopener" aria-label="Open Body on GitHub">↗</a>
+      </article>
+
+      <article class="project" data-hoverable data-project-id="coin-backend" data-repo="iJustinn/Coin-Backend">
+        <div class="idx">[05]</div>
+        <div class="body">
+          <h3 class="title">Coin Backend · AI API on Cloudflare Workers</h3>
+          <div class="tagline">Centralized AI backend · TypeScript / Cloudflare</div>
+          <p class="desc">
+            Centralized AI backend for the Coin iOS app. Sign in with Apple mints session tokens
+            gated by full App Attest hardware attestation; the certificate chain is verified
+            against Apple's pinned App Attest Root CA. A Hono router on Cloudflare Workers proxies
+            expense-extraction calls to upstream AI models, with keys held server-side. D1 stores
+            hashed sessions and metered usage.
+          </p>
+        </div>
+        <div class="side">
+          <div>
+            <div class="row-k">WHEN</div>
+            <div class="row-v">June 2026 – present</div>
+          </div>
+          <div>
+            <div class="row-k">STACK</div>
+            <div class="stack">
+              <span class="lang primary">TypeScript</span>
+              <span class="lang">Cloudflare Workers</span>
+              <span class="lang">Hono</span>
+              <span class="lang">D1</span>
+            </div>
+          </div>
+          <div class="repo-meta" data-project-meta>
+            <div class="row-k">GITHUB</div>
+            <a class="repo-link" href="https://github.com/iJustinn/Coin-Backend" target="_blank" rel="noopener">iJustinn/Coin-Backend</a>
+          </div>
+        </div>
+        <a class="arrow" href="https://github.com/iJustinn/Coin-Backend" target="_blank" rel="noopener" aria-label="Open Coin Backend on GitHub">↗</a>
       </article>
 
       <article class="project" data-hoverable data-project-id="task-mac" data-repo="iJustinn/Task-Mac">
-        <div class="idx">[05]</div>
+        <div class="idx">[06]</div>
         <div class="body">
           <h3 class="title">Task · macOS Task Manager</h3>
           <div class="tagline">Privacy-focused macOS app · SwiftUI / SwiftData</div>
@@ -283,7 +318,7 @@
       </article>
 
       <article class="project" data-hoverable data-project-id="jobmuse" data-repo="iJustinn/JobMuse">
-        <div class="idx">[06]</div>
+        <div class="idx">[07]</div>
         <div class="body">
           <h3 class="title">JobMuse · Career Ops GUI</h3>
           <div class="tagline">AI-assisted career-ops workspace · React / Express</div>
@@ -316,7 +351,7 @@
       </article>
 
       <article class="project" data-hoverable data-project-id="nasa-space-apps" data-repo="iJustinn/NASA_Challenge">
-        <div class="idx">[07]</div>
+        <div class="idx">[08]</div>
         <div class="body">
           <h3 class="title">NASA Space Apps Challenge</h3>
           <div class="tagline">Team Leader · backend · global hackathon</div>
@@ -349,7 +384,7 @@
       </article>
 
       <article class="project" data-hoverable data-project-id="toxi-can" data-repo="iJustinn/STA313_Final_Project">
-        <div class="idx">[08]</div>
+        <div class="idx">[09]</div>
         <div class="body">
           <h3 class="title">Toxi-Can</h3>
           <div class="tagline">Team Leader · Visualizing Canada's industrial pollutant releases</div>
@@ -383,7 +418,7 @@
       </article>
 
       <article class="project" data-hoverable data-project-id="us-real-estate" data-repo="iJustinn/House_Price">
-        <div class="idx">[09]</div>
+        <div class="idx">[10]</div>
         <div class="body">
           <h3 class="title">U.S. Residential Real Estate Trends</h3>
           <div class="tagline">Course Project · 20-year statistical analysis</div>
@@ -416,7 +451,7 @@
       </article>
 
       <article class="project" data-hoverable data-project-id="media-manager" data-repo="iJustinn/CSC207_Project">
-        <div class="idx">[10]</div>
+        <div class="idx">[11]</div>
         <div class="body">
           <h3 class="title">Media Manager · Spotify API</h3>
           <div class="tagline">Team Leader · Java desktop client</div>
