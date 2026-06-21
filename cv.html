@@ -26,7 +26,6 @@
     <nav class="site-nav" aria-label="primary">
       <a href="index.html">home</a>
       <a href="projects.html">projects</a>
-      <a href="apps.html">apps</a>
       <a href="cv.html" class="current">cv</a>
     </nav>
     <div class="header-actions">
@@ -46,7 +45,7 @@
       <h1>Justin <em style="color:var(--accent)">/</em> Ziheng Zhong</h1>
       <div class="sub">
         M.Sc. Management &amp; Analytics, NYU <span class="accent">·</span>
-        Arts &amp; Science Bachelor, U of T <span class="accent">·</span>
+        Bachelor of Science, U of T <span class="accent">·</span>
         New York, NY
       </div>
     </div>
@@ -61,11 +60,11 @@
 
   <!-- Actions -->
   <div class="cv-actions" data-reveal>
-    <a class="cv-btn primary" href="CV.pdf" download="Justin-Zhong-CV.pdf">
+    <a class="cv-btn primary" href="CV.pdf?v=20260621" download="Justin-Zhong-CV.pdf">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
       download cv pdf
     </a>
-    <a class="cv-btn" href="CV.pdf" target="_blank" rel="noopener">
+    <a class="cv-btn" href="CV.pdf?v=20260621" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/></svg>
       open pdf
     </a>
@@ -99,7 +98,7 @@
     <div class="cv-entry">
       <div>
         <h3 class="h">University of Toronto, St. George Campus</h3>
-        <p class="s">Arts &amp; Science Bachelor · Double Major in Statistics and Mathematics</p>
+        <p class="s">Bachelor of Science · Double Major in Statistics and Mathematics</p>
         <p class="d">
           Toronto, Ontario, Canada.
         </p>
@@ -117,8 +116,8 @@
     </div>
     <div class="cv-entry">
       <div>
-        <h3 class="h">Xiaomi Proretail</h3>
-        <p class="s">Backend Developer Intern</p>
+        <h3 class="h">Xiaomi</h3>
+        <p class="s">Backend Developer Intern · Proretail Team</p>
         <p class="d">
           Added three clue-statistics modules with detailed drill-down information, including comparative
           analysis of clue ownership by store and employee. Modified existing clue filters, added two new
@@ -165,13 +164,29 @@
 
     <div class="cv-entry">
       <div>
+        <h3 class="h">Task: iOS Task Manager <span style="color:var(--muted);font-weight:400">· Swift / SwiftUI</span></h3>
+        <p class="s">Privacy-focused iOS app + AI backend</p>
+        <p class="d">
+          Built a local-first task manager with multiple Kanban boards, a Notion-style editor (Markdown
+          checklists, status, tags, working and due dates), per-task reminders, board-wide search,
+          multi-board JSON import/export, and an Upcoming Tasks widget. Headlined by Task AI, a
+          natural-language assistant that creates and organizes tasks (with web search) through a
+          hardware-attested Cloudflare Workers backend, while task data stays on device.
+        </p>
+      </div>
+      <div class="when">May 2026 – present</div>
+    </div>
+
+    <div class="cv-entry">
+      <div>
         <h3 class="h">Coin: iOS Spending Tracker <span style="color:var(--muted);font-weight:400">· Swift / SwiftUI</span></h3>
-        <p class="s">Privacy-focused iOS app</p>
+        <p class="s">Privacy-focused iOS app + AI backend</p>
         <p class="d">
           Built a local-first spending tracker with fast expense entry, monthly budgets, category
           analytics, search/filter/sort tools, widgets, Siri Shortcuts, multi-currency reporting, JSON
-          import/export, customizable payment methods, editable categories, and on-device Apple
-          Intelligence spending insights with a deterministic fallback.
+          import/export, customizable payment methods, and editable categories. AI spending insights and
+          a conversational Ask Insights chat run on a custom Cloudflare Workers backend (Sign in with
+          Apple + App Attest), with on-device Apple Intelligence as a fallback.
         </p>
       </div>
       <div class="when">Mar 2026 – May 2026</div>
