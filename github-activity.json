@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-03-15",
-    "to": "2026-06-28"
+    "to": "2026-06-29"
   },
   "weeks": [
     {
@@ -606,29 +606,29 @@
       "days": [
         {
           "date": "2026-05-31",
-          "count": 21,
-          "level": 2,
+          "count": 27,
+          "level": 3,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-06-01",
-          "count": 11,
-          "level": 1,
+          "count": 14,
+          "level": 2,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-06-02",
-          "count": 31,
+          "count": 32,
           "level": 3,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-06-03",
-          "count": 30,
-          "level": 3,
+          "count": 41,
+          "level": 4,
           "weekday": 3,
           "future": false
         },
@@ -648,8 +648,8 @@
         },
         {
           "date": "2026-06-06",
-          "count": 19,
-          "level": 2,
+          "count": 28,
+          "level": 3,
           "weekday": 6,
           "future": false
         }
@@ -681,7 +681,7 @@
         },
         {
           "date": "2026-06-10",
-          "count": 31,
+          "count": 34,
           "level": 3,
           "weekday": 3,
           "future": false
@@ -822,17 +822,17 @@
       "days": [
         {
           "date": "2026-06-28",
-          "count": 0,
-          "level": 0,
+          "count": 6,
+          "level": 1,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-06-29",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 1,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-06-30",
@@ -890,5 +890,5 @@
       "label": "Jul"
     }
   ],
-  "generatedAt": "2026-06-28T08:41:16.908Z"
+  "generatedAt": "2026-06-29T10:23:52.458Z"
 }
