@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-03-15",
-    "to": "2026-07-01"
+    "to": "2026-07-02"
   },
   "weeks": [
     {
@@ -782,7 +782,7 @@
         },
         {
           "date": "2026-06-23",
-          "count": 16,
+          "count": 17,
           "level": 2,
           "weekday": 2,
           "future": false
@@ -796,22 +796,22 @@
         },
         {
           "date": "2026-06-25",
-          "count": 6,
+          "count": 7,
           "level": 1,
           "weekday": 4,
           "future": false
         },
         {
           "date": "2026-06-26",
-          "count": 2,
+          "count": 5,
           "level": 1,
           "weekday": 5,
           "future": false
         },
         {
           "date": "2026-06-27",
-          "count": 0,
-          "level": 0,
+          "count": 24,
+          "level": 3,
           "weekday": 6,
           "future": false
         }
@@ -822,38 +822,38 @@
       "days": [
         {
           "date": "2026-06-28",
-          "count": 6,
+          "count": 10,
           "level": 1,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-06-29",
-          "count": 0,
-          "level": 0,
+          "count": 3,
+          "level": 1,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-06-30",
-          "count": 3,
+          "count": 8,
           "level": 1,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-07-01",
-          "count": 0,
-          "level": 0,
+          "count": 3,
+          "level": 1,
           "weekday": 3,
           "future": false
         },
         {
           "date": "2026-07-02",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 4,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-07-03",
@@ -890,5 +890,5 @@
       "label": "Jul"
     }
   ],
-  "generatedAt": "2026-07-01T09:30:21.019Z"
+  "generatedAt": "2026-07-02T08:42:42.747Z"
 }
