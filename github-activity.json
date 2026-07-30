@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-04-12",
-    "to": "2026-07-29"
+    "to": "2026-07-30"
   },
   "weeks": [
     {
@@ -850,10 +850,10 @@
         },
         {
           "date": "2026-07-30",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 4,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-07-31",
@@ -890,5 +890,5 @@
       "label": "Aug"
     }
   ],
-  "generatedAt": "2026-07-29T08:21:55.140Z"
+  "generatedAt": "2026-07-30T08:08:18.990Z"
 }
