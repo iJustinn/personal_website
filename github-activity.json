@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-05-10",
-    "to": "2026-08-23"
+    "to": "2026-08-24"
   },
   "weeks": [
     {
@@ -775,7 +775,7 @@
         },
         {
           "date": "2026-08-17",
-          "count": 18,
+          "count": 19,
           "level": 2,
           "weekday": 1,
           "future": false
@@ -789,29 +789,29 @@
         },
         {
           "date": "2026-08-19",
-          "count": 0,
-          "level": 0,
+          "count": 5,
+          "level": 1,
           "weekday": 3,
           "future": false
         },
         {
           "date": "2026-08-20",
-          "count": 5,
-          "level": 1,
+          "count": 16,
+          "level": 2,
           "weekday": 4,
           "future": false
         },
         {
           "date": "2026-08-21",
-          "count": 0,
-          "level": 0,
+          "count": 3,
+          "level": 1,
           "weekday": 5,
           "future": false
         },
         {
           "date": "2026-08-22",
-          "count": 3,
-          "level": 1,
+          "count": 12,
+          "level": 2,
           "weekday": 6,
           "future": false
         }
@@ -822,17 +822,17 @@
       "days": [
         {
           "date": "2026-08-23",
-          "count": 0,
-          "level": 0,
+          "count": 18,
+          "level": 2,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-08-24",
-          "count": null,
-          "level": null,
+          "count": 8,
+          "level": 1,
           "weekday": 1,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-08-25",
@@ -886,5 +886,5 @@
       "label": "Aug"
     }
   ],
-  "generatedAt": "2026-08-23T06:24:24.459Z"
+  "generatedAt": "2026-08-24T06:37:23.439Z"
 }
