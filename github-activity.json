@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-05-17",
-    "to": "2026-09-01"
+    "to": "2026-09-02"
   },
   "weeks": [
     {
@@ -822,31 +822,31 @@
       "days": [
         {
           "date": "2026-08-30",
-          "count": 10,
-          "level": 1,
+          "count": 11,
+          "level": 2,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-08-31",
-          "count": 12,
+          "count": 19,
           "level": 2,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-09-01",
-          "count": 0,
-          "level": 0,
+          "count": 7,
+          "level": 1,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-09-02",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 3,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-09-03",
@@ -890,5 +890,5 @@
       "label": "Sep"
     }
   ],
-  "generatedAt": "2026-09-01T10:48:10.260Z"
+  "generatedAt": "2026-09-02T10:12:48.351Z"
 }
