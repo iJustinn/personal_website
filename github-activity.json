@@ -4,7 +4,7 @@
   "range": {
     "weeks": 16,
     "from": "2026-05-24",
-    "to": "2026-09-08"
+    "to": "2026-09-09"
   },
   "weeks": [
     {
@@ -782,36 +782,36 @@
         },
         {
           "date": "2026-09-01",
-          "count": 11,
+          "count": 17,
           "level": 2,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-09-02",
-          "count": 5,
-          "level": 1,
+          "count": 39,
+          "level": 4,
           "weekday": 3,
           "future": false
         },
         {
           "date": "2026-09-03",
-          "count": 9,
-          "level": 1,
+          "count": 28,
+          "level": 3,
           "weekday": 4,
           "future": false
         },
         {
           "date": "2026-09-04",
-          "count": 2,
-          "level": 1,
+          "count": 18,
+          "level": 2,
           "weekday": 5,
           "future": false
         },
         {
           "date": "2026-09-05",
-          "count": 0,
-          "level": 0,
+          "count": 4,
+          "level": 1,
           "weekday": 6,
           "future": false
         }
@@ -822,31 +822,31 @@
       "days": [
         {
           "date": "2026-09-06",
-          "count": 0,
-          "level": 0,
+          "count": 17,
+          "level": 2,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-09-07",
-          "count": 0,
-          "level": 0,
+          "count": 10,
+          "level": 1,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-09-08",
-          "count": 0,
-          "level": 0,
+          "count": 2,
+          "level": 1,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-09-09",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 3,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-09-10",
@@ -890,5 +890,5 @@
       "label": "Sep"
     }
   ],
-  "generatedAt": "2026-09-08T10:18:19.455Z"
+  "generatedAt": "2026-09-09T10:25:48.632Z"
 }
