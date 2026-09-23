@@ -3,8 +3,10 @@ import { readFile, writeFile } from "node:fs/promises";
 
 const OUTPUT_PATH = new URL("../github-activity.json", import.meta.url);
 const USER = process.env.GH_HEATMAP_USER || "iJustinn";
-const WEEK_COUNT = Number.parseInt(process.env.GH_HEATMAP_WEEKS || "16", 10);
+const WEEK_COUNT = Number.parseInt(process.env.GH_HEATMAP_WEEKS || "53", 10);
 const API_VERSION = "2022-11-28";
+// contributionsCollection rejects ranges longer than one year, so longer spans are fetched in chunks.
+const MAX_SPAN_DAYS = 364;
 const LEVELS = {
   NONE: 0,
   FIRST_QUARTILE: 1,
@@ -128,8 +130,7 @@ const currentWeekStart = addDays(today, -today.getUTCDay());
 const start = addDays(currentWeekStart, -(WEEK_COUNT - 1) * 7);
 const to = addDays(today, 1);
 
-try {
-  const data = await githubGraphql(`
+const CALENDAR_QUERY = `
     query($login: String!, $from: DateTime!, $to: DateTime!) {
       user(login: $login) {
         contributionsCollection(from: $from, to: $to) {
@@ -145,14 +146,32 @@ try {
         }
       }
     }
-  `, {
-    login: USER,
-    from: start.toISOString(),
-    to: to.toISOString(),
-  }, token);
+  `;
 
-  const calendar = data.user?.contributionsCollection?.contributionCalendar;
-  if (!calendar) throw new Error(`No contribution calendar returned for ${USER}.`);
+function chunkRanges(from, until) {
+  const ranges = [];
+  let chunkEnd = until;
+  while (chunkEnd > from) {
+    const chunkStart = new Date(Math.max(from.valueOf(), addDays(chunkEnd, -MAX_SPAN_DAYS).valueOf()));
+    ranges.unshift([chunkStart, chunkEnd]);
+    chunkEnd = chunkStart;
+  }
+  return ranges;
+}
+
+try {
+  const calendarWeeks = [];
+  for (const [chunkStart, chunkEnd] of chunkRanges(start, to)) {
+    const data = await githubGraphql(CALENDAR_QUERY, {
+      login: USER,
+      from: chunkStart.toISOString(),
+      to: chunkEnd.toISOString(),
+    }, token);
+    const chunk = data.user?.contributionsCollection?.contributionCalendar;
+    if (!chunk) throw new Error(`No contribution calendar returned for ${USER}.`);
+    calendarWeeks.push(...(chunk.weeks || []));
+  }
+  const calendar = { weeks: calendarWeeks };
 
   const output = {
     schemaVersion: 1,

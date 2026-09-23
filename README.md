@@ -6,20 +6,20 @@ Static [personal portfolio website](https://ijustinn.github.io/personal_website/
 
 This repo is a no-build static site. It serves three hand-authored HTML pages:
 
-- `index.html` - homepage, bio, education, stack, and navigation into the site.
-- `projects.html` - selected projects, GitHub-powered project/activity metadata, work experience, and leadership.
-- `cv.html` - web CV page with a direct download link to `CV.pdf`.
+- `index.html` - Work: pinned hero (avatar, intro, GitHub contribution heatmap) and a tag-filterable masonry feed of project and news cards.
+- `projects.html` - detailed project cards with GitHub-powered "updated" dates and tag filters.
+- `about.html` - bio, experience, education, stack, leadership, news, contact details, and the `CV.pdf` download.
 
-The current design uses an engineering-notebook aesthetic with a sticky profile sidebar, responsive single-column mobile layout, light/dark theme toggle, scroll reveal, section navigation, GitHub project metadata and contribution heatmap enhancements, and a small edit-mode tweaks panel.
+The design is a minimal portfolio feed (Geist type, rounded cards, translucent sticky header) with light/dark themes that follow the system setting until the visitor toggles one.
 
 ## Stack
 
 - **Markup:** static HTML
-- **Styling:** vanilla CSS in `styles.css` and `tweaks.css`
-- **Runtime behavior:** vanilla JavaScript in `site.js`
-- **Tweaks panel:** React 18 UMD + Babel standalone loaded from CDN for `tweaks.jsx`
+- **Styling:** vanilla CSS in `main.css`
+- **Runtime behavior:** vanilla JavaScript in `main.js`
+- **Legacy:** `styles.css`, `tweaks.css`, `site.js`, and `tweaks.jsx` are only used by the hidden `apps.html` page
 - **GitHub metadata refresh:** GitHub Actions + `scripts/update-projects.mjs` and `scripts/update-github-heatmap.mjs`
-- **Typography:** Google Fonts, IBM Plex Sans and JetBrains Mono
+- **Typography:** Google Fonts, Geist and Geist Mono
 - **Hosting:** GitHub Pages, deployed from `main` branch `/ (root)`
 - **Build step:** none
 
@@ -27,12 +27,15 @@ The current design uses an engineering-notebook aesthetic with a sticky profile 
 
 ```text
 .
-├── index.html          # Homepage
-├── projects.html       # Projects, experience, and leadership
-├── cv.html             # Web CV and PDF actions
-├── styles.css          # Main responsive layout, theme, and page styling
-├── tweaks.css          # Floating tweaks-panel styling
-├── site.js             # Theme, tweaks, cursor, reveal, nav, clock behavior
+├── index.html          # Work feed (homepage)
+├── projects.html       # Detailed projects (reordered by the metadata workflow)
+├── about.html          # Bio, experience, education, stack, leadership
+├── main.css            # Site styling, themes, responsive layout
+├── main.js             # Theme, header, hero fade, tag filters, GitHub data
+├── apps.html           # Hidden apps page (still uses the legacy files below)
+├── styles.css          # Legacy styling for apps.html
+├── tweaks.css          # Legacy tweaks-panel styling for apps.html
+├── site.js             # Legacy behavior for apps.html
 ├── projects.config.json # Curated project-to-repo mapping
 ├── projects-data.json  # Generated GitHub project metadata served to the site
 ├── github-activity.json # Generated recent GitHub contribution heatmap data
@@ -42,7 +45,7 @@ The current design uses an engineering-notebook aesthetic with a sticky profile 
 ├── .github/
 │   └── workflows/
 │       └── update-projects.yml # Scheduled/manual metadata refresh
-├── tweaks.jsx          # React tweaks panel
+├── tweaks.jsx          # Legacy React tweaks panel for apps.html
 ├── Avatar.png          # Profile photo used by sidebar
 ├── CV.pdf              # Downloadable CV
 ├── .nojekyll           # Keeps GitHub Pages from treating files as Jekyll input
@@ -83,6 +86,6 @@ GitHub metadata is refreshed by `.github/workflows/update-projects.yml` every 12
 
 ## Notes
 
-- The site defaults to light mode for first-time visitors. If a user toggles dark mode, the choice is saved in `localStorage` under `site.theme`.
-- `CV.pdf` is the canonical downloadable resume file used by the CV page.
+- The site follows the visitor's system light/dark setting. If a user toggles the theme, the choice is saved in `localStorage` under `site.theme`.
+- `CV.pdf` is the canonical downloadable resume file, linked from the About page.
 - The old Quarto project files and Quarto build workflow were removed; this repo no longer renders through Quarto.
