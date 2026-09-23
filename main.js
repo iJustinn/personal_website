@@ -218,6 +218,7 @@
         if (day.future) cell.classList.add("is-future");
         cell.style.gridColumn = String(w + 1);
         cell.style.gridRow = String((day.weekday ?? 0) + 1);
+        cell.style.setProperty("--i", String(w + (day.weekday ?? 0)));
         cell.title = `${day.date}: ${count} contribution${count === 1 ? "" : "s"}`;
         grid.appendChild(cell);
       }
@@ -237,11 +238,37 @@
 
     container.replaceChildren(scroller, caption);
     attachMagnet(scroller, grid);
+    revealHeatmap(grid, caption.querySelector("b"), total);
+  }
+
+  // Once in view: cells pop in along a diagonal and the total counts up from 0.
+  function revealHeatmap(grid, counter, total) {
+    if (reduceMotion || !("IntersectionObserver" in window)) return;
+    grid.classList.add("will-reveal");
+    counter.textContent = "0";
+    const io = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      io.disconnect();
+      grid.classList.add("is-in");
+      const duration = 1400;
+      const start = performance.now();
+      const tick = (now) => {
+        const t = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - t, 3);
+        counter.textContent = Math.round(total * eased).toLocaleString("en-US");
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.3 });
+    io.observe(grid);
   }
 
   // Cells near the cursor are pushed radially away from it, then spring back on leave.
   const MAGNET_RADIUS = 110;
   const MAGNET_PUSH = 16;
+  // Cells the cursor touches flash bright, then fade back to their level color over 1s.
+  const SHINE_RADIUS = 12;
+  const SHINE_MS = 1000;
   function attachMagnet(area, grid) {
     if (reduceMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
     const cells = [...grid.children];
@@ -249,7 +276,23 @@
     let pointer = null;
     let frame = 0;
     let settleTimer = 0;
+    let shine = null;
+    let lastPoint = null;
+    const lit = new Map();
 
+    const readShine = () => {
+      const styles = getComputedStyle(document.documentElement);
+      shine = [styles.getPropertyValue("--heat-shine").trim(), styles.getPropertyValue("--heat-glow").trim()];
+    };
+    const flash = (i) => {
+      const now = performance.now();
+      if (now - (lit.get(i) ?? -Infinity) < 120) return;
+      lit.set(i, now);
+      cells[i].animate(
+        [{ backgroundColor: shine[0], boxShadow: `0 0 8px 1px ${shine[1]}` }, {}],
+        { duration: SHINE_MS, easing: "cubic-bezier(0.25, 0.1, 0.25, 1)" },
+      );
+    };
     const measure = () => {
       centers = cells.map((cell) => [cell.offsetLeft + cell.offsetWidth / 2, cell.offsetTop + cell.offsetHeight / 2]);
     };
@@ -259,10 +302,18 @@
       const rect = grid.getBoundingClientRect();
       const px = pointer[0] - rect.left;
       const py = pointer[1] - rect.top;
+      // Shine every cell along the path since the last frame, so fast moves don't skip cells.
+      const [ax, ay] = lastPoint ?? [px, py];
+      const sx = px - ax;
+      const sy = py - ay;
+      const segLen2 = sx * sx + sy * sy;
+      lastPoint = [px, py];
       for (let i = 0; i < cells.length; i += 1) {
         const dx = centers[i][0] - px;
         const dy = centers[i][1] - py;
         const d = Math.hypot(dx, dy);
+        const t = segLen2 ? Math.max(0, Math.min(1, ((centers[i][0] - ax) * sx + (centers[i][1] - ay) * sy) / segLen2)) : 0;
+        if (Math.hypot(centers[i][0] - (ax + sx * t), centers[i][1] - (ay + sy * t)) < SHINE_RADIUS) flash(i);
         if (d >= MAGNET_RADIUS || d < 0.5) {
           cells[i].style.transform = "";
           continue;
@@ -276,14 +327,17 @@
       clearTimeout(settleTimer);
       grid.classList.remove("is-settling");
       measure();
+      readShine();
     });
     area.addEventListener("pointermove", (e) => {
       if (!centers) measure();
+      if (!shine) readShine();
       pointer = [e.clientX, e.clientY];
       if (!frame) frame = requestAnimationFrame(update);
     });
     area.addEventListener("pointerleave", () => {
       pointer = null;
+      lastPoint = null;
       cancelAnimationFrame(frame);
       frame = 0;
       grid.classList.add("is-settling");

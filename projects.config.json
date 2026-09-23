@@ -4,32 +4,32 @@
     {
       "id": "task",
       "repo": "iJustinn/Task",
-      "title": "Task · iOS Task Manager"
+      "title": "ohmytask · iOS Task Manager"
     },
     {
       "id": "task-backend",
       "repo": "iJustinn/Task-Backend",
-      "title": "Task Backend · AI API on Cloudflare Workers"
+      "title": "ohmytask Backend · AI API on Cloudflare Workers"
     },
     {
       "id": "task-mac",
       "repo": "iJustinn/Task-Mac",
-      "title": "Task · macOS Task Manager"
+      "title": "ohmytask · macOS Task Manager"
     },
     {
       "id": "coin",
       "repo": "iJustinn/Coin",
-      "title": "Coin · iOS Spending Tracker"
+      "title": "ohmycoin · iOS Spending Tracker"
     },
     {
       "id": "coin-backend",
       "repo": "iJustinn/Coin-Backend",
-      "title": "Coin Backend · AI API on Cloudflare Workers"
+      "title": "ohmycoin Backend · AI API on Cloudflare Workers"
     },
     {
       "id": "body",
       "repo": "iJustinn/Body",
-      "title": "Body · iOS Health Visualization"
+      "title": "ohmybody · iOS Health Dashboard"
     },
     {
       "id": "jobmuse",
