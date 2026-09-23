@@ -4,12 +4,11 @@ Static [personal portfolio website](https://ijustinn.github.io/personal_website/
 
 ## Overview
 
-This repo is a no-build static site. It serves four hand-authored HTML pages:
+This repo is a no-build static site. It serves three hand-authored HTML pages:
 
 - `index.html` - Work: pinned hero (avatar, intro, GitHub contribution heatmap) and a tag-filterable masonry feed of project and news cards.
 - `projects.html` - detailed project cards with GitHub-powered "updated" dates and tag filters.
-- `about.html` - bio, experience, education, stack, leadership, news, and contact details.
-- `cv.html` - web CV page with a direct download link to `CV.pdf`.
+- `about.html` - bio, experience, education, stack, leadership, news, contact details, and the `CV.pdf` download.
 
 The design is a minimal portfolio feed (Geist type, rounded cards, translucent sticky header) with light/dark themes that follow the system setting until the visitor toggles one.
 
@@ -31,7 +30,6 @@ The design is a minimal portfolio feed (Geist type, rounded cards, translucent s
 ├── index.html          # Work feed (homepage)
 ├── projects.html       # Detailed projects (reordered by the metadata workflow)
 ├── about.html          # Bio, experience, education, stack, leadership
-├── cv.html             # Web CV and PDF actions
 ├── main.css            # Site styling, themes, responsive layout
 ├── main.js             # Theme, header, hero fade, tag filters, GitHub data
 ├── apps.html           # Hidden apps page (still uses the legacy files below)
@@ -89,5 +87,5 @@ GitHub metadata is refreshed by `.github/workflows/update-projects.yml` every 12
 ## Notes
 
 - The site follows the visitor's system light/dark setting. If a user toggles the theme, the choice is saved in `localStorage` under `site.theme`.
-- `CV.pdf` is the canonical downloadable resume file used by the CV page.
+- `CV.pdf` is the canonical downloadable resume file, linked from the About page.
 - The old Quarto project files and Quarto build workflow were removed; this repo no longer renders through Quarto.

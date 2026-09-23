@@ -1,12 +1,12 @@
 /* ─────────────────────────────────────────────────────────────────────
-   main.css - site design (Work / Projects / About / CV)
+   main.css - site design (Work / Projects / About)
    ───────────────────────────────────────────────────────────────────── */
 
 :root {
   --bg: #ffffff;
-  --hero-bg: #f3f1ed;
+  --hero-bg: #ffffff;
   --card: #ffffff;
-  --stage: #f4f4f3;
+  --stage: #f5f5f5;
   --fg: #0a0a0a;
   --muted: #6f6f6f;
   --faint: #a3a3a3;
@@ -17,16 +17,19 @@
   --primary: #171717;
   --primary-fg: #fafafa;
   --header-bg: rgba(255, 255, 255, 0.72);
-  --blue: #0a7cff;
-  --link: #0a66d8;
+  --blue: oklch(0.485 0.291 264.1);          /* accent fill (buttons) */
+  --accent-fg: #ffffff;
+  --link: oklch(0.485 0.291 264.1);          /* accent text: links, italic words */
+  --accent-line: oklch(0.485 0.291 264.1 / 0.55);
+  --accent-glow: oklch(0.62 0.2 268 / 0.16);
   --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 12px 32px -12px rgba(0, 0, 0, 0.16);
-  --shot-shadow: 0 30px 60px -20px rgba(40, 30, 10, 0.35), 0 8px 20px -8px rgba(40, 30, 10, 0.18);
-  --shot-lift-shadow: 0 80px 120px -30px rgba(40, 30, 10, 0.45), 0 20px 40px -12px rgba(40, 30, 10, 0.22);
+  --shot-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.35), 0 8px 20px -8px rgba(0, 0, 0, 0.18);
+  --shot-lift-shadow: 0 80px 120px -30px rgba(0, 0, 0, 0.45), 0 20px 40px -12px rgba(0, 0, 0, 0.22);
   --heat-0: rgba(0, 0, 0, 0.06);
-  --heat-1: #b7e4c0;
-  --heat-2: #6cc781;
-  --heat-3: #31a24c;
-  --heat-4: #1f7a36;
+  --heat-1: oklch(0.88 0.06 268);
+  --heat-2: oklch(0.74 0.14 267);
+  --heat-3: oklch(0.58 0.23 265);
+  --heat-4: oklch(0.45 0.29 264);
 
   --font: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -52,15 +55,17 @@
   --primary: #e5e5e5;
   --primary-fg: #141414;
   --header-bg: rgba(10, 10, 10, 0.72);
-  --link: #5aa9ff;
+  --link: oklch(0.7 0.17 268);                /* lighter blue so text stays legible on dark */
+  --accent-line: oklch(0.62 0.22 266 / 0.7);
+  --accent-glow: oklch(0.5 0.25 266 / 0.22);
   --shadow: none;
   --shot-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.8), 0 8px 24px -8px rgba(0, 0, 0, 0.6);
   --shot-lift-shadow: 0 90px 130px -30px rgba(0, 0, 0, 0.9), 0 20px 40px -12px rgba(0, 0, 0, 0.7);
   --heat-0: rgba(255, 255, 255, 0.07);
-  --heat-1: #0e4429;
-  --heat-2: #006d32;
-  --heat-3: #26a641;
-  --heat-4: #5fe07e;
+  --heat-1: oklch(0.32 0.1 266);
+  --heat-2: oklch(0.43 0.19 265);
+  --heat-3: oklch(0.55 0.26 264);
+  --heat-4: oklch(0.74 0.16 268);
 
   color-scheme: dark;
 }
@@ -82,9 +87,15 @@
     --primary: #e5e5e5;
     --primary-fg: #141414;
     --header-bg: rgba(10, 10, 10, 0.72);
-    --link: #5aa9ff;
+    --link: oklch(0.7 0.17 268);                /* lighter blue so text stays legible on dark */
+  --accent-line: oklch(0.62 0.22 266 / 0.7);
+  --accent-glow: oklch(0.5 0.25 266 / 0.22);
     --shadow: none;
     --heat-0: rgba(255, 255, 255, 0.07);
+    --heat-1: oklch(0.32 0.1 266);
+    --heat-2: oklch(0.43 0.19 265);
+    --heat-3: oklch(0.55 0.26 264);
+    --heat-4: oklch(0.74 0.16 268);
     color-scheme: dark;
   }
 }
@@ -138,14 +149,25 @@ strong { font-weight: 600; color: var(--fg); }
 .inline-link {
   color: var(--fg);
   text-decoration: underline;
-  text-decoration-color: var(--border-strong);
+  text-decoration-color: var(--accent-line);
   text-underline-offset: 4px;
   text-decoration-thickness: 1px;
   transition: text-decoration-color 0.15s;
 }
-.inline-link:hover { text-decoration-color: currentColor; }
+.inline-link:hover { color: var(--link); text-decoration-color: currentColor; }
 
 .icon { width: 16px; height: 16px; flex: none; }
+
+::selection { background: var(--blue); color: var(--accent-fg); }
+
+/* One italic serif word per headline, in the accent blue. */
+.accent-word {
+  font-family: "Averia Serif Libre", Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--link);
+}
 
 /* ── Header ───────────────────────────────────────────────────────── */
 .site-header {
@@ -166,18 +188,24 @@ strong { font-weight: 600; color: var(--fg); }
   height: 100%;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 2px;
 }
 
+/* The brand doubles as the home tab: same pill as the nav links. */
 .brand {
+  height: 36px;
   display: inline-flex;
   align-items: center;
+  padding: 0 14px;
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.01em;
   white-space: nowrap;
+  transition: background-color 0.15s;
 }
-.brand .tld { color: var(--muted); }
+.brand:hover { background: var(--soft); }
+.brand[aria-current="page"] { background: var(--soft-2); }
 
 .brand-avatar {
   width: 0;
@@ -201,14 +229,13 @@ strong { font-weight: 600; color: var(--fg); }
   display: flex;
   align-items: center;
   gap: 2px;
-  margin-left: 8px;
 }
 .site-nav a {
   height: 36px;
   display: inline-flex;
   align-items: center;
   padding: 0 14px;
-  border-radius: 999px;
+  border-radius: 10px;
   font-size: 13px;
   font-weight: 500;
   color: var(--muted);
@@ -227,29 +254,13 @@ strong { font-weight: 600; color: var(--fg); }
   gap: 10px;
 }
 
-.pill-btn {
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 16px;
-  border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
-  background: var(--primary);
-  color: var(--primary-fg);
-  transition: opacity 0.15s, transform 0.15s;
-}
-.pill-btn:hover { opacity: 0.88; }
-.pill-btn:active { transform: scale(0.98); }
-
 .icon-btn {
   width: 36px;
   height: 36px;
   display: inline-grid;
   place-items: center;
   border: 0;
-  border-radius: 50%;
+  border-radius: 10px;
   background: var(--soft-2);
   color: var(--fg);
   cursor: pointer;
@@ -322,9 +333,9 @@ strong { font-weight: 600; color: var(--fg); }
 .btn:hover { background: var(--soft-2); }
 .btn:active { transform: scale(0.98); }
 .btn.primary {
-  background: var(--primary);
+  background: var(--blue);
   border-color: transparent;
-  color: var(--primary-fg);
+  color: var(--accent-fg);
 }
 .btn.primary:hover { opacity: 0.9; }
 
@@ -358,7 +369,7 @@ strong { font-weight: 600; color: var(--fg); }
 .hero-inner {
   position: relative;
   pointer-events: none;
-  z-index: 2;
+  z-index: 3;
   min-height: min(100svh, 880px);
   display: flex;
   align-items: center;
@@ -457,7 +468,11 @@ strong { font-weight: 600; color: var(--fg); }
   font-size: 14px;
   color: var(--muted);
 }
-.heatmap-caption b { color: var(--fg); font-weight: 600; }
+.heatmap-caption b {
+  color: var(--fg);
+  font-weight: 600;
+  box-shadow: inset 0 -1px 0 var(--accent-line);
+}
 .heatmap-caption a:hover { color: var(--fg); }
 
 /* Decorative app collage behind the hero copy */
@@ -509,6 +524,22 @@ strong { font-weight: 600; color: var(--fg); }
 .hero-shot:nth-child(4) { margin-top: -60px; }
 .hero-shot img { width: 100%; height: auto; }
 
+/* Soft blue glow centered under the intro paragraph. z-index -1 puts it behind
+   the hero text but above the hero's own fade layers. */
+.hero .display + .lede { position: relative; }
+.hero .display + .lede::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 35%;
+  width: min(900px, 80vw);
+  height: 720px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  background: radial-gradient(closest-side, var(--accent-glow), transparent 72%);
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -552,7 +583,7 @@ strong { font-weight: 600; color: var(--fg); }
   gap: 6px;
   padding: 0 14px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 10px;
   background: var(--bg);
   color: var(--muted);
   font-size: 14px;
@@ -576,6 +607,7 @@ strong { font-weight: 600; color: var(--fg); }
 @media (min-width: 640px)  { .masonry { column-count: 2; } }
 @media (min-width: 1024px) { .masonry { column-count: 3; } }
 @media (min-width: 1280px) { .masonry { column-count: 4; } }
+@media (min-width: 1600px) { .masonry { column-count: 5; } }
 
 .masonry > * {
   display: block;
@@ -919,7 +951,7 @@ strong { font-weight: 600; color: var(--fg); }
   align-items: center;
   padding: 0 11px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 8px;
   font-size: 13px;
   color: var(--fg);
 }
@@ -992,7 +1024,7 @@ strong { font-weight: 600; color: var(--fg); }
   display: inline-flex;
   align-items: center;
   padding: 0 10px;
-  border-radius: 999px;
+  border-radius: 8px;
   background: var(--soft-2);
   font-size: 12.5px;
   color: var(--fg);
@@ -1018,18 +1050,6 @@ strong { font-weight: 600; color: var(--fg); }
 .project-foot .repo-fact { margin-left: auto; color: var(--faint); }
 .project-body { flex: 1; display: flex; flex-direction: column; }
 .project-body > .project-foot { border-top: 1px solid var(--border); margin-top: 18px; padding-top: 14px; }
-
-/* CV page */
-.cv-contact {
-  margin-top: 24px;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 6px 20px;
-  font-size: 15px;
-}
-.cv-contact dt { color: var(--muted); }
-.cv-contact dd { margin: 0; }
-.cv-contact a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 /* ── Footer ───────────────────────────────────────────────────────── */
 .site-footer {
@@ -1103,8 +1123,6 @@ strong { font-weight: 600; color: var(--fg); }
   .display { margin-top: 28px; }
   .lede { font-size: 17px; line-height: 27px; }
   .social { margin-left: 0; }
-  .header-contact { display: none; }
-  .site-nav { margin-left: 0; }
   .site-nav a { padding: 0 10px; }
   .page { padding-top: 48px; }
   .entry { grid-template-columns: 1fr; }
@@ -1115,13 +1133,11 @@ strong { font-weight: 600; color: var(--fg); }
 }
 
 @media (max-width: 420px) {
-  .brand .tld { display: none; }
   .site-header.show-avatar .brand-avatar { margin-left: 10px; }
   .site-nav a { padding: 0 9px; }
-  .header-inner { gap: 8px; }
 }
 
-/* ── Print (CV) ───────────────────────────────────────────────────── */
+/* ── Print ───────────────────────────────────────────────────── */
 @media print {
   .site-header, .site-footer, .btn-row { display: none !important; }
   body { background: #fff; color: #000; }
