@@ -52,19 +52,12 @@
   const hero = document.querySelector(".hero");
   const heroCopy = hero && hero.querySelector(".hero-copy");
   const heroVisual = hero && hero.querySelector(".hero-visual");
-  const pageAvatar = document.querySelector("[data-page-avatar]");
 
   let ticking = false;
   function onScroll() {
     ticking = false;
     const y = window.scrollY;
-    if (header) {
-      header.classList.toggle("is-scrolled", y > 8);
-      if (pageAvatar) {
-        const rect = pageAvatar.getBoundingClientRect();
-        header.classList.toggle("show-avatar", rect.bottom < header.offsetHeight);
-      }
-    }
+    if (header) header.classList.toggle("is-scrolled", y > 8);
     if (hero && !reduceMotion && getComputedStyle(hero).position === "sticky") {
       const h = hero.offsetHeight || 1;
       const p = Math.min(Math.max(y / (h * 0.75), 0), 1);
