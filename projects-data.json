@@ -3,15 +3,15 @@
   "projects": [
     {
       "id": "body",
-      "title": "Body · iOS Health Visualization",
+      "title": "ohmybody · iOS Health Dashboard",
       "repo": "iJustinn/Body",
       "name": "Body",
       "description": "Health data visualization app.",
       "url": "https://github.com/iJustinn/Body",
       "homepage": "",
       "primaryLanguage": "Swift",
-      "pushedAt": "2026-09-22T00:59:52Z",
-      "updatedAt": "2026-09-14T19:55:51Z",
+      "pushedAt": "2026-09-24T01:54:18Z",
+      "updatedAt": "2026-09-24T01:54:31Z",
       "status": "ok"
     },
     {
