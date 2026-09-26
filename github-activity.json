@@ -4,7 +4,7 @@
   "range": {
     "weeks": 53,
     "from": "2025-09-21",
-    "to": "2026-09-25"
+    "to": "2026-09-26"
   },
   "weeks": [
     {
@@ -2862,10 +2862,10 @@
         },
         {
           "date": "2026-09-26",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 6,
-          "future": true
+          "future": false
         }
       ]
     }
@@ -2920,5 +2920,5 @@
       "label": "Sep"
     }
   ],
-  "generatedAt": "2026-09-25T10:51:01.939Z"
+  "generatedAt": "2026-09-26T10:31:38.022Z"
 }
