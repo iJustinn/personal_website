@@ -17,7 +17,6 @@ The design is a minimal portfolio feed (Geist type, rounded cards, translucent s
 - **Markup:** static HTML
 - **Styling:** vanilla CSS in `main.css`
 - **Runtime behavior:** vanilla JavaScript in `main.js`
-- **Legacy:** `styles.css`, `tweaks.css`, `site.js`, and `tweaks.jsx` are only used by the hidden `apps.html` page
 - **GitHub metadata refresh:** GitHub Actions + `scripts/update-projects.mjs` and `scripts/update-github-heatmap.mjs`
 - **Typography:** Google Fonts, Geist and Geist Mono
 - **Hosting:** GitHub Pages, deployed from `main` branch `/ (root)`
@@ -32,10 +31,6 @@ The design is a minimal portfolio feed (Geist type, rounded cards, translucent s
 ├── about.html          # Bio, experience, education, stack, leadership
 ├── main.css            # Site styling, themes, responsive layout
 ├── main.js             # Theme, header, hero fade, tag filters, GitHub data
-├── apps.html           # Hidden apps page (still uses the legacy files below)
-├── styles.css          # Legacy styling for apps.html
-├── tweaks.css          # Legacy tweaks-panel styling for apps.html
-├── site.js             # Legacy behavior for apps.html
 ├── projects.config.json # Curated project-to-repo mapping
 ├── projects-data.json  # Generated GitHub project metadata served to the site
 ├── github-activity.json # Generated recent GitHub contribution heatmap data
@@ -45,7 +40,6 @@ The design is a minimal portfolio feed (Geist type, rounded cards, translucent s
 ├── .github/
 │   └── workflows/
 │       └── update-projects.yml # Scheduled/manual metadata refresh
-├── tweaks.jsx          # Legacy React tweaks panel for apps.html
 ├── Avatar.png          # Profile photo used by sidebar
 ├── CV.pdf              # Downloadable CV
 ├── .nojekyll           # Keeps GitHub Pages from treating files as Jekyll input
