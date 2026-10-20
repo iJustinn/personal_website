@@ -4,7 +4,7 @@
   "range": {
     "weeks": 53,
     "from": "2025-10-19",
-    "to": "2026-10-19"
+    "to": "2026-10-20"
   },
   "weeks": [
     {
@@ -2463,7 +2463,7 @@
         },
         {
           "date": "2026-09-02",
-          "count": 39,
+          "count": 41,
           "level": 4,
           "weekday": 3,
           "future": false
@@ -2477,8 +2477,8 @@
         },
         {
           "date": "2026-09-04",
-          "count": 21,
-          "level": 2,
+          "count": 25,
+          "level": 3,
           "weekday": 5,
           "future": false
         },
@@ -2503,29 +2503,29 @@
         },
         {
           "date": "2026-09-07",
-          "count": 14,
+          "count": 18,
           "level": 2,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-09-08",
-          "count": 3,
-          "level": 1,
+          "count": 13,
+          "level": 2,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-09-09",
-          "count": 0,
-          "level": 0,
+          "count": 19,
+          "level": 2,
           "weekday": 3,
           "future": false
         },
         {
           "date": "2026-09-10",
-          "count": 9,
-          "level": 1,
+          "count": 30,
+          "level": 3,
           "weekday": 4,
           "future": false
         },
@@ -2604,8 +2604,8 @@
       "days": [
         {
           "date": "2026-09-20",
-          "count": 21,
-          "level": 2,
+          "count": 32,
+          "level": 3,
           "weekday": 0,
           "future": false
         },
@@ -2712,8 +2712,8 @@
       "days": [
         {
           "date": "2026-10-04",
-          "count": 13,
-          "level": 2,
+          "count": 24,
+          "level": 3,
           "weekday": 0,
           "future": false
         },
@@ -2754,7 +2754,7 @@
         },
         {
           "date": "2026-10-10",
-          "count": 18,
+          "count": 20,
           "level": 2,
           "weekday": 6,
           "future": false
@@ -2801,14 +2801,14 @@
         },
         {
           "date": "2026-10-16",
-          "count": 0,
-          "level": 0,
+          "count": 6,
+          "level": 1,
           "weekday": 5,
           "future": false
         },
         {
           "date": "2026-10-17",
-          "count": 6,
+          "count": 10,
           "level": 1,
           "weekday": 6,
           "future": false
@@ -2827,17 +2827,17 @@
         },
         {
           "date": "2026-10-19",
-          "count": 0,
-          "level": 0,
+          "count": 24,
+          "level": 3,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-10-20",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 2,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-10-21",
@@ -2920,5 +2920,5 @@
       "label": "Oct"
     }
   ],
-  "generatedAt": "2026-10-19T11:36:30.495Z"
+  "generatedAt": "2026-10-20T10:40:33.040Z"
 }
