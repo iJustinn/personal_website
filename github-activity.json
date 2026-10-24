@@ -4,7 +4,7 @@
   "range": {
     "weeks": 53,
     "from": "2025-10-19",
-    "to": "2026-10-23"
+    "to": "2026-10-24"
   },
   "weeks": [
     {
@@ -2855,17 +2855,17 @@
         },
         {
           "date": "2026-10-23",
-          "count": 0,
-          "level": 0,
+          "count": 24,
+          "level": 3,
           "weekday": 5,
           "future": false
         },
         {
           "date": "2026-10-24",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 6,
-          "future": true
+          "future": false
         }
       ]
     }
@@ -2920,5 +2920,5 @@
       "label": "Oct"
     }
   ],
-  "generatedAt": "2026-10-23T10:43:30.108Z"
+  "generatedAt": "2026-10-24T10:00:01.409Z"
 }
