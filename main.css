@@ -746,6 +746,10 @@ strong { font-weight: 600; color: var(--fg); }
   transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .card:hover .card-media.window img { transform: scale(1.015); }
+.card-media.window img.site-shot {
+  border-radius: 10px;
+  box-shadow: var(--shot-shadow), 0 0 0 1px var(--border);
+}
 
 /* Code-style cover for repos without screenshots */
 .card-media.code {
