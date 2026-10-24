@@ -130,7 +130,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-img { display: block; max-width: 100%; }
+img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 button { font: inherit; color: inherit; }
 h1, h2, h3, p { margin: 0; }
