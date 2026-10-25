@@ -3,64 +3,10 @@
   "user": "iJustinn",
   "range": {
     "weeks": 53,
-    "from": "2025-10-19",
-    "to": "2026-10-24"
+    "from": "2025-10-26",
+    "to": "2026-10-25"
   },
   "weeks": [
-    {
-      "start": "2025-10-19",
-      "days": [
-        {
-          "date": "2025-10-19",
-          "count": 0,
-          "level": 0,
-          "weekday": 0,
-          "future": false
-        },
-        {
-          "date": "2025-10-20",
-          "count": 0,
-          "level": 0,
-          "weekday": 1,
-          "future": false
-        },
-        {
-          "date": "2025-10-21",
-          "count": 0,
-          "level": 0,
-          "weekday": 2,
-          "future": false
-        },
-        {
-          "date": "2025-10-22",
-          "count": 0,
-          "level": 0,
-          "weekday": 3,
-          "future": false
-        },
-        {
-          "date": "2025-10-23",
-          "count": 0,
-          "level": 0,
-          "weekday": 4,
-          "future": false
-        },
-        {
-          "date": "2025-10-24",
-          "count": 0,
-          "level": 0,
-          "weekday": 5,
-          "future": false
-        },
-        {
-          "date": "2025-10-25",
-          "count": 0,
-          "level": 0,
-          "weekday": 6,
-          "future": false
-        }
-      ]
-    },
     {
       "start": "2025-10-26",
       "days": [
@@ -2868,57 +2814,111 @@
           "future": false
         }
       ]
+    },
+    {
+      "start": "2026-10-25",
+      "days": [
+        {
+          "date": "2026-10-25",
+          "count": 0,
+          "level": 0,
+          "weekday": 0,
+          "future": false
+        },
+        {
+          "date": "2026-10-26",
+          "count": null,
+          "level": null,
+          "weekday": 1,
+          "future": true
+        },
+        {
+          "date": "2026-10-27",
+          "count": null,
+          "level": null,
+          "weekday": 2,
+          "future": true
+        },
+        {
+          "date": "2026-10-28",
+          "count": null,
+          "level": null,
+          "weekday": 3,
+          "future": true
+        },
+        {
+          "date": "2026-10-29",
+          "count": null,
+          "level": null,
+          "weekday": 4,
+          "future": true
+        },
+        {
+          "date": "2026-10-30",
+          "count": null,
+          "level": null,
+          "weekday": 5,
+          "future": true
+        },
+        {
+          "date": "2026-10-31",
+          "count": null,
+          "level": null,
+          "weekday": 6,
+          "future": true
+        }
+      ]
     }
   ],
   "months": [
     {
-      "weekIndex": 1,
+      "weekIndex": 0,
       "label": "Nov"
     },
     {
-      "weekIndex": 6,
+      "weekIndex": 5,
       "label": "Dec"
     },
     {
-      "weekIndex": 10,
+      "weekIndex": 9,
       "label": "Jan"
     },
     {
-      "weekIndex": 15,
+      "weekIndex": 14,
       "label": "Feb"
     },
     {
-      "weekIndex": 19,
+      "weekIndex": 18,
       "label": "Mar"
     },
     {
-      "weekIndex": 23,
+      "weekIndex": 22,
       "label": "Apr"
     },
     {
-      "weekIndex": 27,
+      "weekIndex": 26,
       "label": "May"
     },
     {
-      "weekIndex": 32,
+      "weekIndex": 31,
       "label": "Jun"
     },
     {
-      "weekIndex": 36,
+      "weekIndex": 35,
       "label": "Jul"
     },
     {
-      "weekIndex": 40,
+      "weekIndex": 39,
       "label": "Aug"
     },
     {
-      "weekIndex": 45,
+      "weekIndex": 44,
       "label": "Sep"
     },
     {
-      "weekIndex": 49,
+      "weekIndex": 48,
       "label": "Oct"
     }
   ],
-  "generatedAt": "2026-10-24T10:00:01.409Z"
+  "generatedAt": "2026-10-25T10:25:00.434Z"
 }
