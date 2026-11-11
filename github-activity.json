@@ -4,7 +4,7 @@
   "range": {
     "weeks": 53,
     "from": "2025-11-09",
-    "to": "2026-11-10"
+    "to": "2026-11-11"
   },
   "weeks": [
     {
@@ -2780,8 +2780,8 @@
         },
         {
           "date": "2026-11-03",
-          "count": 37,
-          "level": 3,
+          "count": 42,
+          "level": 4,
           "weekday": 2,
           "future": false
         },
@@ -2834,17 +2834,17 @@
         },
         {
           "date": "2026-11-10",
-          "count": 0,
-          "level": 0,
+          "count": 7,
+          "level": 1,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-11-11",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 3,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-11-12",
@@ -2920,5 +2920,5 @@
       "label": "Nov"
     }
   ],
-  "generatedAt": "2026-11-10T13:58:31.140Z"
+  "generatedAt": "2026-11-11T13:13:59.566Z"
 }
