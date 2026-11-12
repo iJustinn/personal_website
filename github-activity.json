@@ -4,7 +4,7 @@
   "range": {
     "weeks": 53,
     "from": "2025-11-09",
-    "to": "2026-11-11"
+    "to": "2026-11-12"
   },
   "weeks": [
     {
@@ -2665,29 +2665,29 @@
         },
         {
           "date": "2026-10-19",
-          "count": 24,
-          "level": 2,
+          "count": 37,
+          "level": 3,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-10-20",
-          "count": 12,
-          "level": 1,
+          "count": 15,
+          "level": 2,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-10-21",
-          "count": 18,
-          "level": 2,
+          "count": 26,
+          "level": 3,
           "weekday": 3,
           "future": false
         },
         {
           "date": "2026-10-22",
-          "count": 25,
-          "level": 2,
+          "count": 27,
+          "level": 3,
           "weekday": 4,
           "future": false
         },
@@ -2719,8 +2719,8 @@
         },
         {
           "date": "2026-10-26",
-          "count": 10,
-          "level": 1,
+          "count": 15,
+          "level": 2,
           "weekday": 1,
           "future": false
         },
@@ -2773,14 +2773,14 @@
         },
         {
           "date": "2026-11-02",
-          "count": 3,
+          "count": 6,
           "level": 1,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-11-03",
-          "count": 42,
+          "count": 44,
           "level": 4,
           "weekday": 2,
           "future": false
@@ -2834,24 +2834,24 @@
         },
         {
           "date": "2026-11-10",
-          "count": 7,
+          "count": 11,
           "level": 1,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-11-11",
-          "count": 0,
-          "level": 0,
+          "count": 4,
+          "level": 1,
           "weekday": 3,
           "future": false
         },
         {
           "date": "2026-11-12",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 4,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-11-13",
@@ -2920,5 +2920,5 @@
       "label": "Nov"
     }
   ],
-  "generatedAt": "2026-11-11T13:13:59.566Z"
+  "generatedAt": "2026-11-12T14:17:16.308Z"
 }
