@@ -76,7 +76,8 @@
 </script>
 <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
 <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-<script>(function(){var t;try{t=localStorage.getItem("site.theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)})();</script>
+<meta name="color-scheme" content="light dark" />
+<script>(function(){var t;try{t=localStorage.getItem("site.theme")}catch(e){}if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";var d=document;d.documentElement.setAttribute("data-theme",t);d.querySelector('meta[name="color-scheme"]').content=t;d.querySelectorAll('meta[name="theme-color"]').forEach(function(m){m.content=t==="dark"?"#0a0a0a":"#ffffff"})})();</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -509,6 +510,6 @@
   </div>
 </footer>
 
-<script src="main.js?v=20260923f"></script>
+<script src="main.js?v=20261113a"></script>
 </body>
 </html>

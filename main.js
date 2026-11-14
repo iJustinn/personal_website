@@ -15,8 +15,18 @@
   };
   const setTheme = (theme, persist) => {
     root.setAttribute("data-theme", theme);
+    // Keep native UI and the browser bar in step with the chosen theme.
+    const schemeMeta = document.querySelector('meta[name="color-scheme"]');
+    if (schemeMeta) schemeMeta.content = theme;
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => {
+      m.content = theme === "dark" ? "#0a0a0a" : "#ffffff";
+    });
     if (!persist) return;
-    try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
+    // Toggling back to the system theme clears the override so the site follows the OS again.
+    try {
+      if (theme === (systemDark.matches ? "dark" : "light")) localStorage.removeItem(THEME_KEY);
+      else localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {}
   };
   if (!root.hasAttribute("data-theme")) {
     const saved = storedTheme();
