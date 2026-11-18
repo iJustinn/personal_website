@@ -4,7 +4,7 @@
   "range": {
     "weeks": 53,
     "from": "2025-11-16",
-    "to": "2026-11-17"
+    "to": "2026-11-18"
   },
   "weeks": [
     {
@@ -1452,7 +1452,7 @@
         {
           "date": "2026-05-22",
           "count": 13,
-          "level": 2,
+          "level": 1,
           "weekday": 5,
           "future": false
         },
@@ -1647,7 +1647,7 @@
         {
           "date": "2026-06-16",
           "count": 39,
-          "level": 4,
+          "level": 3,
           "weekday": 2,
           "future": false
         },
@@ -1694,7 +1694,7 @@
         {
           "date": "2026-06-22",
           "count": 26,
-          "level": 3,
+          "level": 2,
           "weekday": 1,
           "future": false
         },
@@ -1741,7 +1741,7 @@
         {
           "date": "2026-06-28",
           "count": 13,
-          "level": 2,
+          "level": 1,
           "weekday": 0,
           "future": false
         },
@@ -2295,7 +2295,7 @@
         {
           "date": "2026-09-08",
           "count": 13,
-          "level": 2,
+          "level": 1,
           "weekday": 2,
           "future": false
         },
@@ -2323,7 +2323,7 @@
         {
           "date": "2026-09-12",
           "count": 26,
-          "level": 3,
+          "level": 2,
           "weekday": 6,
           "future": false
         }
@@ -2551,7 +2551,7 @@
         {
           "date": "2026-10-11",
           "count": 26,
-          "level": 3,
+          "level": 2,
           "weekday": 0,
           "future": false
         },
@@ -2626,7 +2626,7 @@
         {
           "date": "2026-10-21",
           "count": 26,
-          "level": 3,
+          "level": 2,
           "weekday": 3,
           "future": false
         },
@@ -2640,7 +2640,7 @@
         {
           "date": "2026-10-23",
           "count": 26,
-          "level": 3,
+          "level": 2,
           "weekday": 5,
           "future": false
         },
@@ -2740,7 +2740,7 @@
         },
         {
           "date": "2026-11-05",
-          "count": 51,
+          "count": 52,
           "level": 4,
           "weekday": 4,
           "future": false
@@ -2766,35 +2766,35 @@
       "days": [
         {
           "date": "2026-11-08",
-          "count": 0,
-          "level": 0,
+          "count": 7,
+          "level": 1,
           "weekday": 0,
           "future": false
         },
         {
           "date": "2026-11-09",
-          "count": 2,
+          "count": 7,
           "level": 1,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-11-10",
-          "count": 11,
-          "level": 1,
+          "count": 30,
+          "level": 3,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-11-11",
-          "count": 4,
-          "level": 1,
+          "count": 16,
+          "level": 2,
           "weekday": 3,
           "future": false
         },
         {
           "date": "2026-11-12",
-          "count": 3,
+          "count": 10,
           "level": 1,
           "weekday": 4,
           "future": false
@@ -2808,8 +2808,8 @@
         },
         {
           "date": "2026-11-14",
-          "count": 3,
-          "level": 1,
+          "count": 18,
+          "level": 2,
           "weekday": 6,
           "future": false
         }
@@ -2827,24 +2827,24 @@
         },
         {
           "date": "2026-11-16",
-          "count": 3,
-          "level": 1,
+          "count": 16,
+          "level": 2,
           "weekday": 1,
           "future": false
         },
         {
           "date": "2026-11-17",
-          "count": 0,
-          "level": 0,
+          "count": 12,
+          "level": 1,
           "weekday": 2,
           "future": false
         },
         {
           "date": "2026-11-18",
-          "count": null,
-          "level": null,
+          "count": 7,
+          "level": 1,
           "weekday": 3,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-11-19",
@@ -2920,5 +2920,5 @@
       "label": "Nov"
     }
   ],
-  "generatedAt": "2026-11-17T15:12:08.205Z"
+  "generatedAt": "2026-11-18T14:49:36.675Z"
 }
