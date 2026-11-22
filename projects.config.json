@@ -32,6 +32,16 @@
       "title": "ohmybody · iOS Health Dashboard"
     },
     {
+      "id": "snap",
+      "repo": "iJustinn/Snap",
+      "title": "ohmysnap · iOS Instant Photo & Film"
+    },
+    {
+      "id": "book",
+      "repo": "iJustinn/txt-reader",
+      "title": "ohmybook · macOS TXT Book Reader"
+    },
+    {
       "id": "jobmuse",
       "repo": "iJustinn/JobMuse",
       "title": "JobMuse · Career Ops GUI"

@@ -13,7 +13,7 @@ function readJson(path, fallback = null) {
 }
 
 function resolveToken() {
-  const envToken = process.env.GH_PROJECTS_TOKEN || process.env.GITHUB_TOKEN;
+  const envToken = process.env.GH_PROJECTS_TOKEN || process.env.GH_HEATMAP_TOKEN || process.env.GITHUB_TOKEN;
   if (envToken) return envToken.trim();
 
   try {
@@ -67,18 +67,20 @@ async function fetchProject(project, config, token, previousById) {
       status: "ok",
     };
   } catch (error) {
+    const prefix = process.env.GITHUB_ACTIONS ? "::warning::" : "";
     if (previous) {
-      console.warn(`Keeping previous metadata for ${repoName}: ${error.message}`);
-      return previous;
+      console.warn(`${prefix}Keeping previous metadata for ${repoName}: ${error.message}`);
+      return { ...previous, _stale: true };
     }
 
-    console.warn(`Could not fetch metadata for ${repoName}: ${error.message}`);
+    console.warn(`${prefix}Could not fetch metadata for ${repoName}: ${error.message}`);
     return {
       id: project.id,
       title: project.title,
       repo: repoName,
       url: `https://github.com/${repoName}`,
       status: "unavailable",
+      _stale: true,
     };
   }
 }
@@ -93,8 +95,20 @@ const previousById = new Map((previous.projects || []).map((project) => [project
 const token = resolveToken();
 
 const projects = [];
+let staleCount = 0;
 for (const project of config.projects) {
-  projects.push(await fetchProject(project, config, token, previousById));
+  const entry = await fetchProject(project, config, token, previousById);
+  if (entry._stale) {
+    staleCount += 1;
+    delete entry._stale;
+  }
+  projects.push(entry);
+}
+if (staleCount > 0) {
+  const prefix = process.env.GITHUB_ACTIONS ? "::warning::" : "";
+  console.warn(
+    `${prefix}${staleCount}/${projects.length} project(s) could not be refreshed from GitHub. Verify GH_PROJECTS_TOKEN (or GH_HEATMAP_TOKEN) has read access to private repos.`,
+  );
 }
 
 function sortKey(project) {

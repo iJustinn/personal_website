@@ -26,7 +26,7 @@ jobs:
           node scripts/update-projects.mjs
           node scripts/update-github-heatmap.mjs
         env:
-          GH_PROJECTS_TOKEN: ${{ secrets.GH_PROJECTS_TOKEN || github.token }}
+          GH_PROJECTS_TOKEN: ${{ secrets.GH_PROJECTS_TOKEN || secrets.GH_HEATMAP_TOKEN || github.token }}
           GH_HEATMAP_TOKEN: ${{ secrets.GH_HEATMAP_TOKEN || secrets.GH_PROJECTS_TOKEN || github.token }}
 
       - name: Commit metadata changes
