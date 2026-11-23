@@ -5,6 +5,7 @@
 (function () {
   const root = document.documentElement;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   // ── Theme ──────────────────────────────────────────────────────────
   // The initial theme is set by the inline script in <head> to avoid a flash.
@@ -40,6 +41,7 @@
     const toggle = e.target.closest("[data-theme-toggle]");
     if (!toggle) return;
     const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    toggle.classList.add("is-toggled"); // the incoming icon swings in (main.css)
     if (!document.startViewTransition || reduceMotion) {
       setTheme(next, true);
       return;
@@ -63,11 +65,35 @@
   const heroCopy = hero && hero.querySelector(".hero-copy");
   const heroVisual = hero && hero.querySelector(".hero-visual");
 
+  // "On this page" list (About): the link of the section being read is marked current.
+  const toc = document.querySelector("[data-toc]");
+  const tocLinks = toc ? [...toc.querySelectorAll('a[href^="#"]')] : [];
+  const tocSections = tocLinks.map((link) => document.getElementById(link.hash.slice(1)));
+  let tocActive = -1;
+  function updateToc() {
+    let active = 0;
+    // The last section that has crossed a line a third of the way down the viewport.
+    const line = window.innerHeight * 0.35;
+    tocSections.forEach((section, i) => {
+      if (section && section.getBoundingClientRect().top <= line) active = i;
+    });
+    // At the very bottom the last sections can't reach the line, so pick the last one.
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) active = tocLinks.length - 1;
+    if (active === tocActive) return;
+    tocActive = active;
+    tocLinks.forEach((link, i) => {
+      if (i === active) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
+    });
+    toc.querySelector("ul").style.setProperty("--toc-y", `${tocLinks[active].offsetTop}px`);
+  }
+
   let ticking = false;
   function onScroll() {
     ticking = false;
     const y = window.scrollY;
     if (header) header.classList.toggle("is-scrolled", y > 8);
+    if (tocLinks.length) updateToc();
     if (hero && !reduceMotion && getComputedStyle(hero).position === "sticky") {
       const h = hero.offsetHeight || 1;
       const p = Math.min(Math.max(y / (h * 0.75), 0), 1);
@@ -92,14 +118,30 @@
   onScroll();
 
   // ── Reveal on scroll ───────────────────────────────────────────────
-  const revealTargets = [...document.querySelectorAll("[data-reveal]")];
+  const revealTargets = [...document.querySelectorAll("[data-reveal], .project")];
+  const REVEAL_STEP_MS = 70;
+  const REVEAL_MS = 900; // matches the .reveal transition in main.css
+  // Elements that enter together come in one after another, top-left first.
+  // Afterwards the classes and the delay are removed so hover transitions behave normally.
+  function reveal(el, order) {
+    if (!el.classList.contains("reveal") || el.classList.contains("in")) return;
+    const delay = Math.min(order, 8) * REVEAL_STEP_MS;
+    el.style.transitionDelay = `${delay}ms`;
+    el.classList.add("in");
+    setTimeout(() => {
+      el.classList.remove("reveal", "in");
+      el.style.transitionDelay = "";
+    }, delay + REVEAL_MS);
+  }
   if (!reduceMotion && "IntersectionObserver" in window) {
     const io = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (!entry.isIntersecting) continue;
-        entry.target.classList.add("in");
+      const batch = entries.filter((entry) => entry.isIntersecting);
+      batch.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top
+        || a.boundingClientRect.left - b.boundingClientRect.left);
+      batch.forEach((entry, i) => {
+        reveal(entry.target, i);
         io.unobserve(entry.target);
-      }
+      });
     }, { rootMargin: "0px 0px -5% 0px", threshold: 0.01 });
     revealTargets.forEach((el) => {
       el.classList.add("reveal");
@@ -120,10 +162,7 @@
       const tags = item.dataset.tags.split(/\s+/);
       const match = tag === "all" || tags.includes(tag);
       item.hidden = !match;
-      if (match) {
-        shown += 1;
-        item.classList.add("in");
-      }
+      if (match) shown += 1;
     }
     if (emptyNote) emptyNote.hidden = shown > 0;
     if (filterBar) {
@@ -160,17 +199,82 @@
     for (const [tag, count] of sorted) filterBar.appendChild(chip(tag, `#${tag}`, count));
     applyFilter("all");
 
+    // Changing the filter runs inside a view transition where supported: the cards on
+    // screen (before or after the change) get a name for its duration, so cards that
+    // stay glide to their new position and the others fade. Off-screen cards are left
+    // out because every named card costs a snapshot. `filterRun` guards against
+    // cleanup from an interrupted run.
+    let filterRun = 0;
+    const nameVisibleItems = () => {
+      filterItems.forEach((item, i) => {
+        if (item.hidden || item.style.viewTransitionName) return;
+        const rect = item.getBoundingClientRect();
+        if (rect.bottom > 0 && rect.top < window.innerHeight) item.style.viewTransitionName = `filter-item-${i}`;
+      });
+    };
+    const changeFilter = (tag, scrollToFeed) => {
+      const update = (instant) => {
+        applyFilter(tag);
+        // Cards revealed by the filter skip their scroll-in animation.
+        filterItems.forEach((item) => { if (!item.hidden) item.classList.remove("reveal", "in"); });
+        if (!scrollToFeed) return;
+        const anchor = document.getElementById("work") || filterBar;
+        anchor.scrollIntoView({ behavior: instant ? "instant" : "smooth", block: "start" });
+      };
+      if (!document.startViewTransition || reduceMotion) {
+        update(reduceMotion);
+        return;
+      }
+      const run = ++filterRun;
+      nameVisibleItems();
+      root.classList.add("filtering");
+      document.startViewTransition(() => {
+        update(true);
+        nameVisibleItems();
+      }).finished.finally(() => {
+        if (run !== filterRun) return;
+        root.classList.remove("filtering");
+        filterItems.forEach((item) => { item.style.viewTransitionName = ""; });
+      });
+    };
+
     document.addEventListener("click", (e) => {
       const target = e.target.closest("[data-filters] .chip, .tag[data-tag]");
       if (!target) return;
       e.preventDefault();
       const tag = target.dataset.tag;
-      applyFilter(tag === activeTag && tag !== "all" ? "all" : tag);
-      if (target.classList.contains("tag")) {
-        const anchor = document.getElementById("work") || filterBar;
-        anchor.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-      }
+      changeFilter(tag === activeTag && tag !== "all" ? "all" : tag, target.classList.contains("tag"));
     });
+  }
+
+  // ── Cursor spotlight (cards) ──────────────────────────────────────
+  // The hovered element gets the pointer position as --mx/--my; main.css draws the glow.
+  if (finePointer) {
+    let spotEvent = null;
+    let spotFrame = 0;
+    document.addEventListener("pointermove", (e) => {
+      spotEvent = e;
+      if (spotFrame) return;
+      spotFrame = requestAnimationFrame(() => {
+        spotFrame = 0;
+        const el = spotEvent.target instanceof Element && spotEvent.target.closest(".card, .project");
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        el.style.setProperty("--mx", `${spotEvent.clientX - rect.left}px`);
+        el.style.setProperty("--my", `${spotEvent.clientY - rect.top}px`);
+      });
+    }, { passive: true });
+  }
+
+  // ── Hero parallax ──────────────────────────────────────────────────
+  // The phone collage drifts a little against the pointer; main.css turns --px/--py into offsets.
+  const heroStage = heroVisual && heroVisual.querySelector(".hero-stage");
+  if (heroStage && finePointer && !reduceMotion) {
+    window.addEventListener("pointermove", (e) => {
+      if (window.scrollY > hero.offsetHeight) return;
+      heroStage.style.setProperty("--px", (e.clientX / window.innerWidth - 0.5).toFixed(3));
+      heroStage.style.setProperty("--py", (e.clientY / window.innerHeight - 0.5).toFixed(3));
+    }, { passive: true });
   }
 
   // ── Project metadata from GitHub Actions output ────────────────────
@@ -222,7 +326,10 @@
         cell.style.gridColumn = String(w + 1);
         cell.style.gridRow = String((day.weekday ?? 0) + 1);
         cell.style.setProperty("--i", String(w + (day.weekday ?? 0)));
-        cell.title = `${day.date}: ${count} contribution${count === 1 ? "" : "s"}`;
+        if (!day.future) {
+          cell.dataset.pos = `${w + 1}/${(day.weekday ?? 0) + 1}`;
+          cell.dataset.tip = `<b>${count === 0 ? "No" : count.toLocaleString("en-US")} contribution${count === 1 ? "" : "s"}</b> · ${escapeHtml(shortDate(`${day.date}T12:00:00`))}`;
+        }
         grid.appendChild(cell);
       }
     }
@@ -241,6 +348,7 @@
 
     container.replaceChildren(scroller, caption);
     attachMagnet(scroller, grid);
+    attachHeatTip(container, scroller, grid);
     revealHeatmap(grid, caption.querySelector("b"), total);
   }
 
@@ -266,6 +374,38 @@
     io.observe(grid);
   }
 
+  // A tooltip names the day under the cursor. The magnet pushes cells away from the
+  // pointer, so the day is found from the grid position, not from the hovered element.
+  function attachHeatTip(container, area, grid) {
+    if (!finePointer) return;
+    const cells = new Map();
+    for (const cell of grid.children) {
+      if (cell.dataset.pos) cells.set(cell.dataset.pos, cell);
+    }
+    const tip = document.createElement("div");
+    tip.className = "heat-tip";
+    tip.setAttribute("aria-hidden", "true");
+    container.appendChild(tip);
+    const PITCH = 13; // 10px cell + 3px gap, as in main.css
+    area.addEventListener("pointermove", (e) => {
+      const rect = grid.getBoundingClientRect();
+      const col = Math.floor((e.clientX - rect.left) / PITCH) + 1;
+      const row = Math.floor((e.clientY - rect.top) / PITCH) + 1;
+      const cell = cells.get(`${col}/${row}`);
+      if (!cell) {
+        tip.classList.remove("is-on");
+        return;
+      }
+      tip.innerHTML = cell.dataset.tip;
+      const box = container.getBoundingClientRect();
+      const x = rect.left - box.left + (col - 0.5) * PITCH - tip.offsetWidth / 2;
+      const y = rect.top - box.top + (row - 1) * PITCH - tip.offsetHeight - 14;
+      tip.style.transform = `translate(${Math.max(0, Math.min(x, box.width - tip.offsetWidth))}px, ${y}px)`;
+      tip.classList.add("is-on");
+    });
+    area.addEventListener("pointerleave", () => tip.classList.remove("is-on"));
+  }
+
   // Cells near the cursor are pushed radially away from it, then spring back on leave.
   const MAGNET_RADIUS = 110;
   const MAGNET_PUSH = 16;
@@ -273,7 +413,7 @@
   const SHINE_RADIUS = 12;
   const SHINE_MS = 1000;
   function attachMagnet(area, grid) {
-    if (reduceMotion || !window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    if (reduceMotion || !finePointer) return;
     const cells = [...grid.children];
     let centers = null;
     let pointer = null;
@@ -354,6 +494,34 @@
       .then((r) => { if (!r.ok) throw new Error("github-activity missing"); return r.json(); })
       .then((data) => heatmaps.forEach((el) => renderHeatmap(el, data)))
       .catch(() => {});
+  }
+
+  // ── Footer: copy email, New York time ──────────────────────────────
+  if (navigator.clipboard) {
+    document.querySelectorAll("[data-copy]").forEach((btn) => {
+      const label = btn.querySelector("[data-copy-label]");
+      const idle = label.textContent;
+      let timer = 0;
+      btn.hidden = false;
+      btn.addEventListener("click", () => {
+        navigator.clipboard.writeText(btn.dataset.copy).then(() => {
+          label.textContent = "Copied";
+          btn.setAttribute("data-copied", "");
+          clearTimeout(timer);
+          timer = setTimeout(() => {
+            label.textContent = idle;
+            btn.removeAttribute("data-copied");
+          }, 1800);
+        }).catch(() => {});
+      });
+    });
+  }
+  const clocks = [...document.querySelectorAll("[data-local-time]")];
+  if (clocks.length) {
+    const timeFmt = new Intl.DateTimeFormat("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/New_York" });
+    const tickClock = () => clocks.forEach((el) => { el.textContent = timeFmt.format(new Date()); });
+    tickClock();
+    setInterval(tickClock, 30000);
   }
 
   // ── Year ───────────────────────────────────────────────────────────

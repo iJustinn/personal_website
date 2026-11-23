@@ -83,15 +83,17 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital,wght@1,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="main.css?v=20261023b" />
+<link rel="stylesheet" href="main.css?v=20261123a" />
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html" aria-label="ijustinz, home">ijustinz</a>
     <nav class="site-nav" aria-label="Primary">
       <a href="projects.html">Projects</a>
+      <a href="blog.html">Blog</a>
       <a href="about.html" aria-current="page">About</a>
     </nav>
     <div class="header-actions">
@@ -103,11 +105,12 @@
   </div>
 </header>
 
-<main class="page">
+<main id="main" class="page">
   <div class="container">
+    <div class="page-split">
     <div class="page-narrow">
 
-      <div data-reveal>
+      <div id="intro" data-reveal>
         <div class="avatar"><img src="Avatar.png" alt="Justin Zhong" width="256" height="256" /></div>
         <h1 class="display">Hey, I'm <span class="accent-word">Justin</span>.</h1>
         <p class="lede">
@@ -126,7 +129,7 @@
         </div>
       </div>
 
-      <section class="section-block" data-reveal>
+      <section class="section-block" id="experience" data-reveal>
         <h2 class="section-title">Experience</h2>
         <div class="entry">
           <div>
@@ -142,7 +145,7 @@
         </div>
       </section>
 
-      <section class="section-block" data-reveal>
+      <section class="section-block" id="education" data-reveal>
         <h2 class="section-title">Education</h2>
         <div class="entry">
           <div>
@@ -160,7 +163,7 @@
         </div>
       </section>
 
-      <section class="section-block" data-reveal>
+      <section class="section-block" id="stack" data-reveal>
         <h2 class="section-title">Stack</h2>
         <div class="entry kv">
           <div class="k">AI coding</div>
@@ -180,7 +183,7 @@
         </div>
       </section>
 
-      <section class="section-block" data-reveal>
+      <section class="section-block" id="leadership" data-reveal>
         <h2 class="section-title">Leadership</h2>
         <div class="entry">
           <div>
@@ -196,7 +199,7 @@
         </div>
       </section>
 
-      <section class="section-block" data-reveal>
+      <section class="section-block" id="news" data-reveal>
         <h2 class="section-title">News</h2>
         <ul class="news-list">
           <li><time datetime="2026-06">Jun 2026</time><span>Launched <a href="https://docs.ijustinz.com" target="_blank" rel="noopener">docs.ijustinz.com</a>, the documentation hub for all my apps.</span></li>
@@ -206,7 +209,7 @@
         </ul>
       </section>
 
-      <section class="section-block" data-reveal>
+      <section class="section-block" id="contact" data-reveal>
         <h2 class="section-title">Contact</h2>
         <div class="entry kv"><div class="k">Education</div><div><a class="inline-link" href="mailto:zz3750@nyu.edu">zz3750@nyu.edu</a></div></div>
         <div class="entry kv"><div class="k">Personal</div><div><a class="inline-link" href="mailto:ijustinzhong@gmail.com">ijustinzhong@gmail.com</a></div></div>
@@ -216,22 +219,77 @@
       </section>
 
     </div>
+
+    <nav class="toc" aria-label="On this page" data-toc>
+      <p class="toc-title">On this page</p>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    </div>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="container footer-inner">
-    <span>© <span data-year>2026</span> Justin Zhong</span>
-    <div class="footer-links">
-      <a href="https://github.com/iJustinn" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.1.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.36 1.08 2.94.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg></a>
-      <a href="https://www.linkedin.com/in/ziheng-zhong-68150a387/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg></a>
-      <a href="https://www.threads.com/@zihengthedeveloper" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg></a>
-      <a href="https://x.com/zihengthedev" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
-      <a href="mailto:zz3750@nyu.edu">zz3750@nyu.edu</a>
+  <div class="container footer-top">
+    <div class="footer-cta" data-reveal>
+      <h2 class="display">Let's <span class="accent-word">talk</span>.</h2>
+      <p class="lede">Questions, ideas, or just want to say hi? My inbox is open.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="mailto:zz3750@nyu.edu">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
+          Email me
+        </a>
+        <button class="btn" type="button" data-copy="zz3750@nyu.edu" hidden>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.5"/><path d="M5 15V6.5A1.5 1.5 0 0 1 6.5 5H15"/></svg>
+          <span data-copy-label>Copy email</span>
+        </button>
+      </div>
     </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <div>
+        <h3>Site</h3>
+        <ul>
+          <li><a href="index.html">Work</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Apps</h3>
+        <ul>
+          <li><a href="https://apps.apple.com/app/id6776048116" target="_blank" rel="noopener">ohmytask</a></li>
+          <li><a href="https://ohmycoin.ijustinz.com" target="_blank" rel="noopener">ohmycoin</a></li>
+          <li><a href="https://ohmybody.ijustinz.com" target="_blank" rel="noopener">ohmybody</a></li>
+          <li><a href="https://ohmysnap.ijustinz.com" target="_blank" rel="noopener">ohmysnap</a></li>
+          <li><a href="https://apps.apple.com/app/id6831394535" target="_blank" rel="noopener">ohmybook</a></li>
+          <li><a href="https://docs.ijustinz.com" target="_blank" rel="noopener">Docs</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Elsewhere</h3>
+        <ul>
+          <li><a href="https://github.com/iJustinn" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/ziheng-zhong-68150a387/" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.threads.com/@zihengthedeveloper" target="_blank" rel="noopener">Threads</a></li>
+          <li><a href="https://x.com/zihengthedev" target="_blank" rel="noopener">X</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="container footer-inner">
+    <span class="footer-meta">© <span data-year>2026</span> Justin Zhong · New York<span data-local-time></span></span>
+    <a href="#top">Back to top ↑</a>
   </div>
 </footer>
 
-<script src="main.js?v=20261113a"></script>
+<script src="main.js?v=20261123a"></script>
 </body>
 </html>
