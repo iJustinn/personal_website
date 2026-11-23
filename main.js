@@ -221,7 +221,9 @@
         const anchor = document.getElementById("work") || filterBar;
         anchor.scrollIntoView({ behavior: instant ? "instant" : "smooth", block: "start" });
       };
-      if (!document.startViewTransition || reduceMotion) {
+      // Touch devices skip the transition: mobile Safari draws the named header blank
+      // and blacks out the strip behind its toolbar while one runs.
+      if (!document.startViewTransition || reduceMotion || !finePointer) {
         update(reduceMotion);
         return;
       }
