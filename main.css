@@ -355,8 +355,10 @@ strong { font-weight: 600; color: var(--fg); }
   from { opacity: 0; rotate: -90deg; scale: 0.4; }
 }
 
-/* Pages crossfade into each other instead of flashing. */
-@media (prefers-reduced-motion: no-preference) {
+/* Pages crossfade into each other instead of flashing. Mouse/trackpad devices only:
+   mobile Safari shows the incoming page fully drawn during the crossfade, then cuts
+   back to its scroll-reveal start state when the transition ends, so the page flickers. */
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
   @view-transition { navigation: auto; }
 }
 
