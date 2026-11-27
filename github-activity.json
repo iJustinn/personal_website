@@ -4,7 +4,7 @@
   "range": {
     "weeks": 53,
     "from": "2025-11-23",
-    "to": "2026-11-26"
+    "to": "2026-11-27"
   },
   "weeks": [
     {
@@ -2686,7 +2686,7 @@
         },
         {
           "date": "2026-11-05",
-          "count": 56,
+          "count": 57,
           "level": 4,
           "weekday": 4,
           "future": false
@@ -2700,8 +2700,8 @@
         },
         {
           "date": "2026-11-07",
-          "count": 0,
-          "level": 0,
+          "count": 13,
+          "level": 1,
           "weekday": 6,
           "future": false
         }
@@ -2733,28 +2733,28 @@
         },
         {
           "date": "2026-11-11",
-          "count": 16,
+          "count": 19,
           "level": 2,
           "weekday": 3,
           "future": false
         },
         {
           "date": "2026-11-12",
-          "count": 10,
-          "level": 1,
+          "count": 17,
+          "level": 2,
           "weekday": 4,
           "future": false
         },
         {
           "date": "2026-11-13",
-          "count": 12,
-          "level": 1,
+          "count": 18,
+          "level": 2,
           "weekday": 5,
           "future": false
         },
         {
           "date": "2026-11-14",
-          "count": 18,
+          "count": 26,
           "level": 2,
           "weekday": 6,
           "future": false
@@ -2773,7 +2773,7 @@
         },
         {
           "date": "2026-11-16",
-          "count": 16,
+          "count": 18,
           "level": 2,
           "weekday": 1,
           "future": false
@@ -2848,17 +2848,17 @@
         },
         {
           "date": "2026-11-26",
-          "count": 0,
-          "level": 0,
+          "count": 28,
+          "level": 3,
           "weekday": 4,
           "future": false
         },
         {
           "date": "2026-11-27",
-          "count": null,
-          "level": null,
+          "count": 0,
+          "level": 0,
           "weekday": 5,
-          "future": true
+          "future": false
         },
         {
           "date": "2026-11-28",
@@ -2920,5 +2920,5 @@
       "label": "Nov"
     }
   ],
-  "generatedAt": "2026-11-26T16:01:50.724Z"
+  "generatedAt": "2026-11-27T15:51:35.174Z"
 }
